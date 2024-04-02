@@ -19,6 +19,7 @@ public class LogoDrawerMixin {
 	@Shadow @Final public static Identifier MINCERAFT_TEXTURE;
 	@Inject(at = @At("HEAD"), method = "draw(Lnet/minecraft/client/gui/DrawContext;IFI)V", cancellable = true)
 	private void mclmaf2025$draw(DrawContext context, int screenWidth, float alpha, int y, CallbackInfo ci) {
+		// Renders a new update name texture, and the minecraft logo texture. The edition texture is disabled.
 		context.setShaderColor(1.0F, 1.0F, 1.0F, this.ignoreAlpha ? 1.0F : alpha);
 		int x = screenWidth / 2 - 128;
 		context.drawTexture(new Identifier(Data.modId, "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128);
