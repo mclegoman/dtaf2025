@@ -11,7 +11,8 @@ public class Data {
 	public static void init() {
 	}
 	static {
-		modContainer = FabricLoader.getInstance().getModContainer("mclmaf2025").get();
+		modContainer = FabricLoader.getInstance().getModContainer("mclmaf2025").isPresent() ? FabricLoader.getInstance().getModContainer("mclmaf2025").get() : null;
+		assert modContainer != null;
 		modId = modContainer.getMetadata().getId();
 		modVersion = String.valueOf(modContainer.getMetadata().getVersion());
 		developmentBuild = true;
