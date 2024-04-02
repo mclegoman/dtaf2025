@@ -14,6 +14,6 @@ public class Data {
 		modContainer = FabricLoader.getInstance().getModContainer("mclmaf2025").get();
 		modId = modContainer.getMetadata().getId();
 		modVersion = String.valueOf(modContainer.getMetadata().getVersion());
-		developmentBuild = false;
+		developmentBuild = true;
 	}
 }
