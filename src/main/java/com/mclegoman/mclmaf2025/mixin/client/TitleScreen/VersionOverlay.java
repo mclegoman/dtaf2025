@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
 public abstract class VersionOverlay {
+	// This mixin is only enabled if Data.developmentBuild is true and Data.modContainer != null.
 	@Shadow @Final private boolean doBackgroundFade;
 	@Shadow private long backgroundFadeStart;
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTextWithShadow(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;III)I"), method = "render")
