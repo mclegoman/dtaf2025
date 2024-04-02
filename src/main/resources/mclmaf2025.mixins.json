@@ -2,13 +2,14 @@
 	"required": true,
 	"package": "com.mclegoman.mclmaf2025.mixin",
 	"compatibilityLevel": "JAVA_17",
+	"plugin": "com.mclegoman.mclmaf2025.mixin.MixinPlugin",
 	"mixins": [
-		"client.LogoDrawerMixin"
+	],
+	"client": [
+		"client.TitleScreen.VersionOverlay",
+		"client.LogoDrawer.UpdateLogo"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	},
-	"client": [
-		"client.TitleScreenMixin"
-	]
+	}
 }

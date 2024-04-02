@@ -1,4 +1,4 @@
-package com.mclegoman.mclmaf2025.mixin.client;
+package com.mclegoman.mclmaf2025.mixin.client.TitleScreen;
 
 import com.mclegoman.mclmaf2025.client.data.ClientData;
 import com.mclegoman.mclmaf2025.common.data.Data;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
-public class TitleScreenMixin {
+public abstract class VersionOverlay {
 	@Shadow @Final private boolean doBackgroundFade;
 	@Shadow private long backgroundFadeStart;
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTextWithShadow(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;III)I"), method = "render")

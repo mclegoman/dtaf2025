@@ -1,4 +1,4 @@
-package com.mclegoman.mclmaf2025.mixin.client;
+package com.mclegoman.mclmaf2025.mixin.client.LogoDrawer;
 
 import com.mclegoman.mclmaf2025.common.data.Data;
 import net.minecraft.client.gui.DrawContext;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LogoDrawer.class)
-public class LogoDrawerMixin {
+public abstract class UpdateLogo {
 	@Shadow @Final private boolean ignoreAlpha;
 	@Shadow @Final private boolean minceraft;
 	@Shadow @Final public static Identifier LOGO_TEXTURE;
