@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "mclmaf2024",
 	"version": "${version}",
-	"name": "Unnamed Update",
+	"name": "UNTITLED Update",
 	"description": "MCLegoMan's 2025 April Fools' Mod",
 	"authors": [
 		"MCLegoMan"
@@ -17,24 +17,20 @@
 	"license": [
 		"LGPL-3.0-or-later"
 	],
-	"icon": "assets/mclmaf2024/icon.png",
+	"icon": "assets/mclmaf2025/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"com.mclegoman.mclmaf2025.common.Main"
-		],
-		"client": [
-			"com.mclegoman.mclmaf2025.client.ClientMain"
 		]
 	},
 	"mixins": [
-		"mclmaf2024.mixins.json"
+		"mclmaf2025.mixins.json"
 	],
 	"depends": {
 		"fabricloader": "*",
 		"fabric": "*",
 		"minecraft": "1.20.4",
 		"java": ">=17"
-	},
-	"accessWidener" : "mclmaf2024.accesswidener"
+	}
 }
