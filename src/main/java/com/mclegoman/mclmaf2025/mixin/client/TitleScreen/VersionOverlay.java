@@ -22,6 +22,6 @@ public abstract class VersionOverlay {
 	private void mclmaf2025$render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
 		// Renders the mod name and version on the title screen above the minecraft version.
 		int fadeColor = MathHelper.ceil((this.doBackgroundFade ? MathHelper.clamp(((float)(Util.getMeasuringTimeMs() - this.backgroundFadeStart) / 1000.0F) - 1.0F, 0.0F, 1.0F) : 1.0F) * 255.0F) << 24;
-		context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.modId + ".version_overlay", Text.translatable(Data.modId + ".name"), Data.modVersion), 2, ClientData.client.getWindow().getScaledHeight() - 20, 16777215 | fadeColor);
+		context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.modId + ".version_overlay", Text.translatable(Data.modId + ".name"), String.valueOf(Data.modContainer.getMetadata().getVersion())), 2, ClientData.client.getWindow().getScaledHeight() - 20, 16777215 | fadeColor);
 	}
 }

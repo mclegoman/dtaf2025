@@ -20,7 +20,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	}
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-		if (mixinClassName.equals("com.mclegoman.mclmaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.developmentBuild;
+		if (mixinClassName.equals("com.mclegoman.mclmaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.developmentBuild && Data.modContainer != null;
 		return true;
 	}
 	@Override
