@@ -2,6 +2,9 @@
 
 Theme: ???
 
+- 'Sonic' easter egg, if seed is equal to 'SONIC'.
+  - This is a reference to a bug when developing mclm_save, where the player's speed would be doubled.
+
 ### Goals
 I would like to add variations to a bunch of the vanilla mobs.  
 In mclmaf2024, I only made the moobloom (and variants) due to a lack of time.
