@@ -7,10 +7,12 @@
 
 package com.mclegoman.mclmaf2025.common;
 
+import com.mclegoman.mclmaf2025.common.registry.EasterEggsRegistry;
 import net.fabricmc.api.ModInitializer;
 
 public class mclmaf2025 implements ModInitializer {
 	@Override
 	public void onInitialize() {
+		EasterEggsRegistry.init();
 	}
 }
