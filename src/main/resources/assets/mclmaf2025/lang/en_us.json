@@ -1,4 +1,7 @@
 {
 	"mclmaf2025.name": "April Fools 2025",
-	"mclmaf2025.version_overlay": "%s %s"
+	"mclmaf2025.version_overlay": "%s %s",
+
+	"mclmaf2025.splashes.work_in_progress": "Work in progress!",
+	"mclmaf2025.splashes.coming_soon": "Coming soon!"
 }
