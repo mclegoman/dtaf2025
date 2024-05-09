@@ -3,7 +3,7 @@
 Theme: ???
 
 **Potential Ideas:**  
-- 'Sonic' easter egg, if seed is equal to 'SONIC'.
+- 'Sonic' easter egg, if seed is equal to 'SONIC'. (Complete)
   - This is a reference to a bug when developing mclm_save, where the player's speed would be doubled.
 - enchantment or easter egg that prevents the player from changing their pitch? (curse enchantment?)
   - Got this idea from a bug that prevented me from changing my pitch when attempting to add yaw correction to perspective.  
