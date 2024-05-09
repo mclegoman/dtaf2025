@@ -1,3 +1,10 @@
+/*
+    mclmaf2025
+    Contributor(s): MCLegoMan
+    Github: https://github.com/MCLegoMan/mclmaf2025
+    Licence: GNU LGPLv3
+*/
+
 package com.mclegoman.mclmaf2025.mixin;
 
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
@@ -20,7 +27,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	}
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-		if (mixinClassName.equals("com.mclegoman.mclmaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.developmentBuild && Data.modContainer != null;
+		if (mixinClassName.equals("com.mclegoman.mclmaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.version.isDevelopmentBuild();
 		return true;
 	}
 	@Override

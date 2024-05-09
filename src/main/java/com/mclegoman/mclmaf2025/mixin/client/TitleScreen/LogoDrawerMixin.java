@@ -1,6 +1,14 @@
-package com.mclegoman.mclmaf2025.mixin.client.LogoDrawer;
+/*
+    mclmaf2025
+    Contributor(s): MCLegoMan
+    Github: https://github.com/MCLegoMan/mclmaf2025
+    Licence: GNU LGPLv3
+*/
+
+package com.mclegoman.mclmaf2025.mixin.client.TitleScreen;
 
 import com.mclegoman.mclmaf2025.common.data.Data;
+import com.mclegoman.mclmaf2025.common.util.Compatibility;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.LogoDrawer;
 import net.minecraft.util.Identifier;
@@ -12,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LogoDrawer.class)
-public abstract class UpdateLogo {
+public abstract class LogoDrawerMixin {
 	@Shadow @Final private boolean ignoreAlpha;
 	@Shadow @Final private boolean minceraft;
 	@Shadow @Final public static Identifier LOGO_TEXTURE;
@@ -22,7 +30,9 @@ public abstract class UpdateLogo {
 		// Renders a new update name texture, and the minecraft logo texture. The edition texture is disabled.
 		context.setShaderColor(1.0F, 1.0F, 1.0F, this.ignoreAlpha ? 1.0F : alpha);
 		int x = screenWidth / 2 - 128;
-		context.drawTexture(new Identifier(Data.modId, "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128);
+		// When ModMenu is installed and the mods button is in "CLASSIC" mode, we need to make the title render higher.
+		if (Compatibility.getModsButtonStyle().equals("CLASSIC")) y -= 12;
+		context.drawTexture(new Identifier(Data.version.getID(), "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128);
 		context.drawTexture(this.minceraft ? MINCERAFT_TEXTURE : LOGO_TEXTURE, x, y, 0.0F, 0.0F, 256, 44, 256, 64);
 		context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		ci.cancel();

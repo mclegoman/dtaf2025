@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "mclmaf2025",
 	"version": "${version}",
-	"name": "UNTITLED Update",
+	"name": "April Fools' 2025",
 	"description": "MCLegoMan's 2025 April Fools' Mod",
 	"authors": [
 		"MCLegoMan"
@@ -21,7 +21,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.mclegoman.mclmaf2025.common.Main"
+			"com.mclegoman.mclmaf2025.common.mclmaf2025"
+		],
+		"client": [
+			"com.mclegoman.mclmaf2025.client.mclmaf2025Client"
 		]
 	},
 	"mixins": [
@@ -30,7 +33,7 @@
 	"depends": {
 		"fabricloader": "*",
 		"fabric": "*",
-		"minecraft": "1.20.4",
-		"java": ">=17"
+		"minecraft": "~1.20.6",
+		"java": ">=21"
 	}
 }
