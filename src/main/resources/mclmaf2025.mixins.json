@@ -4,10 +4,13 @@
 	"compatibilityLevel": "JAVA_17",
 	"plugin": "com.mclegoman.mclmaf2025.mixin.MixinPlugin",
 	"mixins": [
-		"client.TitleScreen.SplashTextRendererMixin"
 	],
 	"client": [
 		"client.TitleScreen.LogoDrawerMixin",
+		"client.TitleScreen.RotatingCubeMapRendererMixin",
+		"client.TitleScreen.ScreenMixin",
+		"client.TitleScreen.SplashTextRendererMixin",
+		"client.TitleScreen.TitleScreenMixin",
 		"client.TitleScreen.VersionOverlay"
 	],
 	"injectors": {
