@@ -2,6 +2,24 @@
 
 Theme: ???
 
+The Mysterious Update (mclmaf2024) focused on mystery/magic and friendlyness.
+This year, I would like to go a different direction, something less friendly.
+
+- Structure(s) with traps.
+  - Could we make a trap that enchants the entity's items with a curse?
+- Storyline.
+  - I want the mod to be kind of similar to the potato update in that it has a "narrator".
+    - I think this could be a good opportunity for some references to other games, such as portal or stanley parable.  
+- Harder difficulty.
+  - Again, I don't want this update to be friendly. I want the player to feel like they've accomplished something when completing this mod.
+- Shaders.
+  - I think the use of shaders in this update could be used to increase the difficulty.
+    - e.g. Perspective's silhouette shader.
+    - Maybe we could give the player a "buff" in return of us rendering a shader that makes it harder to see.  
+- Entity Variants.
+  - The potato update had potato mobs, with a system of where the potato mobs could infect the non-potato mobs.
+  - What if we make our mob variants be harder, - e.g. stronger and if they hit you you get an effect - shader? - that way vanilla mobs still exist, but our harder variants would become more common. 
+
 **Potential Ideas:**  
 - 'Sonic' easter egg, if seed is equal to 'SONIC'. (Complete)
   - This is a reference to a bug when developing mclm_save, where the player's speed would be doubled.
