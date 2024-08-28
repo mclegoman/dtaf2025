@@ -3,6 +3,7 @@
 	"y1": -31.0,
 	"z1": 106.0,
 	"y2": -49.0,
+	"xSkyAngle": true,
 	"scale": 1.25,
 	"visible": "night",
 	"phases": 1,
