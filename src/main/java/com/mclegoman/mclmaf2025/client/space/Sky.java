@@ -16,9 +16,12 @@ import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix4f;
 
 public class Sky {
-	public record Object(float x, float y, float z, float y2, float scale, Visible visible) {
+	public record Object(float x, float y, float z, float y2, float scale, Visible visible, int phases, int phaseOffset) {
 		public Identifier getTexture(Identifier id) {
 			return new Identifier(id.getNamespace(), "textures/sky/" + id.getPath() + ".png");
+		}
+		public int getPhase(long time) {
+			return (int)((time / 24000L % ((long)phases()) + ((long)phases())) + phaseOffset()) % phases();
 		}
 	}
 	public enum Visible {
@@ -49,14 +52,17 @@ public class Sky {
 		matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-world.getSkyAngle(tickDelta) * 360.0F + skyObject.x()));
 		matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(skyObject.z()));
 		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(skyObject.y2()));
-		Matrix4f matrix4f3 = matrixStack.peek().getPositionMatrix();
+		Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();
 		BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
 		RenderSystem.setShaderTexture(0, skyObject.getTexture(id));
+		int phase = skyObject.getPhase(world.getLunarTime()) % skyObject.phases();
+		float v1 = (float)(phase) / skyObject.phases();
+		float v2 = (phase + 1.0F) / skyObject.phases();
 		bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-		bufferBuilder.vertex(matrix4f3, -skyObject.scale(), 100.0F, -skyObject.scale()).texture(0.0F, 0.0F).next();
-		bufferBuilder.vertex(matrix4f3, skyObject.scale(), 100.0F, -skyObject.scale()).texture(1.0F, 0.0F).next();
-		bufferBuilder.vertex(matrix4f3, skyObject.scale(), 100.0F, skyObject.scale()).texture(1.0F, 1.0F).next();
-		bufferBuilder.vertex(matrix4f3, -skyObject.scale(), 100.0F, skyObject.scale()).texture(0.0F, 1.0F).next();
+		bufferBuilder.vertex(positionMatrix, -skyObject.scale(), 100.0F, -skyObject.scale()).texture(0.0F, v1).next();
+		bufferBuilder.vertex(positionMatrix, skyObject.scale(), 100.0F, -skyObject.scale()).texture(1.0F, v1).next();
+		bufferBuilder.vertex(positionMatrix, skyObject.scale(), 100.0F, skyObject.scale()).texture(1.0F, v2).next();
+		bufferBuilder.vertex(positionMatrix, -skyObject.scale(), 100.0F, skyObject.scale()).texture(0.0F, v2).next();
 		BufferRenderer.drawWithGlobalProgram(bufferBuilder.end());
 		matrixStack.pop();
 	}
