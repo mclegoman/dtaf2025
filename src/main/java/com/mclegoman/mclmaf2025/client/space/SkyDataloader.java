@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SkyDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
-	public static final Map<Identifier, Sky.Object> registry = new HashMap<>();
+	public static final Map<Identifier, Sky.Celestial> registry = new HashMap<>();
 	public static final String id = "sky";
 	public SkyDataloader() {
 		super(new Gson(), id);
@@ -33,15 +33,17 @@ public class SkyDataloader extends JsonDataLoader implements IdentifiableResourc
 		registry.clear();
 		prepared.forEach(this::register);
 	}
+	private void add(Identifier id, Sky.Celestial celestialObj) {
+		if (registry.containsKey(id)) {
+			if (!registry.get(id).get().equals(celestialObj)) registry.replace(id, celestialObj);
+		} else registry.put(id, celestialObj);
+	}
 	private void register(Identifier identifier, JsonElement jsonElement) {
 		try {
 			JsonObject reader = jsonElement.getAsJsonObject();
 			int phases = JsonHelper.getInt(reader, "phases", 1);
-			if (!registry.containsKey(identifier)) {
-				if (phases >= 1) registry.put(identifier, new Sky.Object(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), phases, JsonHelper.getInt(reader, "phaseOffset", 0)));
-			} else {
-				if (phases <= 0) registry.remove(identifier);
-			}
+			if (phases >= 1) add(identifier, new Sky.Celestial(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), phases, JsonHelper.getInt(reader, "phaseOffset", 0)));
+			else registry.remove(identifier);
 		} catch (Exception error) {
 			Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
 		}

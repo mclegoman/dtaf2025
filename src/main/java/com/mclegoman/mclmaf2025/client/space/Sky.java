@@ -16,12 +16,15 @@ import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix4f;
 
 public class Sky {
-	public record Object(float x, float y, float z, float y2, float scale, Visible visible, int phases, int phaseOffset) {
+	public record Celestial(float x, float y, float z, float y2, float scale, Visible visible, int phases, int phaseOffset) {
 		public Identifier getTexture(Identifier id) {
 			return new Identifier(id.getNamespace(), "textures/sky/" + id.getPath() + ".png");
 		}
 		public int getPhase(long time) {
 			return (int)((time / 24000L % ((long)phases()) + ((long)phases())) + phaseOffset()) % phases();
+		}
+		public Celestial get() {
+			return this;
 		}
 	}
 	public enum Visible {
@@ -42,27 +45,27 @@ public class Sky {
 			}
 		}
 	}
-	public static void renderObject(MatrixStack matrixStack, Identifier id, Object skyObject, float tickDelta, ClientWorld world) {
+	public static void renderObject(MatrixStack matrixStack, Identifier id, Celestial celestialObj, float tickDelta, ClientWorld world) {
 		matrixStack.push();
 		float rainGradient = 1.0F - world.getRainGradient(tickDelta);
-		float alpha = skyObject.visible.equals(Visible.NIGHT) ? world.getStarBrightness(tickDelta) : (skyObject.visible.equals(Visible.DAY) ? 0.5F - world.getStarBrightness(tickDelta) : 0.5F);
+		float alpha = celestialObj.visible.equals(Visible.NIGHT) ? world.getStarBrightness(tickDelta) : (celestialObj.visible.equals(Visible.DAY) ? 0.5F - world.getStarBrightness(tickDelta) : 0.5F);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, (2 * alpha * rainGradient));
 		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90.0F));
-		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(skyObject.y()));
-		matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-world.getSkyAngle(tickDelta) * 360.0F + skyObject.x()));
-		matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(skyObject.z()));
-		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(skyObject.y2()));
+		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(celestialObj.y()));
+		matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-world.getSkyAngle(tickDelta) * 360.0F + celestialObj.x()));
+		matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(celestialObj.z()));
+		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(celestialObj.y2()));
 		Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();
 		BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
-		RenderSystem.setShaderTexture(0, skyObject.getTexture(id));
-		int phase = skyObject.getPhase(world.getLunarTime()) % skyObject.phases();
-		float v1 = (float)(phase) / skyObject.phases();
-		float v2 = (phase + 1.0F) / skyObject.phases();
+		RenderSystem.setShaderTexture(0, celestialObj.getTexture(id));
+		int phase = celestialObj.getPhase(world.getLunarTime()) % celestialObj.phases();
+		float v1 = (float)(phase) / celestialObj.phases();
+		float v2 = (phase + 1.0F) / celestialObj.phases();
 		bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-		bufferBuilder.vertex(positionMatrix, -skyObject.scale(), 100.0F, -skyObject.scale()).texture(0.0F, v1).next();
-		bufferBuilder.vertex(positionMatrix, skyObject.scale(), 100.0F, -skyObject.scale()).texture(1.0F, v1).next();
-		bufferBuilder.vertex(positionMatrix, skyObject.scale(), 100.0F, skyObject.scale()).texture(1.0F, v2).next();
-		bufferBuilder.vertex(positionMatrix, -skyObject.scale(), 100.0F, skyObject.scale()).texture(0.0F, v2).next();
+		bufferBuilder.vertex(positionMatrix, -celestialObj.scale(), 100.0F, -celestialObj.scale()).texture(0.0F, v1).next();
+		bufferBuilder.vertex(positionMatrix, celestialObj.scale(), 100.0F, -celestialObj.scale()).texture(1.0F, v1).next();
+		bufferBuilder.vertex(positionMatrix, celestialObj.scale(), 100.0F, celestialObj.scale()).texture(1.0F, v2).next();
+		bufferBuilder.vertex(positionMatrix, -celestialObj.scale(), 100.0F, celestialObj.scale()).texture(0.0F, v2).next();
 		BufferRenderer.drawWithGlobalProgram(bufferBuilder.end());
 		matrixStack.pop();
 	}
