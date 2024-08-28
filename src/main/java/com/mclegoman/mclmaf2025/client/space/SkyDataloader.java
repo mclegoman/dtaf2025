@@ -36,8 +36,12 @@ public class SkyDataloader extends JsonDataLoader implements IdentifiableResourc
 	private void register(Identifier identifier, JsonElement jsonElement) {
 		try {
 			JsonObject reader = jsonElement.getAsJsonObject();
-			if (!registry.containsKey(identifier))
-				registry.put(identifier, new Sky.Object(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), Math.max(JsonHelper.getInt(reader, "phases", 1), 1), JsonHelper.getInt(reader, "phaseOffset", 0)));
+			if (!registry.containsKey(identifier)) {
+				int phases = JsonHelper.getInt(reader, "phases", 1);
+				if (phases >= 1) registry.put(identifier, new Sky.Object(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), phases, JsonHelper.getInt(reader, "phaseOffset", 0)));
+			} else {
+				if (JsonHelper.getInt(reader, "phases", 1) <= 0) registry.remove(identifier);
+			}
 		} catch (Exception error) {
 			Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
 		}
