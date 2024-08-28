@@ -16,7 +16,7 @@ import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix4f;
 
 public class Sky {
-	public record Celestial(float x, float y, float z, float y2, float scale, Visible visible, int phases, int phaseOffset) {
+	public record Celestial(float x, float y, float z, float y2, boolean xSkyAngle, float scale, Visible visible, int phases, int phaseOffset) {
 		public Identifier getTexture(Identifier id) {
 			return new Identifier(id.getNamespace(), "textures/sky/" + id.getPath() + ".png");
 		}
@@ -52,7 +52,7 @@ public class Sky {
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, (2 * alpha * rainGradient));
 		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90.0F));
 		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(celestialObj.y()));
-		matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-world.getSkyAngle(tickDelta) * 360.0F + celestialObj.x()));
+		matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(celestialObj.xSkyAngle() ? -world.getSkyAngle(tickDelta) * 360.0F + celestialObj.x() : celestialObj.x()));
 		matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(celestialObj.z()));
 		matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(celestialObj.y2()));
 		Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();

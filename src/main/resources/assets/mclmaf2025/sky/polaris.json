@@ -1,0 +1,11 @@
+{
+	"x1": 67.5,
+	"y1": 90.0,
+	"z1": 0.0,
+	"y2": 0.0,
+	"xSkyAngle": false,
+	"scale": 0.625,
+	"visible": "night",
+	"phases": 1,
+	"phaseOffset": 0
+}

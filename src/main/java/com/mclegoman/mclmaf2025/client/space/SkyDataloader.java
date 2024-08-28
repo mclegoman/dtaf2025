@@ -42,7 +42,7 @@ public class SkyDataloader extends JsonDataLoader implements IdentifiableResourc
 		try {
 			JsonObject reader = jsonElement.getAsJsonObject();
 			int phases = JsonHelper.getInt(reader, "phases", 1);
-			if (phases >= 1) add(identifier, new Sky.Celestial(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), phases, JsonHelper.getInt(reader, "phaseOffset", 0)));
+			if (phases >= 1) add(identifier, new Sky.Celestial(JsonHelper.getFloat(reader, "x1"), JsonHelper.getFloat(reader, "y1"), JsonHelper.getFloat(reader, "z1"), JsonHelper.getFloat(reader, "y2"), JsonHelper.getBoolean(reader, "xSkyAngle", true), JsonHelper.getFloat(reader, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(reader, "visible", "night")), phases, JsonHelper.getInt(reader, "phaseOffset", 0)));
 			else registry.remove(identifier);
 		} catch (Exception error) {
 			Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
