@@ -9,6 +9,7 @@
 		"common.ServerWorldMixin"
 	],
 	"client": [
+		"client.Sky.WorldRendererMixin",
 		"client.TitleScreen.LogoDrawerMixin",
 		"client.TitleScreen.RotatingCubeMapRendererMixin",
 		"client.TitleScreen.ScreenMixin",
