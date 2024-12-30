@@ -34,7 +34,7 @@
 	"gui.dtaf2025.locked_chest.info.exit": "X",
 	"gui.dtaf2025.locked_chest.info.message": "The Steve Co. Supply Crate is a reference to Minecraft Beta 1.4.",
 	"gui.dtaf2025.locked_chest.info.wiki": "See more info on The Minecraft Wiki.",
-	"gui.dtaf2025.locked_chest.info.warning": "§c§lThis feature was made as a reference.\n§r§cI do not support nor encourage the use of crates, loot boxes, or gambling in exchange of real-world currency.",
+	"gui.dtaf2025.locked_chest.info.warning": "§c§lThis feature was made as a reference.\n§r§cWe are not affiliated with Mojang Studios, Microsoft, or The Official Minecraft Shop.\nWe do not support nor encourage the use of crates, loot boxes, or gambling in exchange of real-world currency.",
 
 	"block.dtaf2025.space_air": "Space Air",
 	"death.attack.space_suffocation": "%1$s forgot that they couldn't breathe in space",
