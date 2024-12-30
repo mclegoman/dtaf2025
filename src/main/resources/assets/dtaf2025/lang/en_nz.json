@@ -2,14 +2,9 @@
 	"dtaf2025.name": "Space Update",
 	"dtaf2025.development_overlay": "%s: Development Build (%s)",
 
-	"dtaf2025.splashes.favourite_seed": "My favorite seed is 78665946",
+	"dtaf2025.splashes.favourite_seed": "My favourite seed is 78665946",
 	"dtaf2025.splashes.sanic": "SANIC",
 	"dtaf2025.splashes.sponsored_by_steve_co": "Sponsored by Steve Co.",
-
-	"gui.dtaf2025.config.actually_open_shop": "Crates open Shop: %s",
-	"gui.dtaf2025.config.actually_open_shop.hover": "Determines whether Steve Co. Supply Crates can open the Minecraft shop",
-	"gui.dtaf2025.config.close": "Save and Close",
-	"gui.dtaf2025.config.close.hover": "Saves the config and closes the config screen",
 
 	"itemGroup.dtaf2025": "%s",
 
@@ -19,13 +14,11 @@
 	"block.dtaf2025.crystal_glass_pane": "Crystal Glass Pane",
 
 	"block.dtaf2025.locked_chest": "Steve Co. Supply Crate",
-	"gui.dtaf2025.locked_chest": "Steve Co. Supply Crate",
 	"gui.dtaf2025.locked_chest.message.required": "You need a Steve Co. Supply Crate Key to open this.",
 	"gui.dtaf2025.locked_chest.message.store": "You can pick one up at the Minecraft store.",
 	"gui.dtaf2025.locked_chest.cancel": "Not now",
 	"gui.dtaf2025.locked_chest.cancel.hover": "Back to Game",
 	"gui.dtaf2025.locked_chest.store": "Go to store",
 	"gui.dtaf2025.locked_chest.store.hover": "Opens Minecraft Shop in your browser",
-	"gui.dtaf2025.locked_chest.config_prevented": "Your config settings prevented Minecraft Shop from opening",
 	"sound.dtaf2025.locked_chest_store": "Opening Minecraft Shop"
 }

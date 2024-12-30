@@ -2,17 +2,17 @@
 	"schemaVersion": 1,
 	"id": "dtaf2025",
 	"version": "${version}",
-	"name": "Spaaaaaceeeeee Update",
-	"description": "dannytaylor's 2025 April Fools' Mod",
+	"name": "Space Update",
+	"description": "Adds space related features for April Fools",
 	"authors": [
 		"dannytaylor"
 	],
 	"contributors": [
 	],
 	"contact": {
-		"homepage": "https://github.com/MCLegoMan/",
-		"sources": "https://github.com/MCLegoMan/dtaf2025/",
-		"issues": "https://github.com/MCLegoMan/dtaf2025/issues"
+		"homepage": "https://github.com/mclegoman/",
+		"sources": "https://github.com/mclegoman/dtaf2025/",
+		"issues": "https://github.com/mclegoman/dtaf2025/issues"
 	},
 	"license": [
 		"LGPL-3.0-or-later"
@@ -25,6 +25,9 @@
 		],
 		"client": [
 			"com.mclegoman.dtaf2025.client.AprilFoolsClient"
+		],
+		"modmenu": [
+			"com.mclegoman.dtaf2025.compat.ModMenuCompat"
 		]
 	},
 	"mixins": [

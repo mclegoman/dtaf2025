@@ -17,6 +17,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
@@ -78,9 +81,10 @@ public class LockedChestBlock extends Block implements Waterloggable {
 
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
 		if (world.isClient) {
-			ClientData.client.setScreen(new LockedChestScreen(true));
+			ClientData.client.setScreen(new LockedChestScreen());
 			return ActionResult.SUCCESS;
 		} else {
+			world.playSound(null, pos, SoundEvents.BLOCK_CHEST_LOCKED, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			player.incrementStat(this.getOpenStat());
 			PiglinBrain.onGuardedBlockInteracted(player, true);
 			return ActionResult.CONSUME;

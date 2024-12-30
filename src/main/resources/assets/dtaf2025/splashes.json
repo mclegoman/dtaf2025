@@ -1,8 +1,9 @@
 {
 	"replace": false,
 	"translatable": [
-		"dtaf2025.splashes.work_in_progress",
-		"dtaf2025.splashes.coming_soon"
+		"dtaf2025.splashes.favourite_seed",
+		"dtaf2025.splashes.sanic",
+		"dtaf2025.splashes.sponsored_by_steve_co"
 	],
 	"literal": [
 	]

@@ -7,6 +7,7 @@
 
 package com.mclegoman.dtaf2025.client;
 
+import com.mclegoman.dtaf2025.client.config.ClientConfigHelper;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.client.registry.ClientBlockRegistry;
 import com.mclegoman.dtaf2025.client.registry.ItemGroupRegistry;
@@ -18,6 +19,7 @@ import net.minecraft.resource.ResourceType;
 public class AprilFoolsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		ClientConfigHelper.init();
 		ClientBlockRegistry.init();
 		TitleScreenHelper.init();
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SkyDataloader());

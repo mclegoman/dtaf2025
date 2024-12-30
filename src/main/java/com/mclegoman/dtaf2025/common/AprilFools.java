@@ -11,11 +11,13 @@ import com.mclegoman.dtaf2025.common.registry.BlockRegistry;
 import com.mclegoman.dtaf2025.common.registry.EasterEggsRegistry;
 import com.mclegoman.dtaf2025.client.registry.ItemGroupRegistry;
 import com.mclegoman.dtaf2025.common.registry.ItemRegistry;
+import com.mclegoman.dtaf2025.common.registry.SoundRegistry;
 import net.fabricmc.api.ModInitializer;
 
 public class AprilFools implements ModInitializer {
 	@Override
 	public void onInitialize() {
+		SoundRegistry.init();
 		BlockRegistry.init();
 		ItemRegistry.init();
 		EasterEggsRegistry.init();

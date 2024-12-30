@@ -7,7 +7,11 @@
 
 package com.mclegoman.dtaf2025.client.screen;
 
+import com.mclegoman.dtaf2025.client.config.ClientConfigHelper;
+import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.common.registry.SoundRegistry;
+import com.mclegoman.dtaf2025.common.util.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -21,7 +25,6 @@ import net.minecraft.client.gui.widget.*;
 import net.minecraft.client.input.KeyCodes;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundManager;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -32,11 +35,9 @@ import java.net.URI;
 public class LockedChestScreen extends Screen {
 	protected final GridWidget grid;
 	protected GridWidget.Adder gridAdder;
-	private final boolean storeAllowed;
-	public LockedChestScreen(boolean storeAllowed) {
-		super(Text.of("Locked Chest"));
+	public LockedChestScreen() {
+		super(Translation.getTranslation(Data.version.getID(), "locked_chest"));
 		this.grid = new GridWidget();
-		this.storeAllowed = storeAllowed;
 	}
 	protected void init() {
 		this.grid.getMainPositioner().alignHorizontalCenter().margin(2).alignVerticalCenter().relativeY(30);
@@ -47,14 +48,17 @@ public class LockedChestScreen extends Screen {
 		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel"), (button) -> this.close()).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel.hover"))).build(), 1);
 		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.version.getID(), "locked_chest.store"), (button) -> {
 			try {
-				URI uri = new URI("https://shop.minecraft.net/");
-				Util.getOperatingSystem().open(uri);
+				if (ClientConfigHelper.get("actually_open_shop").isPresent() && ClientConfigHelper.get("actually_open_shop").get()) {
+					URI uri = new URI("https://shop.minecraft.net/");
+					Util.getOperatingSystem().open(uri);
+				} else {
+					if (ClientData.client.player != null) ClientData.client.player.sendMessage(Translation.getTranslation(Data.version.getID(), "locked_chest.config_prevented"));
+				}
 			} catch (Exception error) {
 				Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}
 			button.active = false;
 		}).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.store.hover"))).build();
-		storeButton.active = this.storeAllowed;
 		this.gridAdder.add(storeButton, 1);
 		this.grid.refreshPositions();
 		this.grid.forEachChild(this::addDrawableChild);
@@ -71,7 +75,7 @@ public class LockedChestScreen extends Screen {
 		}
 		@Override
 		public void playDownSound(SoundManager soundManager) {
-			soundManager.play(PositionedSoundInstance.master(SoundEvents.UI_TOAST_IN, 1.0F));
+			soundManager.play(PositionedSoundInstance.master(SoundRegistry.lockedChestStore, 1.0F));
 		}
 		@Override
 		public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
@@ -162,5 +166,6 @@ public class LockedChestScreen extends Screen {
 		context.drawTexture(Identifier.of(Data.version.getID(), "textures/gui/locked_chest.png"), this.width / 2 - 128, 30, 0.0F, 0.0F, 256, 44, 256, 64);
 		context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderSystem.disableBlend();
+		if (Data.version.isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.version.getID() + ".development_overlay", Text.translatable(Data.version.getID() + ".name"), Data.version.getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
 	}
 }
