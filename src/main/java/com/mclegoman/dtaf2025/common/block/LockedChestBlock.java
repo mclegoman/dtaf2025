@@ -8,7 +8,7 @@
 package com.mclegoman.dtaf2025.common.block;
 
 import com.mclegoman.dtaf2025.client.data.ClientData;
-import com.mclegoman.dtaf2025.client.screen.LockedChestScreen;
+import com.mclegoman.dtaf2025.client.screen.locked_chest.LockedChestScreen;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -18,7 +18,6 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;

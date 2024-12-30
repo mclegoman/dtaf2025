@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.client.screen;
+package com.mclegoman.dtaf2025.client.screen.locked_chest;
 
 import com.mclegoman.dtaf2025.client.config.ClientConfigHelper;
 import com.mclegoman.dtaf2025.client.data.ClientData;
@@ -14,7 +14,6 @@ import com.mclegoman.dtaf2025.common.registry.SoundRegistry;
 import com.mclegoman.dtaf2025.common.util.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -26,7 +25,6 @@ import net.minecraft.client.input.KeyCodes;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,17 +33,29 @@ import java.net.URI;
 public class LockedChestScreen extends Screen {
 	protected final GridWidget grid;
 	protected GridWidget.Adder gridAdder;
+	private final Screen parent;
+	private boolean openedStore;
 	public LockedChestScreen() {
+		this(ClientData.client.currentScreen);
+	}
+	public LockedChestScreen(Screen parent) {
+		this (parent, false);
+	}
+	public LockedChestScreen(Screen parent, boolean openedStore) {
 		super(Translation.getTranslation(Data.version.getID(), "locked_chest"));
 		this.grid = new GridWidget();
+		this.parent = parent;
+		this.openedStore = openedStore;
 	}
 	protected void init() {
-		this.grid.getMainPositioner().alignHorizontalCenter().margin(2).alignVerticalCenter().relativeY(30);
+		this.grid.getMainPositioner().alignHorizontalCenter().margin(2);
 		this.gridAdder = grid.createAdder(2);
+		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.version.getID(), "locked_chest")), 2);
+		this.gridAdder.add(new EmptyWidget(24, 24));
 		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.version.getID(), "locked_chest.message.required"), this.textRenderer), 2);
 		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.version.getID(), "locked_chest.message.store"), this.textRenderer), 2);
 		this.gridAdder.add(new EmptyWidget(24, 24), 2);
-		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel"), (button) -> this.close()).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel.hover"))).build(), 1);
+		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel"), (button) -> this.exit()).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel.hover"))).build(), 1);
 		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.version.getID(), "locked_chest.store"), (button) -> {
 			try {
 				if (ClientConfigHelper.get("actually_open_shop").isPresent() && ClientConfigHelper.get("actually_open_shop").get()) {
@@ -58,7 +68,11 @@ public class LockedChestScreen extends Screen {
 				Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}
 			button.active = false;
+			this.openedStore = true;
 		}).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.store.hover"))).build();
+		storeButton.active = !this.openedStore;
+		addDrawableChild(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.info"), (button) -> ClientData.client.setScreen(new LockedChestInfoScreen(new LockedChestScreen(this.parent, this.openedStore)))).size(20, 20).position(4, this.height - 24).build());
+
 		this.gridAdder.add(storeButton, 1);
 		this.grid.refreshPositions();
 		this.grid.forEachChild(this::addDrawableChild);
@@ -66,7 +80,16 @@ public class LockedChestScreen extends Screen {
 	}
 
 	public boolean shouldCloseOnEsc() {
+		return false;
+	}
+	private boolean exit() {
+		ClientData.client.setScreen(this.parent);
 		return true;
+	}
+
+	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+		if (keyCode == 256) return exit();
+		else return super.keyPressed(keyCode, scanCode, modifiers);
 	}
 
 	private static class StoreButtonWidget extends ButtonWidget {
@@ -160,12 +183,7 @@ public class LockedChestScreen extends Screen {
 	@Override
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
-		// Logo Drawing
-		context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-		RenderSystem.enableBlend();
-		context.drawTexture(Identifier.of(Data.version.getID(), "textures/gui/locked_chest.png"), this.width / 2 - 128, 30, 0.0F, 0.0F, 256, 44, 256, 64);
-		context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-		RenderSystem.disableBlend();
+		SteveCoWidget.renderWidget(context, this.width / 2 - 128, 30);
 		if (Data.version.isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.version.getID() + ".development_overlay", Text.translatable(Data.version.getID() + ".name"), Data.version.getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
 	}
 }

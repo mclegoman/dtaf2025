@@ -27,5 +27,12 @@
 	"gui.dtaf2025.locked_chest.store": "Go to store",
 	"gui.dtaf2025.locked_chest.store.hover": "Opens Minecraft Shop in your browser",
 	"gui.dtaf2025.locked_chest.config_prevented": "Your config settings prevented Minecraft Shop from opening",
-	"sound.dtaf2025.locked_chest_store": "Opening Minecraft Shop"
+	"sound.dtaf2025.locked_chest_store": "Opening Minecraft Shop",
+
+
+	"gui.dtaf2025.locked_chest.info": "?",
+	"gui.dtaf2025.locked_chest.info.exit": "X",
+	"gui.dtaf2025.locked_chest.info.message": "The Steve Co. Supply Crate is a reference to Minecraft Beta 1.4.",
+	"gui.dtaf2025.locked_chest.info.wiki": "See more info on The Minecraft Wiki.",
+	"gui.dtaf2025.locked_chest.info.warning": "§c§lThis feature was made as a reference.\n§r§cI do not support nor encourage the use of crates, loot boxes, or gambling in exchange of real-world currency."
 }
