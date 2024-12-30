@@ -7,8 +7,8 @@
 
 package com.mclegoman.dtaf2025.mixin.common;
 
-import com.mclegoman.dtaf2025.common.entity.data.Sanic;
-import com.mclegoman.dtaf2025.common.entity.data.SanicComponent;
+import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
+import com.mclegoman.dtaf2025.common.entity.data.sanic.SanicComponent;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -56,10 +56,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Sanic {
 		if (this.dtaf2025$isSanic()) cir.setReturnValue(cir.getReturnValue() * 2.0F);
 	}
 	public boolean dtaf2025$isSanic() {
-		return this.sanicComponent.getSanic();
+		return this.sanicComponent.dtaf2025_getSanic();
 	}
 	public void dtaf2025$setSanic(boolean value) {
-		if (dtaf2025$isSanic() != value) this.sanicComponent.setSanic(value);
+		if (dtaf2025$isSanic() != value) this.sanicComponent.dtaf2025_setSanic(value);
 	}
 	static {
 		sanic = DataTracker.registerData(PlayerEntityMixin.class, TrackedDataHandlerRegistry.BOOLEAN);

@@ -5,9 +5,9 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.client.registry;
+package com.mclegoman.dtaf2025.client.block;
 
-import com.mclegoman.dtaf2025.common.registry.BlockRegistry;
+import com.mclegoman.dtaf2025.common.block.BlockRegistry;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 

@@ -7,8 +7,8 @@
 
 package com.mclegoman.dtaf2025.mixin.common;
 
-import com.mclegoman.dtaf2025.common.entity.data.Sanic;
-import com.mclegoman.dtaf2025.common.registry.EasterEggsRegistry;
+import com.mclegoman.dtaf2025.common.easteregg.EasterEggsRegistry;
+import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;

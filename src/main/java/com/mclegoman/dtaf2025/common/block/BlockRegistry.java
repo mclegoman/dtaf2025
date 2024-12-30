@@ -5,9 +5,8 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.common.registry;
+package com.mclegoman.dtaf2025.common.block;
 
-import com.mclegoman.dtaf2025.common.block.LockedChestBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.registry.Registries;

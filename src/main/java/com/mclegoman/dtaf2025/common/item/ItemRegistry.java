@@ -5,8 +5,9 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.common.registry;
+package com.mclegoman.dtaf2025.common.item;
 
+import com.mclegoman.dtaf2025.common.block.BlockRegistry;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;

@@ -38,5 +38,6 @@
 		"fabric": "*",
 		"minecraft": "~1.21.1",
 		"java": ">=21"
-	}
+	},
+	"accessWidener" : "dtaf2025.accesswidener"
 }

@@ -5,10 +5,10 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.client.registry;
+package com.mclegoman.dtaf2025.client.item;
 
 import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.dtaf2025.common.registry.ItemRegistry;
+import com.mclegoman.dtaf2025.common.item.ItemRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;

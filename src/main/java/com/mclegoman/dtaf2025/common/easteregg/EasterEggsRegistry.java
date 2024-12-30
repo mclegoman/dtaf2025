@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.common.registry;
+package com.mclegoman.dtaf2025.common.easteregg;
 
 import java.util.ArrayList;
 import java.util.List;

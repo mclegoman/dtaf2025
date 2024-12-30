@@ -9,8 +9,8 @@ package com.mclegoman.dtaf2025.client;
 
 import com.mclegoman.dtaf2025.client.config.ClientConfigHelper;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
-import com.mclegoman.dtaf2025.client.registry.ClientBlockRegistry;
-import com.mclegoman.dtaf2025.client.registry.ItemGroupRegistry;
+import com.mclegoman.dtaf2025.client.block.ClientBlockRegistry;
+import com.mclegoman.dtaf2025.client.item.ItemGroupRegistry;
 import com.mclegoman.dtaf2025.client.space.SkyDataloader;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;

@@ -7,11 +7,11 @@
 
 package com.mclegoman.dtaf2025.common;
 
-import com.mclegoman.dtaf2025.common.registry.BlockRegistry;
-import com.mclegoman.dtaf2025.common.registry.EasterEggsRegistry;
-import com.mclegoman.dtaf2025.client.registry.ItemGroupRegistry;
-import com.mclegoman.dtaf2025.common.registry.ItemRegistry;
-import com.mclegoman.dtaf2025.common.registry.SoundRegistry;
+import com.mclegoman.dtaf2025.common.block.BlockRegistry;
+import com.mclegoman.dtaf2025.common.easteregg.EasterEggsRegistry;
+import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;
+import com.mclegoman.dtaf2025.common.item.ItemRegistry;
+import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
 import net.fabricmc.api.ModInitializer;
 
 public class AprilFools implements ModInitializer {
@@ -20,6 +20,7 @@ public class AprilFools implements ModInitializer {
 		SoundRegistry.init();
 		BlockRegistry.init();
 		ItemRegistry.init();
+		EnchantmentRegistry.init();
 		EasterEggsRegistry.init();
 	}
 }

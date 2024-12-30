@@ -1,0 +1,12 @@
+{
+	"type": "dtaf2025:space_station",
+	"generator": {
+		"type": "minecraft:flat",
+		"settings": {
+			"biome": "dtaf2025:space",
+			"lakes": false,
+			"features": false,
+			"layers": []
+		}
+	}
+}

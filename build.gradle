@@ -19,6 +19,7 @@ loom {
 			sourceSet("main")
 		}
 	}
+	accessWidenerPath = file("src/main/resources/dtaf2025.accesswidener")
 }
 repositories {
 	maven { url 'https://jitpack.io' }
