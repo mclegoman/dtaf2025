@@ -11,11 +11,11 @@ base {
 	archivesName = project.archives_base_name
 }
 runClient.doFirst {
-	args += ['--username', "mclmaf2025${new Random().nextInt(1000)}"]
+	args += ['--username', "dtaf2025${new Random().nextInt(1000)}"]
 }
 loom {
 	mods {
-		"mclmaf2025" {
+		"dtaf2025" {
 			sourceSet("main")
 		}
 	}
@@ -78,27 +78,27 @@ publishing {
 	}
 }
 tasks.register("quickPlaySingleplayer") {
-	group = 'mclmaf2025'
+	group = 'dtaf2025'
 	description = 'Uses Quick Play to join singleplayer world `New World` on launch.'
 	dependsOn(tasks.runClient.args(['--quickPlaySingleplayer', 'New World']))
 }
 tasks.register("quickPlayMultiplayer") {
-	group = 'mclmaf2025'
+	group = 'dtaf2025'
 	description = 'Uses Quick Play to join multiplayer server `localhost:25565` on launch.'
 	dependsOn(tasks.runClient.args(['--quickPlayMultiplayer', 'localhost:25565']))
 }
 tasks.register("runClientLoggedIn") {
-	group = 'mclmaf2025'
+	group = 'dtaf2025'
 	description = 'Uses DevLogin to login to your Minecraft Account'
 	dependsOn(tasks.runClient.args(['--msa']))
 }
 tasks.register("quickPlaySingleplayerLoggedIn") {
-	group = 'mclmaf2025'
+	group = 'dtaf2025'
 	description = 'Uses Quick Play to join singleplayer world `New World` on launch and uses DevLogin to login to your Minecraft Account.'
 	dependsOn(tasks.runClient.args(['--quickPlaySingleplayer', 'New World', '--msa']))
 }
 tasks.register("quickPlayMultiplayerLoggedIn") {
-	group = 'mclmaf2025'
+	group = 'dtaf2025'
 	description = 'Uses Quick Play to join multiplayer server `localhost:25565` on launch and uses DevLogin to login to your Minecraft Account.'
 	dependsOn(tasks.runClient.args(['--quickPlayMultiplayer', 'localhost:25565', '--msa']))
 }

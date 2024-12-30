@@ -1,6 +1,6 @@
 **This project will release April 1st 2025.**
 
-Theme: ???
+Theme: Space
 
 The Mysterious Update (mclmaf2024) focused on mystery/magic and friendlyness.
 This year, I would like to go a different direction, something less friendly.
@@ -25,6 +25,10 @@ This year, I would like to go a different direction, something less friendly.
   - This is a reference to a bug when developing mclm_save, where the player's speed would be doubled.
 - enchantment or easter egg that prevents the player from changing their pitch? (curse enchantment?)
   - Got this idea from a bug that prevented me from changing my pitch when attempting to add yaw correction to perspective.  
+
+
+- Moon Dimension: Overworld in sky should be 80.0F (4x the size of the moon on the overworld)
+- Space Dimension: Space Station. Earth should be bigger here, and the moon slightly bigger than the overworld.
 
 ### Goals
 I would like to add variations to a bunch of the vanilla mobs.  

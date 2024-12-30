@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "dtaf2025:crystal"
+		},
+		"*": {
+			"item": "minecraft:glass"
+		}
+	},
+	"pattern": [
+		"***",
+		"*#*",
+		"***"
+	],
+	"result": {
+		"count": 8,
+		"id": "dtaf2025:crystal_glass"
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"position": [
+		{
+			"type": "y",
+			"value": 180.0,
+			"skyAngleMultiplier": -0.0625
+		},
+		{
+			"type": "x",
+			"value": 0.0,
+			"skyAngleMultiplier": 16.0
+		},
+		{
+			"type": "z",
+			"value": 0.0,
+			"skyAngleMultiplier": 0.0625
+		}
+	],
+	"scale": 0.5,
+	"visible": "always",
+	"phases": 1,
+	"phaseOffset": 0
+}

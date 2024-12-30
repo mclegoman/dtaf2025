@@ -1,0 +1,22 @@
+{
+	"dtaf2025.name": "Spaaaaaceeeeee Update",
+	"dtaf2025.version_overlay": "%s %s",
+
+	"dtaf2025.splashes.work_in_progress": "Work in progress!",
+	"dtaf2025.splashes.coming_soon": "Coming soon!",
+
+	"itemGroup.dtaf2025": "%s",
+
+	"item.dtaf2025.crystal": "Crystal",
+	"block.dtaf2025.crystal_block": "Block of Crystal",
+	"block.dtaf2025.crystal_glass": "Crystal Glass",
+	"block.dtaf2025.crystal_glass_pane": "Crystal Glass Pane",
+
+	"block.dtaf2025.locked_chest": "Steve Co. Supply Crate",
+	"gui.dtaf2025.locked_chest.message.required": "You need a Steve Co. Supply Crate Key to open this.",
+	"gui.dtaf2025.locked_chest.message.store": "You can pick one up at the Minecraft store.",
+	"gui.dtaf2025.locked_chest.cancel": "Not now",
+	"gui.dtaf2025.locked_chest.cancel.hover": "Back to Game",
+	"gui.dtaf2025.locked_chest.store": "Go to store",
+	"gui.dtaf2025.locked_chest.store.hover": "Opens Minecraft Shop in your browser"
+}

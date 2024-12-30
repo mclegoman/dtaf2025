@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": {
+			"item": "dtaf2025:crystal_glass"
+		}
+	},
+	"pattern": [
+		"###",
+		"###"
+	],
+	"result": {
+		"count": 16,
+		"id": "dtaf2025:crystal_glass_pane"
+	}
+}

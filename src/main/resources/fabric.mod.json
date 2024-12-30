@@ -1,39 +1,39 @@
 {
 	"schemaVersion": 1,
-	"id": "mclmaf2025",
+	"id": "dtaf2025",
 	"version": "${version}",
-	"name": "April Fools' 2025",
-	"description": "MCLegoMan's 2025 April Fools' Mod",
+	"name": "Spaaaaaceeeeee Update",
+	"description": "dannytaylor's 2025 April Fools' Mod",
 	"authors": [
-		"MCLegoMan"
+		"dannytaylor"
 	],
 	"contributors": [
 	],
 	"contact": {
 		"homepage": "https://github.com/MCLegoMan/",
-		"sources": "https://github.com/MCLegoMan/mclmaf2025/",
-		"issues": "https://github.com/MCLegoMan/mclmaf2025/issues"
+		"sources": "https://github.com/MCLegoMan/dtaf2025/",
+		"issues": "https://github.com/MCLegoMan/dtaf2025/issues"
 	},
 	"license": [
 		"LGPL-3.0-or-later"
 	],
-	"icon": "assets/mclmaf2025/icon.png",
+	"icon": "assets/dtaf2025/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.mclegoman.mclmaf2025.common.mclmaf2025"
+			"com.mclegoman.dtaf2025.common.AprilFools"
 		],
 		"client": [
-			"com.mclegoman.mclmaf2025.client.mclmaf2025Client"
+			"com.mclegoman.dtaf2025.client.AprilFoolsClient"
 		]
 	},
 	"mixins": [
-		"mclmaf2025.mixins.json"
+		"dtaf2025.mixins.json"
 	],
 	"depends": {
 		"fabricloader": "*",
 		"fabric": "*",
-		"minecraft": "~1.20.6",
+		"minecraft": "~1.21.1",
 		"java": ">=21"
 	}
 }

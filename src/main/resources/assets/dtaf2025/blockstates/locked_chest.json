@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=east": {
+			"model": "dtaf2025:block/locked_chest",
+			"y": 270
+		},
+		"facing=north": {
+			"model": "dtaf2025:block/locked_chest",
+			"y": 180
+		},
+		"facing=south": {
+			"model": "dtaf2025:block/locked_chest"
+		},
+		"facing=west": {
+			"model": "dtaf2025:block/locked_chest",
+			"y": 90
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"textures": {
+		"chest": "dtaf2025:block/locked_chest/chest",
+		"particle": "dtaf2025:block/locked_chest/particle"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 14, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+			"faces": {
+				"north": {"uv": [10.5, 3.5, 14, 7], "texture": "#chest"},
+				"east": {"uv": [7, 3.5, 10.5, 7], "texture": "#chest"},
+				"south": {"uv": [3.5, 3.5, 7, 7], "texture": "#chest"},
+				"west": {"uv": [0, 3.5, 3.5, 7], "texture": "#chest"},
+				"up": {"uv": [3.5, 0, 7, 3.5], "texture": "#chest"},
+				"down": {"uv": [7, 0, 10.5, 3.5], "texture": "#chest"}
+			}
+		},
+		{
+			"from": [7, 7, 15],
+			"to": [9, 11, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 7, 15]},
+			"faces": {
+				"north": {"uv": [0.5, 7.25, 1, 8.25], "texture": "#chest"},
+				"east": {"uv": [0, 7.25, 0.5, 8.25], "texture": "#chest"},
+				"south": {"uv": [0.5, 7.25, 1, 8.25], "texture": "#chest"},
+				"west": {"uv": [1, 7.25, 1.5, 8.25], "texture": "#chest"},
+				"up": {"uv": [0.25, 7, 0.75, 7.25], "texture": "#chest"},
+				"down": {"uv": [0.75, 7, 1.25, 7.25], "texture": "#chest"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 315, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 315, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"rotation": [0, 180, 0]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"required": true,
+	"package": "com.mclegoman.dtaf2025.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"plugin": "com.mclegoman.dtaf2025.mixin.MixinPlugin",
+	"mixins": [
+		"common.LivingEntityMixin",
+		"common.PlayerEntityMixin",
+		"common.ServerWorldMixin"
+	],
+	"client": [
+		"client.Sky.WorldRendererMixin",
+		"client.TitleScreen.LogoDrawerMixin",
+		"client.TitleScreen.RotatingCubeMapRendererMixin",
+		"client.TitleScreen.ScreenMixin",
+		"client.TitleScreen.SplashTextRendererMixin",
+		"client.TitleScreen.TitleScreenMixin",
+		"client.TitleScreen.VersionOverlay"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
