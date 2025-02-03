@@ -25,9 +25,6 @@
 		],
 		"client": [
 			"com.mclegoman.dtaf2025.client.AprilFoolsClient"
-		],
-		"modmenu": [
-			"com.mclegoman.dtaf2025.compat.ModMenuCompat"
 		]
 	},
 	"mixins": [

@@ -1,7 +1,7 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(InGameHud.class)
 public abstract class GameGuiMixin {
-	@Redirect(method = "renderStatusBars", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getAir()I"))
+	@Redirect(method = "renderAirBubbles", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getAir()I"))
 	private int dtaf2025$updateAir(PlayerEntity playerEntity) {
 		return Math.min(playerEntity.getAir(), ((Air)playerEntity).dtaf2025$getAir());
 	}

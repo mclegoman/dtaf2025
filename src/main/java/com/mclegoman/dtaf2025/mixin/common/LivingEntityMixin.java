@@ -1,7 +1,7 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -12,7 +12,8 @@ import com.mclegoman.dtaf2025.common.entity.damage.DamageRegistry;
 import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import com.mclegoman.dtaf2025.common.entity.data.air.AirComponent;
 import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
-import com.mclegoman.dtaf2025.common.world.biome.BiomeTags;
+import com.mclegoman.dtaf2025.common.util.Tags;
+import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -24,7 +25,10 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -35,6 +39,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Optional;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Air {
@@ -47,13 +53,39 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	}
 	@Inject(method = "getGravity", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getGravity(CallbackInfoReturnable<Double> cir) {
+		double gravity = cir.getReturnValue();
 		if (this.isPlayer()) {
 			PlayerEntity player = this.getWorld().getPlayerByUuid(this.getUuid());
-			if (player != null) {
-				if (((Sanic)player).dtaf2025$isSanic()) cir.setReturnValue(cir.getReturnValue() * 2.0F);
-			}
+			if (player != null && ((Sanic)player).dtaf2025$isSanic()) gravity *= 2.0F;
 		}
+		if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+			if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) gravity *= 0.16F;
+		} else {
+			if (EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) gravity *= 1.94F;
+		}
+		cir.setReturnValue(gravity);
 	}
+	@Inject(method = "getAttributeValue", at = @At("RETURN"), cancellable = true)
+	private void dtaf2025$getAttributeValue(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
+			if (this.dtaf2025$getAttributeId(attribute).isPresent()) {
+				Identifier attributeId = this.dtaf2025$getAttributeId(attribute).get();
+				if (this.dtaf2025$getAttributeId(EntityAttributes.SAFE_FALL_DISTANCE).isPresent()) {
+					if (attributeId.equals(this.dtaf2025$getAttributeId(EntityAttributes.SAFE_FALL_DISTANCE).get())) {
+						if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+							if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) cir.setReturnValue(cir.getReturnValue() * 1.94F);
+						}
+					}
+				}
+				if (this.dtaf2025$getAttributeId(EntityAttributes.FALL_DAMAGE_MULTIPLIER).isPresent()) {
+					if (attributeId.equals(this.dtaf2025$getAttributeId(EntityAttributes.FALL_DAMAGE_MULTIPLIER).get())) {
+						if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+							if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) cir.setReturnValue(cir.getReturnValue() * 0.16F);
+						}
+					}
+				}
+			}
+	}
+
 	@Inject(method = "getJumpVelocity(F)F", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getJumpVelocity(CallbackInfoReturnable<Float> cir) {
 		if (this.isPlayer()) {
@@ -67,13 +99,13 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	private void dtaf2025$baseTick(CallbackInfo ci) {
 		if (this.isAlive()) {
 			boolean isInAir = true;
-			if (!EnchantmentRegistry.hasSpaceBreathing((LivingEntity)(Object) this)) {
-				if (this.getWorld().getBiome(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(BiomeTags.noOxygen)) {
+			if (!EnchantmentRegistry.hasSpaceBreathing((LivingEntity)(Object) this) && !this.getWorld().getBlockState(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.Blocks.spaceAir)) {
+				if (this.getWorld().getBiome(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.Biome.noOxygen)) {
 					if (!this.isInvulnerable()) {
 						this.dtaf2025$setAir(this.dtaf2025$getNextAirSpace(this.dtaf2025$getAir()));
 						if (this.dtaf2025$getAir() <= -20) {
 							this.dtaf2025$setAir(0);
-							this.damage(DamageRegistry.spaceSuffocation.getSource(this.getWorld()), 8.0F);
+							if (getWorld() instanceof ServerWorld serverWorld) this.damage(serverWorld, DamageRegistry.spaceSuffocation.getSource(serverWorld), 8.0F);
 						}
 					}
 					isInAir = false;
@@ -84,7 +116,7 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	}
 	@Unique
 	protected int dtaf2025$getNextAirSpace(int air) {
-		EntityAttributeInstance oxygenBonusAttribute = this.getAttributeInstance(EntityAttributes.GENERIC_OXYGEN_BONUS);
+		EntityAttributeInstance oxygenBonusAttribute = this.getAttributeInstance(EntityAttributes.OXYGEN_BONUS);
 		double oxygenBonus = (oxygenBonusAttribute != null) ? oxygenBonusAttribute.getValue() : 0.0;
 		return oxygenBonus > 0.0 && (this.random.nextDouble() >= 1.0 / (oxygenBonus + 1.0)) ? air - 10 : air - 20;
 	}
@@ -107,6 +139,10 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	@Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
 	private void dtaf2025$readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
 		this.airComponent.readNbt(nbt);
+	}
+	@Unique
+	private Optional<Identifier> dtaf2025$getAttributeId(RegistryEntry<EntityAttribute> attribute) {
+		return attribute.getKey().map(RegistryKey::getValue);
 	}
 	public int dtaf2025$getAir() {
 		return this.airComponent.dtaf2025_getAir();

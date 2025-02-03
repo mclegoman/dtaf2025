@@ -1,7 +1,7 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -23,7 +23,7 @@ public class DamageData {
 		return this.type;
 	}
 	public DamageSource getSource(World world) {
-		 return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(getType()));
+		 return new DamageSource(world.getRegistryManager().getOrThrow(RegistryKeys.DAMAGE_TYPE).getOrThrow(getType()));
 	}
 	public static Builder builder(String modId, String name) {
 		return new Builder(modId, name);

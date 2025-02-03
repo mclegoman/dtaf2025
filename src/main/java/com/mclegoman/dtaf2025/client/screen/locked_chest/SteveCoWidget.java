@@ -1,7 +1,7 @@
 /*
     dtaf2025
     Contributor(s): dannytaylor
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -13,6 +13,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -26,7 +27,7 @@ public class SteveCoWidget extends ClickableWidget {
 		renderWidget(context, this.getX(), this.getY());
 	}
 	public static void renderWidget(DrawContext context, int x, int y) {
-		context.drawTexture(Identifier.of(Data.version.getID(), "textures/gui/locked_chest.png"), x, y, 0.0F, 0.0F, 256, 48, 256, 64);
+		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.version.getID(), "textures/gui/locked_chest.png"), x, y, 0.0F, 0.0F, 256, 48, 256, 64);
 	}
 	protected void appendClickableNarrations(NarrationMessageBuilder builder) {
 	}

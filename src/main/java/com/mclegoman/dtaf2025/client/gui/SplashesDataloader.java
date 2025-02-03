@@ -1,7 +1,7 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -12,11 +12,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mclegoman.luminance.client.translation.Translation;
+import com.mclegoman.luminance.client.util.JsonDataLoader;
 import com.mclegoman.luminance.common.util.Couple;
 import com.mclegoman.luminance.common.util.LogType;
 import com.mclegoman.dtaf2025.common.data.Data;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
-import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+@Environment(EnvType.CLIENT)
 public class SplashesDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
 	public static final List<Couple<String, Boolean>> registry = new ArrayList<>();
 	public static final String id = "splashes";

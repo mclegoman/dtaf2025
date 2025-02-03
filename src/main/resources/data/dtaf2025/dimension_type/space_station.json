@@ -3,7 +3,6 @@
 	"bed_works": false,
 	"coordinate_scale": 1,
 	"effects": "dtaf2025:space_station",
-	"fixed_time": 0,
 	"has_ceiling": false,
 	"has_raids": true,
 	"has_skylight": false,

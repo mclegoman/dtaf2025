@@ -1,7 +1,7 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -26,11 +26,20 @@ import java.util.function.UnaryOperator;
 public class EnchantmentRegistry {
 	public static final RegistryKey<Enchantment> spaceBreathing;
 	public static final ComponentType<Unit> spaceBreathingEffect;
+	public static final RegistryKey<Enchantment> heavyFooted;
+	public static final ComponentType<Unit> heavyFootedEffect;
 	public static void init() {}
 	public static boolean hasSpaceBreathing(LivingEntity entity) {
 		MutableBoolean mutableBoolean = new MutableBoolean(false);
 		EnchantmentHelper.forEachEnchantment(entity.getEquippedStack(EquipmentSlot.HEAD), (enchantment, level) -> {
 			if (enchantment.value().effects().contains(spaceBreathingEffect)) mutableBoolean.setTrue();
+		});
+		return mutableBoolean.getValue();
+	}
+	public static boolean hasHeavyFooted(LivingEntity entity) {
+		MutableBoolean mutableBoolean = new MutableBoolean(false);
+		EnchantmentHelper.forEachEnchantment(entity.getEquippedStack(EquipmentSlot.FEET), (enchantment, level) -> {
+			if (enchantment.value().effects().contains(heavyFootedEffect)) mutableBoolean.setTrue();
 		});
 		return mutableBoolean.getValue();
 	}
@@ -40,6 +49,8 @@ public class EnchantmentRegistry {
 	static {
 		spaceBreathing = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.version.getID(), "space_breathing"));
 		spaceBreathingEffect = registerType(Identifier.of(Data.version.getID(), "space_breathing"), builder -> builder.codec(Unit.CODEC));
+		heavyFooted = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.version.getID(), "heavy_footed"));
+		heavyFootedEffect = registerType(Identifier.of(Data.version.getID(), "heavy_footed"), builder -> builder.codec(Unit.CODEC));
 	}
 }
 

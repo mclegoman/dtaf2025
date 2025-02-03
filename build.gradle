@@ -1,7 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.6-SNAPSHOT'
-	id "com.github.breadmoirai.github-release" version "2.4.1"
-	id "com.modrinth.minotaur" version "2.+"
+	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id 'maven-publish'
 }
 group = project.maven_group
@@ -36,17 +34,26 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
+	flatDir {
+		dirs("libs")
+	}
+	maven { url "https://maven.quiltmc.org/repository/release" }
 }
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft}"
 	mappings "net.fabricmc:yarn:${project.mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
-	include(modImplementation "maven.modrinth:luminance:${project.luminance}")
+	include(modImplementation("luminance:luminance-fabric-${project.luminance}"))
+	include(modImplementation("org.quiltmc:quilt-config:${project.quilt_config}"))
+	include(modImplementation("org.quiltmc.quilt-config.serializers:toml:${project.quilt_config}"))
+	include(modImplementation("org.quiltmc.quilt-config.serializers:json5:${project.quilt_config}"))
+	include(modImplementation("com.electronwill.night-config:toml:${project.toml}"))
+	include(modImplementation("com.electronwill.night-config:core:${project.toml}"))
 
 	// Development Environment Only
 	modImplementation "com.ptsmods:devlogin:3.4.1"
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu}"
+	modCompileOnly "com.terraformersmc:modmenu:${project.modmenu}"
 }
 processResources {
 	inputs.property "version", project.mod_version

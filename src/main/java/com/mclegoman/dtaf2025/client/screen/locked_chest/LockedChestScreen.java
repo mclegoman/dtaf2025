@@ -1,13 +1,12 @@
 /*
     dtaf2025
     Contributor(s): dannytaylor
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
 package com.mclegoman.dtaf2025.client.screen.locked_chest;
 
-import com.mclegoman.dtaf2025.client.config.ClientConfigHelper;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
@@ -30,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.net.URI;
 
+@Environment(EnvType.CLIENT)
 public class LockedChestScreen extends Screen {
 	protected final GridWidget grid;
 	protected GridWidget.Adder gridAdder;
@@ -58,12 +58,8 @@ public class LockedChestScreen extends Screen {
 		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel"), (button) -> this.exit()).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel.hover"))).build(), 1);
 		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.version.getID(), "locked_chest.store"), (button) -> {
 			try {
-				if (ClientConfigHelper.get("actually_open_shop").isPresent() && ClientConfigHelper.get("actually_open_shop").get()) {
-					URI uri = new URI("https://shop.minecraft.net/");
-					Util.getOperatingSystem().open(uri);
-				} else {
-					if (ClientData.client.player != null) ClientData.client.player.sendMessage(Translation.getTranslation(Data.version.getID(), "locked_chest.config_prevented"));
-				}
+				URI uri = new URI("https://shop.minecraft.net/");
+				Util.getOperatingSystem().open(uri);
 			} catch (Exception error) {
 				Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}
@@ -112,7 +108,7 @@ public class LockedChestScreen extends Screen {
 		@Override
 		public boolean mouseClicked(double mouseX, double mouseY, int button) {
 			if (this.active && this.visible && this.isValidClickButton(button)) {
-				if (this.clicked(mouseX, mouseY)) {
+				if (this.isMouseOver(mouseX, mouseY)) {
 					this.playDownSound(MinecraftClient.getInstance().getSoundManager());
 					this.onClick(mouseX, mouseY);
 					return true;

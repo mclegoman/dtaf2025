@@ -10,13 +10,16 @@
 	],
 	"client": [
 		"client.GameGuiMixin",
-		"client.Sky.WorldRendererMixin",
-		"client.TitleScreen.LogoDrawerMixin",
-		"client.TitleScreen.RotatingCubeMapRendererMixin",
-		"client.TitleScreen.ScreenMixin",
-		"client.TitleScreen.SplashTextRendererMixin",
-		"client.TitleScreen.TitleScreenMixin",
-		"client.TitleScreen.VersionOverlay"
+		"client.block.ClientWorldMixin",
+		"client.dimension.DimensionEffectsMixin",
+		"client.sky.SkyRenderingMixin",
+		"client.sky.WorldRendererMixin",
+		"client.title_screen.LogoDrawerMixin",
+		"client.title_screen.RotatingCubeMapRendererMixin",
+		"client.title_screen.ScreenMixin",
+		"client.title_screen.SplashTextRendererMixin",
+		"client.title_screen.TitleScreenMixin",
+		"client.title_screen.VersionOverlay"
 	],
 	"injectors": {
 		"defaultRequire": 1

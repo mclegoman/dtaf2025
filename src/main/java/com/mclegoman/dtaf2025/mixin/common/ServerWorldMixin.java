@@ -1,13 +1,13 @@
 /*
     dtaf2025
-    Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
 package com.mclegoman.dtaf2025.mixin.common;
 
-import com.mclegoman.dtaf2025.common.easteregg.EasterEggsRegistry;
+import com.mclegoman.dtaf2025.common.easter_egg.EasterEggsRegistry;
 import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;

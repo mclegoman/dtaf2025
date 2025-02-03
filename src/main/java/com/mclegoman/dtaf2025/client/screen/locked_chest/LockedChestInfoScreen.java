@@ -1,7 +1,7 @@
 /*
     dtaf2025
     Contributor(s): dannytaylor
-    Github: https://github.com/MCLegoMan/dtaf2025
+    Github: https://github.com/mclegoman/dtaf2025
     Licence: GNU LGPLv3
 */
 
@@ -12,6 +12,8 @@ import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.util.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ConfirmLinkScreen;
@@ -21,6 +23,7 @@ import net.minecraft.text.Text;
 
 import java.net.URI;
 
+@Environment(EnvType.CLIENT)
 public class LockedChestInfoScreen extends Screen {
 	protected final GridWidget grid;
 	protected GridWidget.Adder gridAdder;

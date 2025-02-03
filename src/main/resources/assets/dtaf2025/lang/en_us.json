@@ -18,6 +18,12 @@
 	"block.dtaf2025.crystal_glass": "Crystal Glass",
 	"block.dtaf2025.crystal_glass_pane": "Crystal Glass Pane",
 
+	"block.dtaf2025.moon_stone": "Moon Stone",
+
+	"block.dtaf2025.space_air": "Space Air",
+	"death.attack.space_suffocation": "%1$s forgot that they couldn't breathe in space",
+	"death.attack.space_suffocation.player": "%1$s forgot that they couldn't breathe in space while trying to escape %2$s",
+
 	"block.dtaf2025.locked_chest": "Steve Co. Supply Crate",
 	"gui.dtaf2025.locked_chest": "Steve Co. Supply Crate",
 	"gui.dtaf2025.locked_chest.message.required": "You need a Steve Co. Supply Crate Key to open this.",
@@ -36,9 +42,12 @@
 	"gui.dtaf2025.locked_chest.info.wiki": "See more info on The Minecraft Wiki.",
 	"gui.dtaf2025.locked_chest.info.warning": "§c§lThis feature was made as a reference.\n§r§cWe are not affiliated with Mojang Studios, Microsoft, or The Official Minecraft Shop.\nWe do not support nor encourage the use of crates, loot boxes, or gambling in exchange of real-world currency.",
 
-	"block.dtaf2025.space_air": "Space Air",
-	"death.attack.space_suffocation": "%1$s forgot that they couldn't breathe in space",
-	"death.attack.space_suffocation.player": "%1$s forgot that they couldn't breathe in space while trying to escape %2$s",
+	"enchantment.dtaf2025.space_breathing": "Breath of the Cosmos",
+	"enchantment.dtaf2025.heavy_footed": "Heavy Footed",
 
-	"enchantment.dtaf2025.space_breathing": "Breath of the Cosmos"
+	"gui.dtaf2025.commands.dimension.success.multiple": "Teleported %s entities to %s",
+	"gui.dtaf2025.commands.dimension.success.single": "Teleported %s to %s",
+
+	"painting.dtaf2025.moon.title": "The Moon",
+	"painting.dtaf2025.moon.author": "dannytaylor"
 }
