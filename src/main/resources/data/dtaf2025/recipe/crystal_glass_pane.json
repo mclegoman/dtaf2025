@@ -2,9 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"category": "misc",
 	"key": {
-		"#": {
-			"item": "dtaf2025:crystal_glass"
-		}
+		"#": "dtaf2025:crystal_glass"
 	},
 	"pattern": [
 		"###",

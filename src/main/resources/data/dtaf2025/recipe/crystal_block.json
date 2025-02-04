@@ -2,9 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"key": {
-		"#": {
-			"item": "dtaf2025:crystal"
-		}
+		"#": "dtaf2025:crystal"
 	},
 	"pattern": [
 		"###",

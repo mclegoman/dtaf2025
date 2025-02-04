@@ -2,9 +2,7 @@
 	"type": "minecraft:crafting_shapeless",
 	"category": "misc",
 	"ingredients": [
-		{
-			"item": "dtaf2025:crystal_block"
-		}
+		"dtaf2025:crystal_block"
 	],
 	"result": {
 		"count": 9,
