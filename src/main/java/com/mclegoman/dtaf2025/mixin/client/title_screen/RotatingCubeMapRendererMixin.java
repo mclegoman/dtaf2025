@@ -25,6 +25,6 @@ public abstract class RotatingCubeMapRendererMixin {
 	@Shadow @Final public static Identifier OVERLAY_TEXTURE;
 	@Inject(at = @At("HEAD"), method = "render")
 	private void dtaf2025$render(DrawContext context, int width, int height, float alpha, float tickDelta, CallbackInfo ci) {
-		OVERLAY_TEXTURE = Identifier.of(Data.version.getID(), "textures/gui/title/background/panorama_overlay.png");
+		OVERLAY_TEXTURE = Identifier.of(Data.getVersion().getID(), "textures/gui/title/background/panorama_overlay.png");
 	}
 }

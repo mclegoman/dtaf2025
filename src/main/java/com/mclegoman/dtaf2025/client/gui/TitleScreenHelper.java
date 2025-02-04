@@ -24,7 +24,7 @@ public class TitleScreenHelper {
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SplashesDataloader());
 	}
 	static {
-		cubeMapRenderer = new CubeMapRenderer(Identifier.of(Data.version.getID(), "textures/gui/title/background/panorama"));
+		cubeMapRenderer = new CubeMapRenderer(Identifier.of(Data.getVersion().getID(), "textures/gui/title/background/panorama"));
 		rotatingCubeMapRenderer = new RotatingCubeMapRenderer(cubeMapRenderer);
 	}
 }

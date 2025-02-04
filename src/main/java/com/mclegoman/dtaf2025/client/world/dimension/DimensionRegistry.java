@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.common.world.dimension;
+package com.mclegoman.dtaf2025.client.world.dimension;
 
 import com.mclegoman.dtaf2025.common.data.Data;
 import net.minecraft.client.render.DimensionEffects;
@@ -29,7 +29,7 @@ public class DimensionRegistry {
 		return effectsMap.getOrDefault(id, null);
 	}
 	static {
-		spaceStation = DimensionData.builder(Data.version.getID(), "space_station").build();
-		theMoon = DimensionData.builder(Data.version.getID(), "the_moon").build();
+		spaceStation = DimensionData.builder(Data.getVersion().getID(), "space_station").build();
+		theMoon = DimensionData.builder(Data.getVersion().getID(), "the_moon").build();
 	}
 }

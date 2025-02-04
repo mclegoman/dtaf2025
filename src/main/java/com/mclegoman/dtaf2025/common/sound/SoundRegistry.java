@@ -33,10 +33,10 @@ public class SoundRegistry {
 		return Registry.registerReference(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
 	}
 	static {
-		lockedChestStore = registerSoundEvent(Identifier.of(Data.version.getID(), "locked_chest_store"));
-		recordBrightDay = registerSoundEvent(Identifier.of(Data.version.getID(), "music_disc.bright_day"));
-		jukeboxBrightDay = RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(Data.version.getID(), "bright_day"));
-		musicSpace = registerSoundEventReference(Identifier.of(Data.version.getID(), "music.space"));
+		lockedChestStore = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "locked_chest_store"));
+		recordBrightDay = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "music_disc.bright_day"));
+		jukeboxBrightDay = RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(Data.getVersion().getID(), "bright_day"));
+		musicSpace = registerSoundEventReference(Identifier.of(Data.getVersion().getID(), "music.space"));
 		musicMenu = new MusicSound(musicSpace, 20, 600, true);
 	}
 }

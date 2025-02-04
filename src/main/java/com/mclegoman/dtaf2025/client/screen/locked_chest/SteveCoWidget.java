@@ -27,7 +27,7 @@ public class SteveCoWidget extends ClickableWidget {
 		renderWidget(context, this.getX(), this.getY());
 	}
 	public static void renderWidget(DrawContext context, int x, int y) {
-		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.version.getID(), "textures/gui/locked_chest.png"), x, y, 0.0F, 0.0F, 256, 48, 256, 64);
+		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.getVersion().getID(), "textures/gui/locked_chest.png"), x, y, 0.0F, 0.0F, 256, 48, 256, 64);
 	}
 	protected void appendClickableNarrations(NarrationMessageBuilder builder) {
 	}

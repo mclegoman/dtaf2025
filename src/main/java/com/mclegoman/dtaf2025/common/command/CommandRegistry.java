@@ -50,8 +50,8 @@ public class CommandRegistry {
 	}
 	private static int execute(ServerCommandSource source, Collection<? extends Entity> targets, ServerWorld world, Identifier worldId) throws CommandSyntaxException {
 		for (Entity target : targets) teleport(target, world);
-		if (targets.size() == 1) source.sendFeedback(() -> Translation.getTranslation(Data.version.getID(), "commands.dimension.success.single", new Object[]{targets.iterator().next().getDisplayName(), worldId.toString()}), true);
-		else source.sendFeedback(() -> Translation.getTranslation(Data.version.getID(), "commands.dimension.success.multiple", new Object[]{targets.size(), worldId.toString()}), true);
+		if (targets.size() == 1) source.sendFeedback(() -> Translation.getTranslation(Data.getVersion().getID(), "commands.dimension.success.single", new Object[]{targets.iterator().next().getDisplayName(), worldId.toString()}), true);
+		else source.sendFeedback(() -> Translation.getTranslation(Data.getVersion().getID(), "commands.dimension.success.multiple", new Object[]{targets.size(), worldId.toString()}), true);
 		return targets.size();
 	}
 	private static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess, CommandManager.RegistrationEnvironment environment) {
@@ -74,6 +74,6 @@ public class CommandRegistry {
 		return getString(Identifier.of(namespace, key));
 	}
 	public static String getString(String key) {
-		return getString(Data.version.getID(), key);
+		return getString(Data.getVersion().getID(), key);
 	}
 }

@@ -7,9 +7,22 @@
 
 package com.mclegoman.dtaf2025.common.data;
 
-import com.mclegoman.luminance.common.util.ReleaseType;
+import com.mclegoman.luminance.api.mod.ModContainer;
+import com.mclegoman.luminance.api.mod.ModHelper;
 import com.mclegoman.luminance.common.util.Version;
 
+import java.util.Optional;
+
 public class Data extends com.mclegoman.luminance.common.data.Data {
-	public static final Version version = Version.create("Space Update", "dtaf2025", 1, 0, 0, ReleaseType.ALPHA, 1);
+	private static Version version;
+	public static Version getVersion() {
+		if (version == null) {
+			Optional<ModContainer> modContainer = ModHelper.getModContainer("dtaf2025");
+			modContainer.ifPresent((container) -> {
+				version = Version.parse(container.metadata());
+			});
+		}
+		if (version != null) return version;
+		else throw new NullPointerException("dtaf2025 version couldn't be obtained!");
+	}
 }

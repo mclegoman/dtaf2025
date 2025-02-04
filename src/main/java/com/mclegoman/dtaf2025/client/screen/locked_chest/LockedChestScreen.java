@@ -42,7 +42,7 @@ public class LockedChestScreen extends Screen {
 		this (parent, false);
 	}
 	public LockedChestScreen(Screen parent, boolean openedStore) {
-		super(Translation.getTranslation(Data.version.getID(), "locked_chest"));
+		super(Translation.getTranslation(Data.getVersion().getID(), "locked_chest"));
 		this.grid = new GridWidget();
 		this.parent = parent;
 		this.openedStore = openedStore;
@@ -50,24 +50,24 @@ public class LockedChestScreen extends Screen {
 	protected void init() {
 		this.grid.getMainPositioner().alignHorizontalCenter().margin(2);
 		this.gridAdder = grid.createAdder(2);
-		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.version.getID(), "locked_chest")), 2);
+		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.getVersion().getID(), "locked_chest")), 2);
 		this.gridAdder.add(new EmptyWidget(24, 24));
-		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.version.getID(), "locked_chest.message.required"), this.textRenderer), 2);
-		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.version.getID(), "locked_chest.message.store"), this.textRenderer), 2);
+		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.message.required"), this.textRenderer), 2);
+		this.gridAdder.add(new TextWidget(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.message.store"), this.textRenderer), 2);
 		this.gridAdder.add(new EmptyWidget(24, 24), 2);
-		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel"), (button) -> this.exit()).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.cancel.hover"))).build(), 1);
-		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.version.getID(), "locked_chest.store"), (button) -> {
+		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.cancel"), (button) -> this.exit()).tooltip(Tooltip.of(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.cancel.hover"))).build(), 1);
+		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.store"), (button) -> {
 			try {
 				URI uri = new URI("https://shop.minecraft.net/");
 				Util.getOperatingSystem().open(uri);
 			} catch (Exception error) {
-				Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
+				Data.getVersion().sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}
 			button.active = false;
 			this.openedStore = true;
-		}).tooltip(Tooltip.of(Translation.getTranslation(Data.version.getID(), "locked_chest.store.hover"))).build();
+		}).tooltip(Tooltip.of(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.store.hover"))).build();
 		storeButton.active = !this.openedStore;
-		addDrawableChild(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.info"), (button) -> ClientData.client.setScreen(new LockedChestInfoScreen(new LockedChestScreen(this.parent, this.openedStore)))).size(20, 20).position(4, this.height - 24).build());
+		addDrawableChild(ButtonWidget.builder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info"), (button) -> ClientData.client.setScreen(new LockedChestInfoScreen(new LockedChestScreen(this.parent, this.openedStore)))).size(20, 20).position(4, this.height - 24).build());
 
 		this.gridAdder.add(storeButton, 1);
 		this.grid.refreshPositions();
@@ -180,6 +180,6 @@ public class LockedChestScreen extends Screen {
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 		SteveCoWidget.renderWidget(context, this.width / 2 - 128, 30);
-		if (Data.version.isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.version.getID() + ".development_overlay", Text.translatable(Data.version.getID() + ".name"), Data.version.getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
+		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
 	}
 }

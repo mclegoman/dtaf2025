@@ -27,7 +27,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	}
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-		if (mixinClassName.equals("com.mclegoman.dtaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.version.isDevelopmentBuild();
+		if (mixinClassName.equals("com.mclegoman.dtaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.getVersion().isDevelopmentBuild();
 		return true;
 	}
 	@Override

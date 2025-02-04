@@ -16,20 +16,20 @@ public class Tags {
 	public static class EntityType {
 		public static final TagKey<net.minecraft.entity.EntityType<?>> canBreatheInSpace;
 		static {
-			canBreatheInSpace = TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(Data.version.getID(), "can_breathe_in_space"));
+			canBreatheInSpace = TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(Data.getVersion().getID(), "can_breathe_in_space"));
 		}
 	}
 	public static class Block {
 		public static final TagKey<net.minecraft.block.Block> spaceAir;
 		static {
-			spaceAir = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.version.getID(), "space_air"));
+			spaceAir = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_air"));
 		}
 	}
 	public static class WorldGen {
 		public static class Biome {
 			public static final TagKey<net.minecraft.world.biome.Biome> noOxygen;
 			static {
-				noOxygen = TagKey.of(RegistryKeys.BIOME, Identifier.of(Data.version.getID(), "no_oxygen"));
+				noOxygen = TagKey.of(RegistryKeys.BIOME, Identifier.of(Data.getVersion().getID(), "no_oxygen"));
 			}
 		}
 	}

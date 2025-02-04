@@ -17,7 +17,7 @@ public class PaintingRegistry {
 	public static final RegistryKey<PaintingVariant> moon;
 	public static void init() {}
 	static {
-		moon = RegistryKey.of(RegistryKeys.PAINTING_VARIANT, Identifier.of(Data.version.getID(), "moon"));
+		moon = RegistryKey.of(RegistryKeys.PAINTING_VARIANT, Identifier.of(Data.getVersion().getID(), "moon"));
 	}
 }
 

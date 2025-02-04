@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.common.world.dimension;
+package com.mclegoman.dtaf2025.client.world.dimension;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

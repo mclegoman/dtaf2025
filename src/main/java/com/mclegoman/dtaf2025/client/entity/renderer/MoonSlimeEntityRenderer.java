@@ -15,7 +15,7 @@ import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
 public class MoonSlimeEntityRenderer extends MobEntityRenderer<SlimeEntity, SlimeEntityRenderState, SlimeEntityModel> {
-	public static final Identifier texture = Identifier.of(Data.version.getID(), "textures/entity/moon_slime/moon_slime.png");
+	public static final Identifier texture = Identifier.of(Data.getVersion().getID(), "textures/entity/moon_slime/moon_slime.png");
 
 	public MoonSlimeEntityRenderer(EntityRendererFactory.Context context) {
 		super(context, new SlimeEntityModel(context.getPart(EntityModelLayers.SLIME)), 0.25F);

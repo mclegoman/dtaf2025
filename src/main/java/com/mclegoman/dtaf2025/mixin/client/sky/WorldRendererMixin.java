@@ -11,7 +11,7 @@ import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.client.sky.Sky;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
-import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
+import com.mclegoman.dtaf2025.client.world.dimension.DimensionRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;

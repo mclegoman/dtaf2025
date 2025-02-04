@@ -32,7 +32,7 @@ public abstract class LogoDrawerMixin {
 		int x = screenWidth / 2 - 128;
 		int a = ColorHelper.getWhite(this.ignoreAlpha ? 1.0F : alpha);
 		if (Compatibility.getModsButtonStyle().equals("CLASSIC")) y -= 12;
-		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.version.getID(), "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128, a);
+		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.getVersion().getID(), "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128, a);
 		context.drawTexture(RenderLayer::getGuiTextured, this.minceraft ? MINCERAFT_TEXTURE : LOGO_TEXTURE, x, y, 0.0F, 0.0F, 256, 44, 256, 64, a);
 		ci.cancel();
 	}

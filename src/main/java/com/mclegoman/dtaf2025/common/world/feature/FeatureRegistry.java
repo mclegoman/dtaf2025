@@ -20,6 +20,6 @@ public class FeatureRegistry {
 	public static void init() {
 	}
 	static {
-		crater = Registry.register(Registries.FEATURE, Identifier.of(Data.version.getID(), "crater"), new CraterFeature(CraterFeatureConfig.codec));
+		crater = Registry.register(Registries.FEATURE, Identifier.of(Data.getVersion().getID(), "crater"), new CraterFeature(CraterFeatureConfig.codec));
 	}
 }

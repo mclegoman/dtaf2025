@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.mixin.client.dimension;
 
-import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
+import com.mclegoman.dtaf2025.client.world.dimension.DimensionRegistry;
 import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.world.dimension.DimensionType;
 import org.spongepowered.asm.mixin.Mixin;

@@ -68,6 +68,6 @@ public class ItemGroupRegistry {
 		return key;
 	}
 	static {
-		dtaf2025 = register(Identifier.of(Data.version.getID(), Data.version.getID()), FabricItemGroup.builder().icon(() -> new ItemStack(ItemRegistry.crystal)).displayName(Text.translatable("itemGroup." + Data.version.getID(), Text.translatable(Data.version.getID() + ".name"))).build());
+		dtaf2025 = register(Identifier.of(Data.getVersion().getID(), Data.getVersion().getID()), FabricItemGroup.builder().icon(() -> new ItemStack(ItemRegistry.crystal)).displayName(Text.translatable("itemGroup." + Data.getVersion().getID(), Text.translatable(Data.getVersion().getID() + ".name"))).build());
 	}
 }

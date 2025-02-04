@@ -29,7 +29,7 @@ public class LockedChestInfoScreen extends Screen {
 	protected GridWidget.Adder gridAdder;
 	private final Screen parent;
 	public LockedChestInfoScreen(Screen parent) {
-		super(Translation.getTranslation(Data.version.getID(), "locked_chest"));
+		super(Translation.getTranslation(Data.getVersion().getID(), "locked_chest"));
 		this.parent = parent;
 		this.grid = new GridWidget();
 	}
@@ -37,27 +37,27 @@ public class LockedChestInfoScreen extends Screen {
 		this.grid.getMainPositioner().alignHorizontalCenter().margin(2);
 		this.gridAdder = grid.createAdder(1);
 
-		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.version.getID(), "locked_chest")));
+		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.getVersion().getID(), "locked_chest")));
 		this.gridAdder.add(new EmptyWidget(24, 24));
 
-		Text messageText = Translation.getTranslation(Data.version.getID(), "locked_chest.info.message");
+		Text messageText = Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info.message");
 		MultilineTextWidget message = new MultilineTextWidget(messageText, this.textRenderer);
 		message.setCentered(true);
 		message.setMaxWidth(this.width - 4);
 		this.gridAdder.add(message);
 
-		Text wikiText = Translation.getTranslation(Data.version.getID(), "locked_chest.info.wiki");
+		Text wikiText = Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info.wiki");
 		this.gridAdder.add(new PressableTextWidget(this.grid.getX(), this.grid.getY(), this.textRenderer.getWidth(wikiText), 9, wikiText, (text) -> {
 			try {
 				ConfirmLinkScreen.open(new LockedChestInfoScreen(parent), new URI("https://minecraft.wiki/w/Locked_chest"), true);
 			} catch (Exception error) {
-				Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
+				Data.getVersion().sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}
 		}, this.textRenderer));
 
 		this.gridAdder.add(new EmptyWidget(24, 24));
 
-		Text warningText = Translation.getTranslation(Data.version.getID(), "locked_chest.info.warning");
+		Text warningText = Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info.warning");
 		MultilineTextWidget warning = new MultilineTextWidget(warningText, this.textRenderer);
 		warning.setCentered(true);
 		warning.setMaxWidth(this.width - 4);
@@ -67,7 +67,7 @@ public class LockedChestInfoScreen extends Screen {
 		this.grid.forEachChild(this::addDrawableChild);
 		SimplePositioningWidget.setPos(this.grid, getNavigationFocus());
 
-		addDrawableChild(ButtonWidget.builder(Translation.getTranslation(Data.version.getID(), "locked_chest.info.exit"), (button) -> exit()).size(20, 20).position(4, this.height - 24).build());
+		addDrawableChild(ButtonWidget.builder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info.exit"), (button) -> exit()).size(20, 20).position(4, this.height - 24).build());
 	}
 
 	public void resize(MinecraftClient client, int width, int height) {
@@ -92,6 +92,6 @@ public class LockedChestInfoScreen extends Screen {
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 		SteveCoWidget.renderWidget(context, this.width / 2 - 128, 30);
-		if (Data.version.isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.version.getID() + ".development_overlay", Text.translatable(Data.version.getID() + ".name"), Data.version.getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
+		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
 	}
 }

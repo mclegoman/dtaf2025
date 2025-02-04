@@ -22,6 +22,6 @@ public class ParticleRegistry {
 		return Registry.register(Registries.PARTICLE_TYPE, identifier, FabricParticleTypes.simple(alwaysShow));
 	}
 	static {
-		itemMoonSlime = register(Identifier.of(Data.version.getID(), "item_moon_slime"), false);
+		itemMoonSlime = register(Identifier.of(Data.getVersion().getID(), "item_moon_slime"), false);
 	}
 }

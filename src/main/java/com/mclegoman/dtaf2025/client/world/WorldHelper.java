@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.client.world;
 
-import com.mclegoman.dtaf2025.common.world.dimension.SpaceEffect;
+import com.mclegoman.dtaf2025.client.world.dimension.SpaceEffect;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;

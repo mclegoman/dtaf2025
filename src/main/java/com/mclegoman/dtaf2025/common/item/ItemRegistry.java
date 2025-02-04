@@ -36,13 +36,13 @@ public class ItemRegistry {
 	static {
 		spaceAir = Items.register(BlockRegistry.spaceAir);
 		moonStone = Items.register(BlockRegistry.moonStone);
-		crystal = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.version.getID(), "crystal")), Item::new, new Item.Settings());
+		crystal = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "crystal")), Item::new, new Item.Settings());
 		crystalBlock = Items.register(BlockRegistry.crystalBlock);
 		crystalGlass = Items.register(BlockRegistry.crystalGlass);
 		crystalGlassPane = Items.register(BlockRegistry.crystalGlassPane);
 		lockedChest = Items.register(BlockRegistry.lockedChest);
-		moonSlimeSpawnEgg = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.version.getID(), "moon_slime_spawn_egg")), (settings) -> new SpawnEggItem(EntityRegistry.moonSlime, settings), new Item.Settings());
-		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.version.getID(), "moon_slime_ball")), Item::new, new Item.Settings());
-		musicDiscBrightDay = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.version.getID(), "music_disc_bright_day")), Item::new, new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(SoundRegistry.jukeboxBrightDay));
+		moonSlimeSpawnEgg = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_spawn_egg")), (settings) -> new SpawnEggItem(EntityRegistry.moonSlime, settings), new Item.Settings());
+		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_ball")), Item::new, new Item.Settings());
+		musicDiscBrightDay = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "music_disc_bright_day")), Item::new, new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(SoundRegistry.jukeboxBrightDay));
 	}
 }

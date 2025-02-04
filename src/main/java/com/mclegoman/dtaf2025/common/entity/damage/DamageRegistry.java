@@ -12,7 +12,7 @@ import com.mclegoman.dtaf2025.common.data.Data;
 public class DamageRegistry {
 	public static final DamageData spaceSuffocation;
 	static {
-		spaceSuffocation = DamageData.builder(Data.version.getID(), "space_suffocation").build();
+		spaceSuffocation = DamageData.builder(Data.getVersion().getID(), "space_suffocation").build();
 	}
 }
 

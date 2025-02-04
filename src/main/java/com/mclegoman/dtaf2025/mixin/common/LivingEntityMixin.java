@@ -7,13 +7,13 @@
 
 package com.mclegoman.dtaf2025.mixin.common;
 
+import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;
 import com.mclegoman.dtaf2025.common.entity.damage.DamageRegistry;
 import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import com.mclegoman.dtaf2025.common.entity.data.air.AirComponent;
-import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mclegoman.dtaf2025.common.util.Tags;
-import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -53,8 +53,8 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	@Inject(method = "getGravity", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getGravity(CallbackInfoReturnable<Double> cir) {
 		double gravity = cir.getReturnValue();
-		if (this.isPlayer() && Packets.Values.isSanic) gravity *= 2.0F;
-		if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+		if (this.isPlayer() && EasterEggRegistry.getSanic()) gravity *= 2.0F;
+		if (this.getWorld().getDimension().effects().equals(Identifier.of(Data.getVersion().getID(), "the_moon"))) {
 			if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) gravity *= 0.16F;
 		} else {
 			if (EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) gravity *= 1.94F;
@@ -67,14 +67,14 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 				Identifier attributeId = this.dtaf2025$getAttributeId(attribute).get();
 				if (this.dtaf2025$getAttributeId(EntityAttributes.SAFE_FALL_DISTANCE).isPresent()) {
 					if (attributeId.equals(this.dtaf2025$getAttributeId(EntityAttributes.SAFE_FALL_DISTANCE).get())) {
-						if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+						if (this.getWorld().getDimension().effects().equals(Identifier.of(Data.getVersion().getID(), "the_moon"))) {
 							if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) cir.setReturnValue(cir.getReturnValue() * 1.94F);
 						}
 					}
 				}
 				if (this.dtaf2025$getAttributeId(EntityAttributes.FALL_DAMAGE_MULTIPLIER).isPresent()) {
 					if (attributeId.equals(this.dtaf2025$getAttributeId(EntityAttributes.FALL_DAMAGE_MULTIPLIER).get())) {
-						if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
+						if (this.getWorld().getDimension().effects().equals(Identifier.of(Data.getVersion().getID(), "the_moon"))) {
 							if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) cir.setReturnValue(cir.getReturnValue() * 0.16F);
 						}
 					}
@@ -84,7 +84,7 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 
 	@Inject(method = "getJumpVelocity(F)F", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getJumpVelocity(CallbackInfoReturnable<Float> cir) {
-		if (this.isPlayer() && Packets.Values.isSanic) cir.setReturnValue(cir.getReturnValue() * 2.0F);
+		if (this.isPlayer() && EasterEggRegistry.getSanic()) cir.setReturnValue(cir.getReturnValue() * 2.0F);
 	}
 	@Inject(method = "baseTick", at = @At("RETURN"))
 	private void dtaf2025$baseTick(CallbackInfo ci) {

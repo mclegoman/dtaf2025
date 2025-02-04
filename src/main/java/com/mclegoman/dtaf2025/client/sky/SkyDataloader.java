@@ -65,19 +65,19 @@ public class SkyDataloader extends JsonDataLoader implements IdentifiableResourc
 								};
 								positions.add(new Sky.Position(type, JsonHelper.getFloat(pos, "value"), JsonHelper.getFloat(pos, "skyAngleMultiplier", 0.0F)));
 							} else {
-								Data.version.sendToLog(LogType.WARN, "Invalid Position Data!");
+								Data.getVersion().sendToLog(LogType.WARN, "Invalid Position Data!");
 							}
 						}
 						add(identifier, new Sky.Celestial(dimId, positions, JsonHelper.getFloat(dimension, "scale", 5.0F), Sky.Visible.fromString(JsonHelper.getString(dimension, "visible", "night")), phases, JsonHelper.getInt(dimension, "phaseOffset", 0)), dimId);
 					}
-				} else Data.version.sendToLog(LogType.WARN, "Invalid Dimension Data!");
+				} else Data.getVersion().sendToLog(LogType.WARN, "Invalid Dimension Data!");
 			}
 		} catch (Exception error) {
-			Data.version.sendToLog(LogType.ERROR, error.getLocalizedMessage());
+			Data.getVersion().sendToLog(LogType.ERROR, error.getLocalizedMessage());
 		}
 	}
 	@Override
 	public Identifier getFabricId() {
-		return Identifier.of(Data.version.getID(), id);
+		return Identifier.of(Data.getVersion().getID(), id);
 	}
 }

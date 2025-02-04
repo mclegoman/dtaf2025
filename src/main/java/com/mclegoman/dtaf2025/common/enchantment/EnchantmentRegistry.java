@@ -47,10 +47,10 @@ public class EnchantmentRegistry {
 		return Registry.register(Registries.ENCHANTMENT_EFFECT_COMPONENT_TYPE, id, builderOperator.apply(ComponentType.builder()).build());
 	}
 	static {
-		spaceBreathing = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.version.getID(), "space_breathing"));
-		spaceBreathingEffect = registerType(Identifier.of(Data.version.getID(), "space_breathing"), builder -> builder.codec(Unit.CODEC));
-		heavyFooted = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.version.getID(), "heavy_footed"));
-		heavyFootedEffect = registerType(Identifier.of(Data.version.getID(), "heavy_footed"), builder -> builder.codec(Unit.CODEC));
+		spaceBreathing = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.getVersion().getID(), "space_breathing"));
+		spaceBreathingEffect = registerType(Identifier.of(Data.getVersion().getID(), "space_breathing"), builder -> builder.codec(Unit.CODEC));
+		heavyFooted = RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.getVersion().getID(), "heavy_footed"));
+		heavyFootedEffect = registerType(Identifier.of(Data.getVersion().getID(), "heavy_footed"), builder -> builder.codec(Unit.CODEC));
 	}
 }
 

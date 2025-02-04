@@ -28,6 +28,6 @@ public class EntityRegistry {
 		return Registry.register(Registries.ENTITY_TYPE, key, type.build(key));
 	}
 	static {
-		moonSlime = register(Identifier.of(Data.version.getID(), "moon_slime"), EntityType.Builder.create(MoonSlimeEntity::new, SpawnGroup.MONSTER).dimensions(0.52F, 0.52F).eyeHeight(0.325F).spawnBoxScale(4.0F).maxTrackingRange(10));
+		moonSlime = register(Identifier.of(Data.getVersion().getID(), "moon_slime"), EntityType.Builder.create(MoonSlimeEntity::new, SpawnGroup.MONSTER).dimensions(0.52F, 0.52F).eyeHeight(0.325F).spawnBoxScale(4.0F).maxTrackingRange(10));
 	}
 }

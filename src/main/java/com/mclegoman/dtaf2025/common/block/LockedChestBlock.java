@@ -9,6 +9,8 @@ package com.mclegoman.dtaf2025.common.block;
 
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.client.screen.locked_chest.LockedChestScreen;
+import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -17,6 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -74,10 +77,9 @@ public class LockedChestBlock extends Block implements Waterloggable {
 	}
 
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-		if (world.isClient) {
-			ClientData.client.setScreen(new LockedChestScreen());
-			return ActionResult.SUCCESS;
-		} else {
+		if (world.isClient) return ActionResult.SUCCESS;
+		else {
+			Packets.sendOpenScreen((ServerPlayerEntity) player, Identifier.of(Data.getVersion().getID(), "locked_chest"));
 			world.playSound(null, pos, SoundEvents.BLOCK_CHEST_LOCKED, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			player.incrementStat(this.getOpenStat());
 			PiglinBrain.onGuardedBlockInteracted((ServerWorld) world, player, true);

@@ -13,7 +13,7 @@ public class EntityModelRegistry {
 		//EntityModelLayerRegistry.registerModelLayer(moonSlimeOuter, SlimeEntityModel::getOuterTexturedModelData);
 	}
 	static {
-		//moonSlime = new EntityModelLayer(Identifier.of(Data.version.getID(), "moon_slime"), "main");
-		//moonSlimeOuter = new EntityModelLayer(Identifier.of(Data.version.getID(), "moon_slime"), "outer");
+		//moonSlime = new EntityModelLayer(Identifier.of(Data.getVersion().getID(), "moon_slime"), "main");
+		//moonSlimeOuter = new EntityModelLayer(Identifier.of(Data.getVersion().getID(), "moon_slime"), "outer");
 	}
 }
