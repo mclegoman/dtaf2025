@@ -31,7 +31,11 @@
     "water_fog_color": 0
   },
   "features": [
-    [],
+    [
+      "dtaf2025:crater_mega",
+      "dtaf2025:crater_large",
+      "dtaf2025:crater_small"
+    ],
     [],
     [],
     [],

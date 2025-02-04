@@ -2,4 +2,5 @@ accessWidener v2 named
 accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment (Lnet/minecraft/item/ItemStack;Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;)V
 accessible class net/minecraft/enchantment/EnchantmentHelper$Consumer
 accessible method net/minecraft/client/render/SkyRendering renderStars (Lnet/minecraft/client/render/Fog;FLnet/minecraft/client/util/math/MatrixStack;)V
-accessible method net/minecraft/particle/SimpleParticleType <init> (Z)V
+accessible method net/minecraft/client/particle/CrackParticle <init> (Lnet/minecraft/client/world/ClientWorld;DDDLnet/minecraft/client/render/item/ItemRenderState;)V
+accessible field net/minecraft/entity/mob/SlimeEntity SLIME_SIZE Lnet/minecraft/entity/data/TrackedData;

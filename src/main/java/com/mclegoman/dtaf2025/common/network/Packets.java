@@ -8,7 +8,6 @@
 package com.mclegoman.dtaf2025.common.network;
 
 import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.dtaf2025.common.easter_egg.EasterEggsRegistry;
 import com.mclegoman.dtaf2025.common.network.payload.RequestPayload;
 import com.mclegoman.dtaf2025.common.network.payload.SanicPayload;
 import com.mclegoman.luminance.common.util.LogType;
@@ -46,7 +45,7 @@ public final class Packets {
 		ServerPlayNetworking.send(player, new SanicPayload(Values.isSanic));
 	}
 	public static void update(MinecraftServer server) {
-		Values.isSanic = EasterEggsRegistry.isSanicEasterEgg(server.getSaveProperties().getGeneratorOptions().getSeed());
+		Values.isSanic = (server.getSaveProperties().getGeneratorOptions().getSeed() == 78665946);
 		server.getPlayerManager().getPlayerList().forEach(Packets::sendIsSanic);
 	}
 	static {

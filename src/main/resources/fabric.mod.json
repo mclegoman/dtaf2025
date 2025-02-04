@@ -24,7 +24,7 @@
 			"com.mclegoman.dtaf2025.common.AprilFools"
 		],
 		"client": [
-			"com.mclegoman.dtaf2025.client.AprilFoolsClient"
+			"com.mclegoman.dtaf2025.client.ClientAprilFools"
 		]
 	},
 	"mixins": [

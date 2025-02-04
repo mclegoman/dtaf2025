@@ -13,10 +13,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -29,6 +26,7 @@ public class ItemGroupRegistry {
 	public static void init() {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
 			content.addAfter(Items.AMETHYST_SHARD, ItemRegistry.crystal);
+			content.addAfter(Items.SLIME_BALL, ItemRegistry.moonSlimeBall);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
 			content.addAfter(Items.AMETHYST_BLOCK, ItemRegistry.crystalBlock);
@@ -42,16 +40,26 @@ public class ItemGroupRegistry {
 			content.add(ItemRegistry.crystalBlock);
 			content.add(ItemRegistry.crystalGlass);
 			content.add(ItemRegistry.crystalGlassPane);
-			content.add(ItemRegistry.lockedChest);
-			content.add(ItemRegistry.spaceAir);
+
 			content.add(ItemRegistry.moonStone);
+
+			content.add(ItemRegistry.moonSlimeSpawnEgg);
+			content.add(ItemRegistry.moonSlimeBall);
+
 			content.add(ItemRegistry.musicDiscBrightDay);
+
+			content.add(ItemRegistry.lockedChest);
+
+			content.add(ItemRegistry.spaceAir);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(content -> {
 			content.add(ItemRegistry.spaceAir);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
 			content.addAfter(Items.MUSIC_DISC_PIGSTEP, ItemRegistry.musicDiscBrightDay);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
+			content.addAfter(Items.SLIME_SPAWN_EGG, ItemRegistry.moonSlimeSpawnEgg);
 		});
 	}
 	public static RegistryKey<ItemGroup> register(Identifier id, ItemGroup itemGroup) {

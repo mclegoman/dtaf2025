@@ -1,3 +1,10 @@
+/*
+    dtaf2025
+    Contributor(s): dannytaylor
+    Github: https://github.com/mclegoman/dtaf2025
+    Licence: GNU LGPLv3
+*/
+
 package com.mclegoman.dtaf2025.common.entity;
 
 import com.mclegoman.dtaf2025.common.particle.ParticleRegistry;
@@ -7,6 +14,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class MoonSlimeEntity extends SlimeEntity {
@@ -18,5 +26,17 @@ public class MoonSlimeEntity extends SlimeEntity {
 	}
 	protected ParticleEffect getParticles() {
 		return ParticleRegistry.itemMoonSlime;
+	}
+	public void setSize(int size, boolean heal) {
+		int clampedSize = MathHelper.clamp(size, 1, 127);
+		this.dataTracker.set(SLIME_SIZE, clampedSize);
+		this.refreshPosition();
+		this.calculateDimensions();
+		int value = clampedSize * 2;
+		this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(value * value);
+		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2F + 0.1F * (float) value);
+		this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(value);
+		if (heal) this.setHealth(this.getMaxHealth());
+		this.experiencePoints = value;
 	}
 }
