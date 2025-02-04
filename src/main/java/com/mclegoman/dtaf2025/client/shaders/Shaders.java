@@ -10,6 +10,7 @@ package com.mclegoman.dtaf2025.client.shaders;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
+import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.luminance.client.events.Events;
 import com.mclegoman.luminance.client.shaders.Shader;
 import net.minecraft.util.Identifier;
@@ -33,9 +34,16 @@ public class Shaders {
 				new Shader.Data(
 						getId("space"),
 						new Shader(
-								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("sanic")),
+								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("space")),
 								Shaders::getRenderType,
 								Shaders::canRenderSpaceShader)
+				),
+				new Shader.Data(
+						getId("sanic"),
+						new Shader(
+								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("sanic")),
+								Shaders::getRenderType,
+								Shaders::canRenderSanicShader)
 				)
 		);
 	}
@@ -46,7 +54,10 @@ public class Shaders {
 		return true;
 	}
 	private static boolean canRenderSpaceShader() {
-		return WorldHelper.isInSpace(ClientData.client.world);
+		return WorldHelper.isInSpace(ClientData.client.player);
+	}
+	private static boolean canRenderSanicShader() {
+		return EasterEggRegistry.getSanic();
 	}
 	private static Shader.RenderType getRenderType() {
 		return Shader.RenderType.WORLD;

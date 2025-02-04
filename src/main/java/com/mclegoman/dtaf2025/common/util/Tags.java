@@ -28,8 +28,10 @@ public class Tags {
 	public static class WorldGen {
 		public static class Biome {
 			public static final TagKey<net.minecraft.world.biome.Biome> noOxygen;
+			public static final TagKey<net.minecraft.world.biome.Biome> space;
 			static {
 				noOxygen = TagKey.of(RegistryKeys.BIOME, Identifier.of(Data.getVersion().getID(), "no_oxygen"));
+				space = TagKey.of(RegistryKeys.BIOME, Identifier.of(Data.getVersion().getID(), "space"));
 			}
 		}
 	}

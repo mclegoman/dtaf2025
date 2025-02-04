@@ -8,6 +8,8 @@
 package com.mclegoman.dtaf2025.client.world;
 
 import com.mclegoman.dtaf2025.client.world.dimension.SpaceEffect;
+import com.mclegoman.dtaf2025.common.util.Tags;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -18,6 +20,9 @@ import net.minecraft.util.math.ColorHelper;
 import org.joml.Matrix4f;
 
 public class WorldHelper {
+	public static boolean isInSpace(ClientPlayerEntity player) {
+		return player != null && player.getWorld().getBiome(player.getBlockPos()).isIn(Tags.WorldGen.Biome.space);
+	}
 	public static boolean isInSpace(ClientWorld world) {
 		return world != null && world.getDimensionEffects() instanceof SpaceEffect;
 	}
