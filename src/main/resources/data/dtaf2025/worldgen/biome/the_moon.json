@@ -9,12 +9,17 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "music": {
-      "max_delay": 24000,
-      "min_delay": 12000,
-      "replace_current_music": true,
-      "sound": "dtaf2025:music.space"
-    },
+    "music": [
+      {
+        "weight": 1,
+        "data": {
+          "sound": "dtaf2025:music.space",
+          "min_delay": 12000,
+          "max_delay": 24000,
+          "replace_current_music": false
+        }
+      }
+    ],
     "particle": {
       "options": {
         "type": "minecraft:white_ash"
@@ -45,7 +50,14 @@
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "dtaf2025:moon_slime",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

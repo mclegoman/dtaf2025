@@ -7,9 +7,11 @@
 
 package com.mclegoman.dtaf2025.client;
 
+import com.mclegoman.dtaf2025.client.entity.EntityModelRegistry;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.client.block.ClientBlockRegistry;
 import com.mclegoman.dtaf2025.client.item.ItemGroupRegistry;
+import com.mclegoman.dtaf2025.client.network.ClientPackets;
 import com.mclegoman.dtaf2025.client.shaders.Shaders;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,10 +24,12 @@ import net.minecraft.resource.ResourceType;
 public class AprilFoolsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		ClientPackets.init();
 		ClientBlockRegistry.init();
 		TitleScreenHelper.init();
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SkyDataloader());
 		ItemGroupRegistry.init();
+		EntityModelRegistry.init();
 		Shaders.init();
 	}
 }

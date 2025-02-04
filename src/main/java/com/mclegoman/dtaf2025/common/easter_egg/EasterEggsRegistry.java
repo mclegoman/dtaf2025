@@ -12,11 +12,11 @@ import java.util.List;
 
 public class EasterEggsRegistry {
 	private final static List<Long> sanicEasterEggSeeds = new ArrayList<>();
-	public static void addSharewareSeed(long seed) {
+	public static void addSanicSeed(long seed) {
 		if (!sanicEasterEggSeeds.contains(seed)) sanicEasterEggSeeds.add(seed);
 	}
 	public static void init() {
-		addSharewareSeed(78665946);
+		addSanicSeed(78665946);
 	}
 	// When the world seed is "78665946" which the player can set by inputting "SANIC".
 	public static boolean isSanicEasterEgg(long seed) {

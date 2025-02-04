@@ -10,7 +10,7 @@ package com.mclegoman.dtaf2025.client.shaders;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
-import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
+import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mclegoman.luminance.client.events.Events;
 import com.mclegoman.luminance.client.shaders.Shader;
 import net.minecraft.util.Identifier;
@@ -58,7 +58,7 @@ public class Shaders {
 		return WorldHelper.isInSpace(ClientData.client.world);
 	}
 	private static boolean canRenderSanicShader() {
-		return com.mclegoman.luminance.client.data.ClientData.minecraft.player != null && ((Sanic) com.mclegoman.luminance.client.data.ClientData.minecraft.player).dtaf2025$isSanic();
+		return Packets.Values.isSanic;
 	}
 	private static Shader.RenderType getRenderType() {
 		return Shader.RenderType.WORLD;

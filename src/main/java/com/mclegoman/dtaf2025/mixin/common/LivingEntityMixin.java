@@ -11,7 +11,7 @@ import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;
 import com.mclegoman.dtaf2025.common.entity.damage.DamageRegistry;
 import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import com.mclegoman.dtaf2025.common.entity.data.air.AirComponent;
-import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
+import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mclegoman.dtaf2025.common.util.Tags;
 import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import net.minecraft.entity.Entity;
@@ -23,7 +23,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -54,10 +53,7 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	@Inject(method = "getGravity", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getGravity(CallbackInfoReturnable<Double> cir) {
 		double gravity = cir.getReturnValue();
-		if (this.isPlayer()) {
-			PlayerEntity player = this.getWorld().getPlayerByUuid(this.getUuid());
-			if (player != null && ((Sanic)player).dtaf2025$isSanic()) gravity *= 2.0F;
-		}
+		if (this.isPlayer() && Packets.Values.isSanic) gravity *= 2.0F;
 		if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
 			if (!EnchantmentRegistry.hasHeavyFooted((LivingEntity)(Object) this)) gravity *= 0.16F;
 		} else {
@@ -88,30 +84,27 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 
 	@Inject(method = "getJumpVelocity(F)F", at = @At("RETURN"), cancellable = true)
 	private void dtaf2025$getJumpVelocity(CallbackInfoReturnable<Float> cir) {
-		if (this.isPlayer()) {
-			PlayerEntity player = this.getWorld().getPlayerByUuid(this.getUuid());
-			if (player != null) {
-				if (((Sanic)player).dtaf2025$isSanic()) cir.setReturnValue(cir.getReturnValue() * 2.0F);
-			}
-		}
+		if (this.isPlayer() && Packets.Values.isSanic) cir.setReturnValue(cir.getReturnValue() * 2.0F);
 	}
 	@Inject(method = "baseTick", at = @At("RETURN"))
 	private void dtaf2025$baseTick(CallbackInfo ci) {
 		if (this.isAlive()) {
-			boolean isInAir = true;
-			if (!EnchantmentRegistry.hasSpaceBreathing((LivingEntity)(Object) this) && !this.getWorld().getBlockState(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.Blocks.spaceAir)) {
-				if (this.getWorld().getBiome(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.Biome.noOxygen)) {
-					if (!this.isInvulnerable()) {
-						this.dtaf2025$setAir(this.dtaf2025$getNextAirSpace(this.dtaf2025$getAir()));
-						if (this.dtaf2025$getAir() <= -20) {
-							this.dtaf2025$setAir(0);
-							if (getWorld() instanceof ServerWorld serverWorld) this.damage(serverWorld, DamageRegistry.spaceSuffocation.getSource(serverWorld), 8.0F);
+			if (!this.getType().isIn(Tags.EntityType.canBreatheInSpace)) {
+				boolean isInAir = true;
+				if (!EnchantmentRegistry.hasSpaceBreathing((LivingEntity)(Object) this) && !this.getWorld().getBlockState(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.Block.spaceAir)) {
+					if (this.getWorld().getBiome(BlockPos.ofFloored(this.getX(), this.getEyeY(), this.getZ())).isIn(Tags.WorldGen.Biome.noOxygen)) {
+						if (!this.isInvulnerable()) {
+							this.dtaf2025$setAir(this.dtaf2025$getNextAirSpace(this.dtaf2025$getAir()));
+							if (this.dtaf2025$getAir() <= -20) {
+								this.dtaf2025$setAir(0);
+								if (getWorld() instanceof ServerWorld serverWorld) this.damage(serverWorld, DamageRegistry.spaceSuffocation.getSource(serverWorld), 8.0F);
+							}
 						}
+						isInAir = false;
 					}
-					isInAir = false;
 				}
+				if (isInAir && this.dtaf2025$getAir() < this.getMaxAir()) this.dtaf2025$setAir(this.getNextAirOnLand(this.dtaf2025$getAir()));
 			}
-			if (isInAir && this.dtaf2025$getAir() < this.getMaxAir()) this.dtaf2025$setAir(this.getNextAirOnLand(this.dtaf2025$getAir()));
 		}
 	}
 	@Unique

@@ -5,8 +5,7 @@
 	"plugin": "com.mclegoman.dtaf2025.mixin.MixinPlugin",
 	"mixins": [
 		"common.LivingEntityMixin",
-		"common.PlayerEntityMixin",
-		"common.ServerWorldMixin"
+		"common.PlayerEntityMixin"
 	],
 	"client": [
 		"client.GameGuiMixin",

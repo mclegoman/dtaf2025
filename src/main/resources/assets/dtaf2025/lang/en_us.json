@@ -5,6 +5,7 @@
 	"dtaf2025.splashes.favourite_seed": "My favorite seed is 78665946",
 	"dtaf2025.splashes.sanic": "SANIC",
 	"dtaf2025.splashes.sponsored_by_steve_co": "Sponsored by Steve Co.",
+	"dtaf2025.splashes.oooh_shiny": "Oooh, shiny!",
 
 	"gui.dtaf2025.config.actually_open_shop": "Crates open Shop: %s",
 	"gui.dtaf2025.config.actually_open_shop.hover": "Determines whether Steve Co. Supply Crates can open the Minecraft shop",
@@ -49,5 +50,7 @@
 	"gui.dtaf2025.commands.dimension.success.single": "Teleported %s to %s",
 
 	"painting.dtaf2025.moon.title": "The Moon",
-	"painting.dtaf2025.moon.author": "dannytaylor"
+	"painting.dtaf2025.moon.author": "dannytaylor",
+
+	"entity.dtaf2025.moon_slime": "Moon Slime"
 }
