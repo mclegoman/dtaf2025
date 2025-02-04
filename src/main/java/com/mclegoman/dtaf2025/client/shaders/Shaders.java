@@ -10,6 +10,7 @@ package com.mclegoman.dtaf2025.client.shaders;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
+import com.mclegoman.dtaf2025.common.entity.data.sanic.Sanic;
 import com.mclegoman.luminance.client.events.Events;
 import com.mclegoman.luminance.client.shaders.Shader;
 import net.minecraft.util.Identifier;
@@ -20,6 +21,7 @@ public class Shaders {
 	public static void init() {
 		Events.ShaderRender.register(getId("main"));
 		Events.AfterShaderDataRegistered.register(getId("main"), () -> Events.ShaderRender.modify(getId("main"), setup()));
+		Uniforms.init();
 	}
 	private static List<Shader.Data> setup() {
 		return List.of(
@@ -33,9 +35,16 @@ public class Shaders {
 				new Shader.Data(
 						getId("space"),
 						new Shader(
-								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("space")),
+								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("sanic")),
 								Shaders::getRenderType,
 								Shaders::canRenderSpaceShader)
+				),
+				new Shader.Data(
+						getId("sanic"),
+						new Shader(
+								com.mclegoman.luminance.client.shaders.Shaders.get(getId("main"), getId("sanic")),
+								Shaders::getRenderType,
+								Shaders::canRenderSanicShader)
 				)
 		);
 	}
@@ -47,6 +56,9 @@ public class Shaders {
 	}
 	private static boolean canRenderSpaceShader() {
 		return WorldHelper.isInSpace(ClientData.client.world);
+	}
+	private static boolean canRenderSanicShader() {
+		return com.mclegoman.luminance.client.data.ClientData.minecraft.player != null && ((Sanic) com.mclegoman.luminance.client.data.ClientData.minecraft.player).dtaf2025$isSanic();
 	}
 	private static Shader.RenderType getRenderType() {
 		return Shader.RenderType.WORLD;

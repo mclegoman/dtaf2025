@@ -10,14 +10,26 @@ package com.mclegoman.dtaf2025.common.sound;
 import com.mclegoman.dtaf2025.common.data.Data;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class SoundRegistry {
 	public static final SoundEvent lockedChestStore;
+	public static RegistryEntry.Reference<SoundEvent> musicSpace;
+	public static MusicSound musicMenu;
 	public static void init() {
 	}
+	private static SoundEvent registerSoundEvent(Identifier identifier) {
+		return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
+	}
+	private static RegistryEntry.Reference<SoundEvent> registerSoundEventReference(Identifier identifier) {
+		return Registry.registerReference(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
+	}
 	static {
-		lockedChestStore = Registry.register(Registries.SOUND_EVENT, Identifier.of(Data.version.getID(), "locked_chest_store"), SoundEvent.of(Identifier.of(Data.version.getID(), "locked_chest_store")));
+		lockedChestStore = registerSoundEvent(Identifier.of(Data.version.getID(), "locked_chest_store"));
+		musicSpace = registerSoundEventReference(Identifier.of(Data.version.getID(), "music.space"));
+		musicMenu = new MusicSound(musicSpace, 20, 600, true);
 	}
 }

@@ -1,0 +1,14 @@
+{
+  "post_effect": "dtaf2025:sanic",
+  "enabled": true,
+  "translatable": false,
+  "disable_game_rendertype": true,
+  "custom": {
+    "souper_secret_settings": {
+      "disable_soup": true
+    }
+  },
+  "registries": [
+    "dtaf2025:main"
+  ]
+}

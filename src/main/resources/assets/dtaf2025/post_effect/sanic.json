@@ -1,0 +1,25 @@
+{
+    "targets": {
+        "swap": {}
+    },
+    "passes": [
+        {
+            "program": "luminance:post/overlay",
+            "inputs": [
+                {   "sampler_name": "In",   "target": "minecraft:main"  },
+                {   "sampler_name": "Overlay",  "location": "dtaf2025:sanic",   "width": 512,   "height": 512,  "bilinear": false   }
+            ],
+            "uniforms": [
+                {   "name": "Alpha",    "values": [ 1.0 ],  "override": [ "luminance_isSprinting" ]  }
+            ],
+            "output": "swap"
+        },
+        {
+            "program": "minecraft:post/blit",
+            "inputs": [
+                {   "sampler_name": "In",   "target": "swap"    }
+            ],
+            "output": "minecraft:main"
+        }
+    ]
+}
