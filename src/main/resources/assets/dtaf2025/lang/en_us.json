@@ -21,6 +21,9 @@
 
 	"block.dtaf2025.moon_stone": "Moon Stone",
 
+	"item.dtaf2025.music_disc_bright_day": "Music Disc",
+	"jukebox_song.dtaf2025.bright_day": "dannytaylor - Bright Day",
+
 	"block.dtaf2025.space_air": "Space Air",
 	"death.attack.space_suffocation": "%1$s forgot that they couldn't breathe in space",
 	"death.attack.space_suffocation.player": "%1$s forgot that they couldn't breathe in space while trying to escape %2$s",

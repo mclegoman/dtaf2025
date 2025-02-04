@@ -45,9 +45,13 @@ public class ItemGroupRegistry {
 			content.add(ItemRegistry.lockedChest);
 			content.add(ItemRegistry.spaceAir);
 			content.add(ItemRegistry.moonStone);
+			content.add(ItemRegistry.musicDiscBrightDay);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(content -> {
 			content.add(ItemRegistry.spaceAir);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+			content.addAfter(Items.MUSIC_DISC_PIGSTEP, ItemRegistry.musicDiscBrightDay);
 		});
 	}
 	public static RegistryKey<ItemGroup> register(Identifier id, ItemGroup itemGroup) {

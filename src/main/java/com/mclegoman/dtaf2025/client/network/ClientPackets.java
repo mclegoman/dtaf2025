@@ -24,17 +24,15 @@ public class ClientPackets {
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> sendRequest(Packets.isSanic));
 	}
 	public static void sendRequest(Identifier requestId) {
-		Data.getVersion().sendToLog(LogType.INFO, "[CLIENT] Requesting '" + requestId.toString() + "' packet!");
 		ClientPlayNetworking.send(new RequestPayload(requestId));
 	}
 	public static void receiveRequest(RequestPayload payload, ClientPlayNetworking.Context context) {
-		Data.getVersion().sendToLog(LogType.INFO, "[CLIENT] Received RequestPayload: " + payload.identifier());
-		// We don't currently have anything to send to the server.
-//			ClientData.minecraft.execute(() -> {
-//			});
+		ClientData.minecraft.execute(() -> {
+			// We don't currently have anything to send to the server.
+			Data.getVersion().sendToLog(LogType.WARN, "[CLIENT] Unexpectedly received RequestPayload: " + payload.identifier());
+		});
 	}
 	public static void receiveSanic(SanicPayload payload, ClientPlayNetworking.Context context) {
-		Data.getVersion().sendToLog(LogType.INFO, "[CLIENT] Received SanicPayload: " + payload.isSanic());
 		ClientData.minecraft.execute(() -> Packets.Values.isSanic = payload.isSanic());
 	}
 }

@@ -1,0 +1,8 @@
+{
+	"comparator_output": 12,
+	"description": {
+		"translate": "jukebox_song.dtaf2025.bright_day"
+	},
+	"length_in_seconds": 95.0,
+	"sound_event": "dtaf2025:music_disc.bright_day"
+}

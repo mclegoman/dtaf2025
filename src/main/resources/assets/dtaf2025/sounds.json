@@ -9,5 +9,10 @@
 		"sounds": [
 			"dtaf2025:music/devoid"
 		]
+	},
+	"music_disc.bright_day": {
+		"sounds": [
+			"dtaf2025:music_disc/bright_day"
+		]
 	}
 }

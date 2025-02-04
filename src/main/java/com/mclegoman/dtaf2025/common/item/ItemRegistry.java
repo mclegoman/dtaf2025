@@ -9,11 +9,13 @@ package com.mclegoman.dtaf2025.common.item;
 
 import com.mclegoman.dtaf2025.common.block.BlockRegistry;
 import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class ItemRegistry {
 	public static final Item spaceAir;
@@ -23,6 +25,7 @@ public class ItemRegistry {
 	public static final Item crystalGlass;
 	public static final Item crystalGlassPane;
 	public static final Item lockedChest;
+	public static final Item musicDiscBrightDay;
 	public static void init() {
 	}
 	static {
@@ -33,5 +36,6 @@ public class ItemRegistry {
 		crystalGlass = Items.register(BlockRegistry.crystalGlass);
 		crystalGlassPane = Items.register(BlockRegistry.crystalGlassPane);
 		lockedChest = Items.register(BlockRegistry.lockedChest);
+		musicDiscBrightDay = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.version.getID(), "music_disc_bright_day")), Item::new, new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(SoundRegistry.jukeboxBrightDay));
 	}
 }
