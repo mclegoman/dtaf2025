@@ -15,9 +15,14 @@
 	"itemGroup.dtaf2025": "%s",
 
 	"item.dtaf2025.crystal": "Crystal",
+	"block.dtaf2025.crystal_ore": "Crystal Ore",
 	"block.dtaf2025.crystal_block": "Block of Crystal",
+	"block.dtaf2025.crystal_stairs": "Crystal Stairs",
+	"block.dtaf2025.crystal_slab": "Crystal Slab",
+	"block.dtaf2025.crystal_wall": "Crystal Wall",
 	"block.dtaf2025.crystal_glass": "Crystal Glass",
 	"block.dtaf2025.crystal_glass_pane": "Crystal Glass Pane",
+	"block.dtaf2025.pulser": "Pulser",
 
 	"block.dtaf2025.moon_stone": "Moon Stone",
 

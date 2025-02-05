@@ -28,20 +28,34 @@ public class ItemGroupRegistry {
 			content.addAfter(Items.AMETHYST_SHARD, ItemRegistry.crystal);
 			content.addAfter(Items.SLIME_BALL, ItemRegistry.moonSlimeBall);
 		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
+			content.addAfter(Items.END_STONE, ItemRegistry.moonStone);
+			content.addAfter(ItemRegistry.moonStone, ItemRegistry.crystalOre);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(content -> {
+			content.addAfter(Items.OBSERVER, ItemRegistry.pulser);
+		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
 			content.addAfter(Items.AMETHYST_BLOCK, ItemRegistry.crystalBlock);
+			content.addAfter(ItemRegistry.crystalBlock, ItemRegistry.crystalStairs);
+			content.addAfter(ItemRegistry.crystalStairs, ItemRegistry.crystalSlab);
+			content.addAfter(ItemRegistry.crystalSlab, ItemRegistry.crystalWall);
 			content.addBefore(Items.END_STONE, ItemRegistry.moonStone);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
 			content.addBefore(Items.END_STONE, ItemRegistry.moonStone);
 		});
 		ItemGroupEvents.modifyEntriesEvent(dtaf2025).register(content -> {
+			content.add(ItemRegistry.moonStone);
+			content.add(ItemRegistry.crystalOre);
 			content.add(ItemRegistry.crystal);
 			content.add(ItemRegistry.crystalBlock);
+			content.add(ItemRegistry.crystalStairs);
+			content.add(ItemRegistry.crystalSlab);
+			content.add(ItemRegistry.crystalWall);
 			content.add(ItemRegistry.crystalGlass);
 			content.add(ItemRegistry.crystalGlassPane);
-
-			content.add(ItemRegistry.moonStone);
+			content.add(ItemRegistry.pulser);
 
 			content.add(ItemRegistry.moonSlimeSpawnEgg);
 			content.add(ItemRegistry.moonSlimeBall);

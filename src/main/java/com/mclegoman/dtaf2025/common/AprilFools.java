@@ -16,6 +16,7 @@ import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mclegoman.dtaf2025.common.painting.PaintingRegistry;
 import com.mclegoman.dtaf2025.common.particle.ParticleRegistry;
 import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
+import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import com.mclegoman.dtaf2025.common.world.feature.FeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 
@@ -30,6 +31,7 @@ public class AprilFools implements ModInitializer {
 		PaintingRegistry.init();
 		EnchantmentRegistry.init();
 		EntityRegistry.init();
+		DimensionRegistry.init();
 		FeatureRegistry.init();
 		CommandRegistry.init();
 	}

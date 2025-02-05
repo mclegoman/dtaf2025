@@ -20,8 +20,10 @@ public class Tags {
 		}
 	}
 	public static class Block {
+		public static final TagKey<net.minecraft.block.Block> moonOreReplaceables;
 		public static final TagKey<net.minecraft.block.Block> spaceAir;
 		static {
+			moonOreReplaceables = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "moon_ore_replaceables"));
 			spaceAir = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_air"));
 		}
 	}

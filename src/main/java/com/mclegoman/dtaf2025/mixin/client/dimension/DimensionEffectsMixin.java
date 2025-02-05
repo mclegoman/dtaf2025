@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.mixin.client.dimension;
 
-import com.mclegoman.dtaf2025.client.world.dimension.DimensionRegistry;
+import com.mclegoman.dtaf2025.client.world.dimension.ClientDimensionRegistry;
 import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.world.dimension.DimensionType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class DimensionEffectsMixin {
 	@Inject(method = "byDimensionType", at = @At("HEAD"), cancellable = true)
 	private static void dtaf2025$byDimensionType(DimensionType dimensionType, CallbackInfoReturnable<DimensionEffects> cir) {
-		DimensionEffects effects = DimensionRegistry.getEffectType(dimensionType.effects());
+		DimensionEffects effects = ClientDimensionRegistry.getEffectType(dimensionType.effects());
 		if (effects != null) cir.setReturnValue(effects);
 	}
 }

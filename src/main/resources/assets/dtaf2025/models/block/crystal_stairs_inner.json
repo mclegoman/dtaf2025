@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/inner_stairs",
+	"textures": {
+		"bottom": "dtaf2025:block/crystal_block",
+		"side": "dtaf2025:block/crystal_block",
+		"top": "dtaf2025:block/crystal_block"
+	}
+}

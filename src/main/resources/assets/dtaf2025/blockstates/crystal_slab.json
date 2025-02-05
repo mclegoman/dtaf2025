@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "dtaf2025:block/crystal_slab"
+		},
+		"type=double": {
+			"model": "dtaf2025:block/crystal_block"
+		},
+		"type=top": {
+			"model": "dtaf2025:block/crystal_slab_top"
+		}
+	}
+}

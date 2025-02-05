@@ -11,7 +11,8 @@ import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.client.sky.Sky;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
-import com.mclegoman.dtaf2025.client.world.dimension.DimensionRegistry;
+import com.mclegoman.dtaf2025.client.world.dimension.ClientDimensionRegistry;
+import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
@@ -60,10 +61,10 @@ public abstract class WorldRendererMixin {
 						matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F));
 						matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(skyAngle * 360.0F));
 						if (WorldHelper.isIn(this.world, DimensionRegistry.spaceStation.getId())) {
-							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.1F);
+							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.1F, true);
 							WorldHelper.renderMoon(moonPhase, rainGradiant, immediate, matrixStack, 1.04F);
 						} else if (WorldHelper.isIn(this.world, DimensionRegistry.theMoon.getId())) {
-							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.04F);
+							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.04F, true);
 						}
 					}
 					float rainGradiantSky = rainGradiant;

@@ -15,7 +15,7 @@ import com.mclegoman.dtaf2025.client.network.ClientPackets;
 import com.mclegoman.dtaf2025.client.particle.ClientParticleRegistry;
 import com.mclegoman.dtaf2025.client.shaders.Shaders;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
-import com.mclegoman.dtaf2025.client.world.dimension.DimensionRegistry;
+import com.mclegoman.dtaf2025.client.world.dimension.ClientDimensionRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -33,7 +33,7 @@ public class ClientAprilFools implements ClientModInitializer {
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SkyDataloader());
 		ItemGroupRegistry.init();
 		EntityModelRegistry.init();
-		DimensionRegistry.init();
+		ClientDimensionRegistry.init();
 		Shaders.init();
 	}
 }

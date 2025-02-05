@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"chest": "dtaf2025:block/locked_chest/chest",
-		"particle": "dtaf2025:block/locked_chest/particle"
+		"chest": "dtaf2025:block/locked_chest",
+		"particle": "dtaf2025:block/locked_chest_particle"
 	},
 	"elements": [
 		{

@@ -2,8 +2,13 @@
 	"replace": false,
 	"values": [
 		"dtaf2025:crystal_block",
+		"dtaf2025:crystal_stairs",
+		"dtaf2025:crystal_slab",
+		"dtaf2025:crystal_wall",
 		"dtaf2025:crystal_glass",
 		"dtaf2025:crystal_glass_pane",
-		"dtaf2025:moon_stone"
+		"dtaf2025:pulser",
+		"dtaf2025:moon_stone",
+		"dtaf2025:crystal_ore"
 	]
 }

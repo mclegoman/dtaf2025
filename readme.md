@@ -3,19 +3,26 @@
 **Release Date: April 1st 2025.**  
 _This mod was created for April Fools' 2025, and is likely to contain bugs. Use at your own risk._
 
-# Features  
+## Features  
 - Added Bloom.  
 - Added Planets to the Night Sky.  
 - Added Space Station Dimension.  
 - Added Moon Dimension.  
 
-## Steve Co. Supply Crates  
+### Steve Co. Supply Crates  
 We took the "Steve Co. Supply Crates" (also known as "Locked Chests") from Minecraft Beta 1.4,
 and made them link to the actual minecraft shop. See [here](https://minecraft.wiki/w/Locked_chest) for more info on the original!  
 This mod contains a reference to "Supply Crates" (a.k.a. "Loot Boxes", "Crates", "Gambling"), which we do not support, nor do we endorse the use of these for exchange of real-world currency. These are predatory practices designed to cause harm, and we encourage you to avoid them.  
 This reference was intended to make fun of companies that use these predatory practices.  
 
-#
+## Attributions  
+- [Emafire003/StructurePlacerAPI](https://github.com/Emafire003/StructurePlacerAPI)  
+  - We forked StructurePlacerAPI for use of structure generation (specifically for the space station).  
+- [Fabric Loader](https://fabricmc.net)  
+- [FabricAPI](https://modrinth.com/mod/fabric-api)  
+- [Minecraft](https://minecraft.net/)  
+
+##
 Licensed under LGPL-3.0-or-later.  
 
 **This mod is not affiliated with/endorsed by Mojang Studios, Microsoft, or The Official Minecraft Shop.**  

@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"pulsed=false": {
+			"model": "dtaf2025:block/pulser"
+		},
+		"pulsed=true": {
+			"model": "dtaf2025:block/pulser_on"
+		}
+	}
+}
