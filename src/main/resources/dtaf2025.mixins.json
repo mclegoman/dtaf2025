@@ -15,6 +15,7 @@
 		"client.entity.GameGuiMixin",
 		"client.sky.SkyRenderingMixin",
 		"client.sky.WorldRendererMixin",
+		"client.title_screen.GameRendererMixin",
 		"client.title_screen.LogoDrawerMixin",
 		"client.title_screen.MinecraftClientMixin",
 		"client.title_screen.RotatingCubeMapRendererMixin",
