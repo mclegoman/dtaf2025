@@ -23,6 +23,7 @@
 	"block.dtaf2025.crystal_glass": "Crystal Glass",
 	"block.dtaf2025.crystal_glass_pane": "Crystal Glass Pane",
 	"block.dtaf2025.pulser": "Pulser",
+	"item.dtaf2025.crystal_wings": "Crystal Wings",
 
 	"block.dtaf2025.moon_stone": "Moon Stone",
 	"item.dtaf2025.moon_brick": "Moon Brick",
@@ -69,6 +70,9 @@
 
 	"painting.dtaf2025.moon.title": "The Moon",
 	"painting.dtaf2025.moon.author": "dannytaylor",
+
+	"painting.dtaf2025.sun.title": "The Sun",
+	"painting.dtaf2025.sun.author": "dannytaylor",
 
 	"entity.dtaf2025.moon_slime": "Moon Slime"
 }

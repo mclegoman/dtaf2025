@@ -75,6 +75,7 @@ public class ItemGroupRegistry {
 			content.add(ItemRegistry.crystalWall);
 			content.add(ItemRegistry.crystalGlass);
 			content.add(ItemRegistry.crystalGlassPane);
+			content.add(ItemRegistry.crystalWings);
 			content.add(ItemRegistry.pulser);
 			content.add(ItemRegistry.moonSlimeSpawnEgg);
 			content.add(ItemRegistry.moonSlimeBall);
@@ -96,6 +97,7 @@ public class ItemGroupRegistry {
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
 			content.addAfter(Items.MUSIC_DISC_PIGSTEP, ItemRegistry.musicDiscBrightDay);
+			content.addAfter(Items.ELYTRA, ItemRegistry.crystalWings);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
 			content.addAfter(Items.SLIME_SPAWN_EGG, ItemRegistry.moonSlimeSpawnEgg);

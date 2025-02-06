@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": "dtaf2025:crystal",
+		"M": "minecraft:phantom_membrane"
+	},
+	"pattern": [
+		"M#M",
+		"M M"
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:crystal_wings"
+	}
+}

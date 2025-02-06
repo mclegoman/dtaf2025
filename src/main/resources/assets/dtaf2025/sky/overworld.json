@@ -4,22 +4,12 @@
 			"id": "dtaf2025:space_station",
 			"position": [
 				{
-					"type": "y",
-					"value": -180.0,
-					"skyAngleMultiplier": 0.0625
-				},
-				{
 					"type": "x",
-					"value": 0.0,
-					"skyAngleMultiplier": -16.0
-				},
-				{
-					"type": "z",
-					"value": 0.0,
-					"skyAngleMultiplier": -0.0625
+					"value": -180.0,
+					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 120.0,
+			"scale": 800.0,
 			"visible": "always",
 			"phases": 1,
 			"phaseOffset": 0
@@ -28,8 +18,8 @@
 			"id": "dtaf2025:the_moon",
 			"position": [
 				{
-					"type": "y",
-					"value": -90.0,
+					"type": "x",
+					"value": 180.0,
 					"skyAngleMultiplier": 0.0
 				}
 			],

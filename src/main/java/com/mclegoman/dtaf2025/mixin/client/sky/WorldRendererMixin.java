@@ -11,14 +11,12 @@ import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.client.sky.Sky;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
 import com.mclegoman.dtaf2025.client.world.WorldHelper;
-import com.mclegoman.dtaf2025.client.world.dimension.ClientDimensionRegistry;
 import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.ColorHelper;
-import net.minecraft.util.math.RotationAxis;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -47,31 +45,17 @@ public abstract class WorldRendererMixin {
 					MatrixStack matrixStack = new MatrixStack();
 					float skyAngleRadians = this.world.getSkyAngleRadians(tickDelta);
 					float skyAngle = this.world.getSkyAngle(tickDelta);
-					float rainGradiant = 1.0F - this.world.getRainGradient(tickDelta);
-					float starBrightness = this.world.getStarBrightness(tickDelta) * rainGradiant;
+					float rainGradiant = 1.0F - (WorldHelper.isInSpace(this.world) ? 0.0F : this.world.getRainGradient(tickDelta));
+					float starBrightness = (this.world.getStarBrightness(tickDelta) * (WorldHelper.isInSpace(this.world) ? 1.8F : 1.0F)) * rainGradiant;
 					int skyColor = dimensionEffects.getSkyColor(skyAngle);
-					int moonPhase = this.world.getMoonPhase();
 					int skyColorAtPos = this.world.getSkyColor(ClientData.client.gameRenderer.getCamera().getPos(), tickDelta);
 					this.skyRendering.renderSky(ColorHelper.getRedFloat(skyColorAtPos), ColorHelper.getGreenFloat(skyColorAtPos), ColorHelper.getBlueFloat(skyColorAtPos));
 					VertexConsumerProvider.Immediate immediate = this.bufferBuilders.getEntityVertexConsumers();
 					if (dimensionEffects.isSunRisingOrSetting(skyAngle)) this.skyRendering.renderGlowingSky(matrixStack, immediate, skyAngleRadians, skyColor);
 					matrixStack.push();
-					if (WorldHelper.isInSpace(this.world)) {
-						rainGradiant = 1.0F;
-						matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90.0F));
-						matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(skyAngle * 360.0F));
-						if (WorldHelper.isIn(this.world, DimensionRegistry.spaceStation.getId())) {
-							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.1F, true);
-							WorldHelper.renderMoon(moonPhase, rainGradiant, immediate, matrixStack, 1.04F, true);
-						} else if (WorldHelper.isIn(this.world, DimensionRegistry.theMoon.getId())) {
-							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.04F, true);
-						}
-					}
-					float rainGradiantSky = rainGradiant;
-					SkyDataloader.registry.forEach((identifier, skyObj) -> Sky.renderObject(immediate, skyObj.getFirst(), skyObj.getSecond(), ClientData.client.getRenderTickCounter().getTickDelta(false), ClientData.client.world, rainGradiantSky));
+					SkyDataloader.registry.forEach((identifier, skyObj) -> Sky.renderObject(immediate, skyObj.getFirst(), skyObj.getSecond(), ClientData.client.getRenderTickCounter().getTickDelta(false), ClientData.client.world, rainGradiant));
 					immediate.draw();
-					float spaceStarBrightness = 0.92F * rainGradiant;
-					if (starBrightness > 0.0F || WorldHelper.isInSpace(this.world)) this.skyRendering.renderStars(fog, WorldHelper.isInSpace(this.world) ? spaceStarBrightness : starBrightness, matrixStack);
+					if (starBrightness > 0.0F) this.skyRendering.renderStars(fog, starBrightness, matrixStack);
 					matrixStack.pop();
 					immediate.draw();
 					if (!WorldHelper.isIn(this.world, DimensionRegistry.spaceStation.getId()) && this.isSkyDark(tickDelta)) this.skyRendering.renderSkyDark(matrixStack);

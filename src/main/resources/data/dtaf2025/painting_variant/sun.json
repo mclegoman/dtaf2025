@@ -1,0 +1,13 @@
+{
+	"asset_id": "dtaf2025:sun",
+	"author": {
+		"color": "gray",
+		"translate": "painting.dtaf2025.sun.author"
+	},
+	"height": 2,
+	"title": {
+		"color": "yellow",
+		"translate": "painting.dtaf2025.sun.title"
+	},
+	"width": 2
+}

@@ -41,21 +41,4 @@ public class WorldHelper {
 		vertexConsumer.vertex(matrix4f, f, g, f).texture(1.0F, 1.0F).color(i);
 		vertexConsumer.vertex(matrix4f, -f, g, f).texture(0.0F, 1.0F).color(i);
 	}
-	public static void renderMoon(int phase, float alpha, VertexConsumerProvider vertexConsumers, MatrixStack matrices, float scale, boolean isSpace) {
-		float f = 20.0F * scale;
-		int i = (isSpace ? 0 : phase) % 4;
-		int j = (isSpace ? 0 : phase) / 4 % 2;
-		float g = (float)(i) / 4.0F;
-		float h = (float)(j) / 2.0F;
-		float k = (float)(i + 1) / 4.0F;
-		float l = (float)(j + 1) / 2.0F;
-		float m = 100.0F;
-		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCelestial(Identifier.ofVanilla("textures/environment/moon_phases.png")));
-		int n = ColorHelper.getWhite(alpha);
-		Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-		vertexConsumer.vertex(matrix4f, -f, -m, f).texture(k, l).color(n);
-		vertexConsumer.vertex(matrix4f, f, -m, f).texture(g, l).color(n);
-		vertexConsumer.vertex(matrix4f, f, -m, -f).texture(g, h).color(n);
-		vertexConsumer.vertex(matrix4f, -f, -m, -f).texture(k, h).color(n);
-	}
 }

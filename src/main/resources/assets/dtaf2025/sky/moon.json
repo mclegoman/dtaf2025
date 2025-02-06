@@ -1,0 +1,13 @@
+{
+	"dimensions": [
+		{
+			"id": "dtaf2025:space_station",
+			"position": [
+			],
+			"scale": 48.0,
+			"visible": "always",
+			"phases": 1,
+			"phaseOffset": 0
+		}
+	]
+}

@@ -7,6 +7,8 @@
 
 package com.mclegoman.dtaf2025.client.sky;
 
+import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.*;
@@ -63,7 +65,11 @@ public class Sky {
 			if (celestialObj.dimension.equals(effectsId)) {
 				MatrixStack matrixStack = new MatrixStack();
 				matrixStack.push();
-				alpha = celestialObj.visible.equals(Visible.NIGHT) ? 0.0F * (1 - world.getStarBrightness(tickDelta)) + alpha * world.getStarBrightness(tickDelta) : alpha;
+				alpha = switch (celestialObj.visible) {
+					case NIGHT -> world.getStarBrightness(tickDelta) * alpha;
+					case DAY -> (0.5F - world.getStarBrightness(tickDelta)) * alpha;
+					default -> alpha;
+				};
 				for (Position position : celestialObj.positions()) {
 					float angle = ((-world.getSkyAngle(tickDelta) * 360.0F) * position.skyAngleMultiplier()) + position.value();
 					switch (position.type()) {
