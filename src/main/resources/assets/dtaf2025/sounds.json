@@ -7,7 +7,10 @@
 	},
 	"music.space": {
 		"sounds": [
-			"dtaf2025:music/devoid"
+			"dtaf2025:music/devoid",
+			"dtaf2025:music/cosmic",
+			"dtaf2025:music/light",
+			"dtaf2025:music/aware"
 		]
 	},
 	"music_disc.bright_day": {
