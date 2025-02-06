@@ -108,7 +108,14 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 							this.dtaf2025$setAir(this.dtaf2025$getNextAirSpace(this.dtaf2025$getAir()));
 							if (this.dtaf2025$getAir() <= -20) {
 								this.dtaf2025$setAir(0);
-								if (getWorld() instanceof ServerWorld serverWorld) this.damage(serverWorld, DamageRegistry.spaceSuffocation.getSource(serverWorld), 8.0F);
+								if (getWorld() instanceof ServerWorld serverWorld) {
+									float amount = switch (serverWorld.getDifficulty()) {
+										case PEACEFUL, EASY -> 4.0F;
+										case NORMAL -> 8.0F;
+										case HARD -> 16.0F;
+									};
+									this.damage(serverWorld, DamageRegistry.spaceSuffocation.getSource(serverWorld), amount);
+								}
 							}
 						}
 						isInAir = false;
@@ -144,9 +151,14 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 	}
 	@Unique
 	protected int dtaf2025$getNextAirSpace(int air) {
+		int amount = switch (this.getWorld().getDifficulty()) {
+			case PEACEFUL, EASY -> 5;
+			case NORMAL -> 10;
+			case HARD -> 20;
+		};
 		EntityAttributeInstance oxygenBonusAttribute = this.getAttributeInstance(EntityAttributes.OXYGEN_BONUS);
 		double oxygenBonus = (oxygenBonusAttribute != null) ? oxygenBonusAttribute.getValue() : 0.0;
-		return oxygenBonus > 0.0 && (this.random.nextDouble() >= 1.0 / (oxygenBonus + 1.0)) ? air - 10 : air - 20;
+		return oxygenBonus > 0.0 && (this.random.nextDouble() >= 1.0 / (oxygenBonus + 1.0)) ? air - amount : air - (amount * 2);
 	}
 	@Unique
 	private AirComponent airComponent;
