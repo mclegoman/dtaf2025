@@ -1,0 +1,91 @@
+{
+	"dimensions": [
+		{
+			"id": "minecraft:overworld",
+			"position": [
+				{
+					"type": "y",
+					"value": 76.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "x",
+					"value": 220.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "z",
+					"value": 200.0,
+					"skyAngleMultiplier": 0.0
+				},
+				{
+					"type": "y",
+					"value": -260.0,
+					"skyAngleMultiplier": 0.0
+				}
+			],
+			"scale": 2.0,
+			"visible": "night",
+			"phases": 1,
+			"phaseOffset": 0
+		},
+		{
+			"id": "dtaf2025:space_station",
+			"position": [
+				{
+					"type": "y",
+					"value": 76.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "x",
+					"value": 220.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "z",
+					"value": 200.0,
+					"skyAngleMultiplier": 0.0
+				},
+				{
+					"type": "y",
+					"value": -260.0,
+					"skyAngleMultiplier": 0.0
+				}
+			],
+			"scale": 2.25,
+			"visible": "always",
+			"phases": 1,
+			"phaseOffset": 0
+		},
+		{
+			"id": "dtaf2025:the_moon",
+			"position": [
+				{
+					"type": "y",
+					"value": 76.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "x",
+					"value": 220.0,
+					"skyAngleMultiplier": 1.0
+				},
+				{
+					"type": "z",
+					"value": 200.0,
+					"skyAngleMultiplier": 0.0
+				},
+				{
+					"type": "y",
+					"value": -260.0,
+					"skyAngleMultiplier": 0.0
+				}
+			],
+			"scale": 2.25,
+			"visible": "always",
+			"phases": 1,
+			"phaseOffset": 0
+		}
+	]
+}

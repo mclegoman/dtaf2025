@@ -18,8 +18,8 @@
 			"id": "dtaf2025:the_moon",
 			"position": [
 				{
-					"type": "x",
-					"value": 180.0,
+					"type": "y",
+					"value": 90.0,
 					"skyAngleMultiplier": 0.0
 				}
 			],
