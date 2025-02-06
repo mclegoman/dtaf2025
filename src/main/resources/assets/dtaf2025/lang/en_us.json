@@ -74,5 +74,8 @@
 	"painting.dtaf2025.sun.title": "The Sun",
 	"painting.dtaf2025.sun.author": "dannytaylor",
 
-	"entity.dtaf2025.moon_slime": "Moon Slime"
+	"entity.dtaf2025.moon_slime": "Moon Slime",
+
+	"gui.dtaf2025.keybindings.category.dtaf2025": "Space Update",
+	"gui.dtaf2025.keybindings.keybinding.takePanoramicScreenshots": "Take Panoramic Screenshots (DEV)"
 }

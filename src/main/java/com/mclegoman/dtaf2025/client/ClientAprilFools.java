@@ -11,10 +11,12 @@ import com.mclegoman.dtaf2025.client.entity.EntityModelRegistry;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.client.block.ClientBlockRegistry;
 import com.mclegoman.dtaf2025.client.item.ItemGroupRegistry;
+import com.mclegoman.dtaf2025.client.keybindings.Keybindings;
 import com.mclegoman.dtaf2025.client.network.ClientPackets;
 import com.mclegoman.dtaf2025.client.particle.ClientParticleRegistry;
 import com.mclegoman.dtaf2025.client.shaders.Shaders;
 import com.mclegoman.dtaf2025.client.sky.SkyDataloader;
+import com.mclegoman.dtaf2025.client.util.ClientTick;
 import com.mclegoman.dtaf2025.client.world.dimension.ClientDimensionRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -34,6 +36,8 @@ public class ClientAprilFools implements ClientModInitializer {
 		ItemGroupRegistry.init();
 		EntityModelRegistry.init();
 		ClientDimensionRegistry.init();
+		ClientTick.init();
 		Shaders.init();
+		Keybindings.init();
 	}
 }
