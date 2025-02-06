@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.mixin.client.title_screen;
 
-import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.client.panorama.PanoramaDataloader;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.RotatingCubeMapRenderer;
 import net.minecraft.util.Identifier;
@@ -25,6 +25,7 @@ public abstract class RotatingCubeMapRendererMixin {
 	@Shadow @Final public static Identifier OVERLAY_TEXTURE;
 	@Inject(at = @At("HEAD"), method = "render")
 	private void dtaf2025$render(DrawContext context, int width, int height, float alpha, float tickDelta, CallbackInfo ci) {
-		OVERLAY_TEXTURE = Identifier.of(Data.getVersion().getID(), "textures/gui/title/background/panorama_overlay.png");
+		Identifier panoramaDir = PanoramaDataloader.getPanorama();
+		OVERLAY_TEXTURE = Identifier.of(panoramaDir.getNamespace(), panoramaDir.getPath() + "/panorama_overlay.png");
 	}
 }

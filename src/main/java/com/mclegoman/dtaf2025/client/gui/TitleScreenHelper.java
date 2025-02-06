@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.client.gui;
 
-import com.mclegoman.dtaf2025.common.data.Data;
+import com.mclegoman.dtaf2025.client.panorama.PanoramaDataloader;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -18,13 +18,18 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class TitleScreenHelper {
-	public static final CubeMapRenderer cubeMapRenderer;
-	public static final RotatingCubeMapRenderer rotatingCubeMapRenderer;
+	public static CubeMapRenderer cubeMapRenderer;
+	public static RotatingCubeMapRenderer rotatingCubeMapRenderer;
 	public static void init() {
+		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new PanoramaDataloader());
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SplashesDataloader());
 	}
-	static {
-		cubeMapRenderer = new CubeMapRenderer(Identifier.of(Data.getVersion().getID(), "textures/gui/title/background/panorama"));
+	public static void updateCubeMapRenderer() {
+		Identifier panoramaDir = PanoramaDataloader.getPanorama();
+		cubeMapRenderer = new CubeMapRenderer(Identifier.of(panoramaDir.getNamespace(), panoramaDir.getPath() + "/panorama"));
 		rotatingCubeMapRenderer = new RotatingCubeMapRenderer(cubeMapRenderer);
+	}
+	static {
+		updateCubeMapRenderer();
 	}
 }

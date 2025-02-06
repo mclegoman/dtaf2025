@@ -44,7 +44,7 @@ public class SplashesDataloader extends JsonDataLoader implements IdentifiableRe
 			if (getSplashText() != null) splashes.remove(getSplashText());
 			splashText = splashes.get(new Random().nextInt(splashes.size()));
 		} else {
-			if (registry.size() == 1) splashText = registry.get(0);
+			if (registry.size() == 1) splashText = registry.getFirst();
 			else splashText = new Couple<>("", false);
 		}
 	}

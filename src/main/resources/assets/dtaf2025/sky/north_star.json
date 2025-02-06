@@ -33,7 +33,7 @@
 					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 0.625,
+			"scale": 0.65,
 			"visible": "night",
 			"phases": 1,
 			"phaseOffset": 0
@@ -52,7 +52,7 @@
 					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 0.625,
+			"scale": 0.65,
 			"visible": "night",
 			"phases": 1,
 			"phaseOffset": 0

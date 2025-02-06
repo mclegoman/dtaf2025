@@ -10,7 +10,7 @@
 				},
 				{
 					"type": "x",
-					"value": 100.0,
+					"value": -150.0,
 					"skyAngleMultiplier": 1.0
 				},
 				{
@@ -20,11 +20,11 @@
 				},
 				{
 					"type": "y",
-					"value": -100.0,
+					"value": 150.0,
 					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 5.0,
+			"scale": 2.5,
 			"visible": "night",
 			"phases": 1,
 			"phaseOffset": 0
@@ -39,7 +39,7 @@
 				},
 				{
 					"type": "x",
-					"value": 100.0,
+					"value": -150.0,
 					"skyAngleMultiplier": 1.0
 				},
 				{
@@ -49,11 +49,11 @@
 				},
 				{
 					"type": "y",
-					"value": -100.0,
+					"value": 150.0,
 					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 5.0,
+			"scale": 2.75,
 			"visible": "always",
 			"phases": 1,
 			"phaseOffset": 0
@@ -68,8 +68,8 @@
 				},
 				{
 					"type": "x",
-					"value": 100.0,
-					"skyAngleMultiplier": 2.0
+					"value": -150.0,
+					"skyAngleMultiplier": 1.0
 				},
 				{
 					"type": "z",
@@ -78,11 +78,11 @@
 				},
 				{
 					"type": "y",
-					"value": -100.0,
+					"value": 150.0,
 					"skyAngleMultiplier": 0.0
 				}
 			],
-			"scale": 5.0,
+			"scale": 2.75,
 			"visible": "always",
 			"phases": 1,
 			"phaseOffset": 0
