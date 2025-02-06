@@ -13,6 +13,7 @@ import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.luminance.client.util.JsonDataLoader;
+import com.mclegoman.luminance.common.util.Couple;
 import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -22,39 +23,25 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.profiler.Profiler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.IntStream;
 
 @Environment(EnvType.CLIENT)
 public class PanoramaDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
-	public static final List<Identifier> registry = new ArrayList<>();
-	private static Identifier currentPanorama;
-	public static Identifier getPanorama() {
-		return getPanorama(currentPanorama);
+	public static final Map<Identifier, Couple<Identifier, Boolean>> registry = new HashMap<>();
+	private static Couple<Identifier, Boolean> currentPanorama;
+	public static Couple<Identifier, Boolean> getPanorama() {
+		return currentPanorama != null ? currentPanorama : getDefaultPanorama();
 	}
-	private static Identifier getPanorama(Identifier identifier) {
-		Identifier panoramaId = identifier != null ? identifier : getDefaultPanorama();
-		return Identifier.of(panoramaId.getNamespace(), "textures/" + panoramaId.getPath());
-	}
-	private static List<Identifier> getPanoramaAssets(Identifier identifier) {
+	private static Couple<List<Identifier>, Identifier> getPanoramaAssets(Identifier identifier) {
 		List<Identifier> assets = new ArrayList<>();
-		Identifier panoramaDir = getPanorama(identifier);
-		IntStream.range(0, 6).forEach((face) -> assets.add(panoramaDir.withPath(panoramaDir.getPath() + "/panorama_" + face + ".png")));
-		assets.add(panoramaDir.withPath(panoramaDir.getPath() + "/panorama_overlay" + ".png"));
-		return assets;
+		IntStream.range(0, 6).forEach((face) -> assets.add(identifier.withPath(identifier.getPath() + "/panorama_" + face + ".png")));
+		Identifier overlayTexture = identifier.withPath(identifier.getPath() + "/panorama_overlay" + ".png");
+		return new Couple<>(assets, overlayTexture);
 	}
 	public static void randomizePanorama() {
-		if (registry.size() > 1) {
-			List<Identifier> panoramas = new ArrayList<>(registry);
-			if (currentPanorama != null) panoramas.remove(currentPanorama);
-			currentPanorama = panoramas.get(new Random().nextInt(panoramas.size()));
-		} else {
-			if (registry.size() == 1) currentPanorama = registry.getFirst();
-			else currentPanorama = getDefaultPanorama();
-		}
+		List<Couple<Identifier, Boolean>> panoramas = new ArrayList<>(registry.values());
+		currentPanorama = !panoramas.isEmpty() ? panoramas.get(new Random().nextInt(panoramas.size())) : getDefaultPanorama();
 	}
 	public static final String id = "panorama";
 	public PanoramaDataloader() {
@@ -65,22 +52,23 @@ public class PanoramaDataloader extends JsonDataLoader implements IdentifiableRe
 		registry.clear();
 		prepared.forEach((identifier, jsonElement) -> {
 			Identifier assets = Identifier.of(JsonHelper.getString(jsonElement.getAsJsonObject(), "assets"));
+			assets = assets.withPath("textures/" + assets.getPath());
 			boolean validPanorama = true;
-			for (Identifier asset : getPanoramaAssets(assets)) {
+			for (Identifier asset : getPanoramaAssets(assets).getFirst()) {
 				if (ClientData.client.getResourceManager().getResource(asset).isEmpty()) {
 					validPanorama = false;
 					Data.getVersion().sendToLog(LogType.WARN, "Could not find asset '" + asset + "' for panorama with id '" + identifier + "', ignoring panorama!");
 					break;
 				}
 			}
-			if (validPanorama) registry.add(assets);
+			if (validPanorama) registry.put(identifier, new Couple<>(assets, ClientData.client.getResourceManager().getResource(getPanoramaAssets(assets).getSecond()).isPresent()));
 		});
-		if (registry.isEmpty()) registry.add(getDefaultPanorama());
+		if (registry.isEmpty()) registry.put(Identifier.ofVanilla("background"), getDefaultPanorama());
 		randomizePanorama();
 		TitleScreenHelper.updateCubeMapRenderer();
 	}
-	private static Identifier getDefaultPanorama() {
-		return Identifier.of("gui/title/background");
+	private static Couple<Identifier, Boolean> getDefaultPanorama() {
+		return new Couple<>(Identifier.of("textures/gui/title/background"), true);
 	}
 	@Override
 	public Identifier getFabricId() {

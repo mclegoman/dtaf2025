@@ -25,7 +25,7 @@ public class TitleScreenHelper {
 		ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SplashesDataloader());
 	}
 	public static void updateCubeMapRenderer() {
-		Identifier panoramaDir = PanoramaDataloader.getPanorama();
+		Identifier panoramaDir = PanoramaDataloader.getPanorama().getFirst();
 		cubeMapRenderer = new CubeMapRenderer(Identifier.of(panoramaDir.getNamespace(), panoramaDir.getPath() + "/panorama"));
 		rotatingCubeMapRenderer = new RotatingCubeMapRenderer(cubeMapRenderer);
 	}
