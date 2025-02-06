@@ -23,6 +23,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.registry.RegistryKey;
@@ -50,6 +52,11 @@ import java.util.Set;
 public abstract class LivingEntityMixin extends Entity implements Air {
 	@Shadow protected abstract int getNextAirOnLand(int air);
 	@Shadow @Nullable public abstract EntityAttributeInstance getAttributeInstance(RegistryEntry<EntityAttribute> attribute);
+
+	@Shadow public abstract void setOnFireForTicks(int ticks);
+
+	@Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
+
 	public LivingEntityMixin(EntityType<?> type, World world) {
 		super(type, world);
 	}
@@ -134,7 +141,10 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 					BlockPos pos = this.getBlockPos();
 					if (pos.getY() < this.getWorld().getDimension().minY() - 16) {
 						ServerWorld overworld = this.getServer().getWorld(World.OVERWORLD);
-						if (overworld != null) this.teleportTo(new TeleportTarget(overworld, new Vec3d(pos.getX(), overworld.getHeight() + 64, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+						if (overworld != null) {
+							this.teleportTo(new TeleportTarget(overworld, new Vec3d(pos.getX(), overworld.getHeight() + 64, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+							if (!this.hasStatusEffect(StatusEffects.SLOW_FALLING)) this.setOnFireForTicks(640);
+						}
 					} else if (pos.getY() > this.getWorld().getDimension().height() + 80) {
 						ServerWorld moon = this.getServer().getWorld(DimensionRegistry.theMoon.getWorld());
 						if (moon != null) this.teleportTo(new TeleportTarget(moon, new Vec3d(pos.getX(), moon.getHeight() + 64, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));

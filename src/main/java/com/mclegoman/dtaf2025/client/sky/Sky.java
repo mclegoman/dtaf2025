@@ -7,8 +7,6 @@
 
 package com.mclegoman.dtaf2025.client.sky;
 
-import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.*;
