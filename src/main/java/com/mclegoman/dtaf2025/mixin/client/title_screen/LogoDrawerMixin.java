@@ -7,8 +7,8 @@
 
 package com.mclegoman.dtaf2025.mixin.client.title_screen;
 
+import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.dtaf2025.common.util.Compatibility;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.LogoDrawer;
 import net.minecraft.client.render.RenderLayer;
@@ -31,6 +31,7 @@ public abstract class LogoDrawerMixin {
 	private void dtaf2025$draw(DrawContext context, int screenWidth, float alpha, int y, CallbackInfo ci) {
 		int x = screenWidth / 2 - 128;
 		int a = ColorHelper.getWhite(this.ignoreAlpha ? 1.0F : alpha);
+		y -= 4;
 		if (Compatibility.getModsButtonStyle().equals("CLASSIC")) y -= 12;
 		context.drawTexture(RenderLayer::getGuiTextured, Identifier.of(Data.getVersion().getID(), "textures/gui/title/update.png"), x, y, 0.0F, 0.0F, 256, 128, 256, 128, a);
 		context.drawTexture(RenderLayer::getGuiTextured, this.minceraft ? MINCERAFT_TEXTURE : LOGO_TEXTURE, x, y, 0.0F, 0.0F, 256, 44, 256, 64, a);

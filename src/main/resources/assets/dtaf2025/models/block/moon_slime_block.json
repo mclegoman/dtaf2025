@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/slime_block",
+	"textures": {
+		"particle": "dtaf2025:block/moon_slime_block",
+		"texture": "dtaf2025:block/moon_slime_block"
+	}
+}

@@ -10,7 +10,7 @@ package com.mclegoman.dtaf2025.client.screen.locked_chest;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
-import com.mclegoman.dtaf2025.common.util.Compatibility;
+import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;

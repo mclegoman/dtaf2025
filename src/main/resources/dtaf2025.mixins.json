@@ -4,13 +4,15 @@
 	"compatibilityLevel": "JAVA_21",
 	"plugin": "com.mclegoman.dtaf2025.mixin.MixinPlugin",
 	"mixins": [
-		"common.LivingEntityMixin",
-		"common.PlayerEntityMixin"
+		"client.compatibility.ModMenuConfigMixin",
+		"client.remove_experimental_warning.IntegratedServerLoaderMixin",
+		"common.entity.LivingEntityMixin",
+		"common.entity.PlayerEntityMixin"
 	],
 	"client": [
-		"client.GameGuiMixin",
 		"client.block.ClientWorldMixin",
 		"client.dimension.DimensionEffectsMixin",
+		"client.entity.GameGuiMixin",
 		"client.sky.SkyRenderingMixin",
 		"client.sky.WorldRendererMixin",
 		"client.title_screen.LogoDrawerMixin",

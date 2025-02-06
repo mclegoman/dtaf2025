@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.mixin.common;
+package com.mclegoman.dtaf2025.mixin.common.entity;
 
 import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;

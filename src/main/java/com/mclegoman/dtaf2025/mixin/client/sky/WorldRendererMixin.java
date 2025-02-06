@@ -62,7 +62,7 @@ public abstract class WorldRendererMixin {
 						matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(skyAngle * 360.0F));
 						if (WorldHelper.isIn(this.world, DimensionRegistry.spaceStation.getId())) {
 							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.1F, true);
-							WorldHelper.renderMoon(moonPhase, rainGradiant, immediate, matrixStack, 1.04F);
+							WorldHelper.renderMoon(moonPhase, rainGradiant, immediate, matrixStack, 1.04F, true);
 						} else if (WorldHelper.isIn(this.world, DimensionRegistry.theMoon.getId())) {
 							WorldHelper.renderSun(rainGradiant, immediate, matrixStack, 1.04F, true);
 						}

@@ -22,6 +22,13 @@ import net.minecraft.util.Rarity;
 public class ItemRegistry {
 	public static final Item spaceAir;
 	public static final Item moonStone;
+	public static final Item moonBrick;
+	public static final Item moonBricks;
+	public static final Item crackedMoonBricks;
+	public static final Item moonBrickStairs;
+	public static final Item moonBrickSlab;
+	public static final Item moonBrickWall;
+	public static final Item chiseledMoonBricks;
 	public static final Item crystalOre;
 	public static final Item crystal;
 	public static final Item crystalBlock;
@@ -42,6 +49,13 @@ public class ItemRegistry {
 		moonStone = Items.register(BlockRegistry.moonStone);
 		crystalOre = Items.register(BlockRegistry.crystalOre);
 		crystal = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "crystal")), Item::new, new Item.Settings());
+		moonBrick = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_brick")), Item::new, new Item.Settings());
+		moonBricks = Items.register(BlockRegistry.moonBricks);
+		crackedMoonBricks = Items.register(BlockRegistry.crackedMoonBricks);
+		moonBrickStairs = Items.register(BlockRegistry.moonBrickStairs);
+		moonBrickSlab = Items.register(BlockRegistry.moonBrickSlab);
+		moonBrickWall = Items.register(BlockRegistry.moonBrickWall);
+		chiseledMoonBricks = Items.register(BlockRegistry.chiseledMoonBricks);
 		crystalBlock = Items.register(BlockRegistry.crystalBlock);
 		crystalStairs = Items.register(BlockRegistry.crystalStairs);
 		crystalSlab = Items.register(BlockRegistry.crystalSlab);
@@ -51,7 +65,7 @@ public class ItemRegistry {
 		pulser = Items.register(BlockRegistry.pulser);
 		lockedChest = Items.register(BlockRegistry.lockedChest);
 		moonSlimeSpawnEgg = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_spawn_egg")), (settings) -> new SpawnEggItem(EntityRegistry.moonSlime, settings), new Item.Settings());
-		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_ball")), Item::new, new Item.Settings());
+		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_ball")), Item::new, new Item.Settings().food(FoodRegistry.moonSlime, ConsumableRegistry.moonSlime));
 		musicDiscBrightDay = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "music_disc_bright_day")), Item::new, new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(SoundRegistry.jukeboxBrightDay));
 	}
 }

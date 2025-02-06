@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"dtaf2025:moon_brick_wall",
 		"dtaf2025:crystal_wall"
 	]
 }

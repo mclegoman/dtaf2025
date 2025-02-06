@@ -1,5 +1,13 @@
 {
 	"asset_id": "dtaf2025:moon",
+	"author": {
+		"color": "gray",
+		"translate": "painting.dtaf2025.moon.author"
+	},
 	"height": 1,
+	"title": {
+		"color": "yellow",
+		"translate": "painting.dtaf2025.moon.title"
+	},
 	"width": 1
 }

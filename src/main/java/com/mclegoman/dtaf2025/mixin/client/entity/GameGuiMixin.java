@@ -5,7 +5,7 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.mixin.client;
+package com.mclegoman.dtaf2025.mixin.client.entity;
 
 import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import net.minecraft.client.gui.hud.InGameHud;

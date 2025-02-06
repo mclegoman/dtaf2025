@@ -37,4 +37,16 @@ public class Tags {
 			}
 		}
 	}
+	public static class Enchantment {
+		public static final TagKey<net.minecraft.enchantment.Enchantment> dtaf2025;
+		static {
+			dtaf2025 = TagKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(Data.getVersion().getID(), "dtaf2025"));
+		}
+	}
+	public static class PaintingVariant {
+		public static final TagKey<net.minecraft.entity.decoration.painting.PaintingVariant> dtaf2025;
+		static {
+			dtaf2025 = TagKey.of(RegistryKeys.PAINTING_VARIANT, Identifier.of(Data.getVersion().getID(), "dtaf2025"));
+		}
+	}
 }

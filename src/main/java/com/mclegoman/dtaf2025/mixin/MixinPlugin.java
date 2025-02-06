@@ -8,6 +8,7 @@
 package com.mclegoman.dtaf2025.mixin;
 
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
+import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.dtaf2025.common.data.Data;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -28,6 +29,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
 		if (mixinClassName.equals("com.mclegoman.dtaf2025.mixin.client.TitleScreen.VersionOverlay")) return Data.getVersion().isDevelopmentBuild();
+		else if (mixinClassName.equals("com.mclegoman.dtaf2025.mixin.client.compatibility.ModMenuConfigMixin")) return Compatibility.isModMenuInstalled();
 		return true;
 	}
 	@Override

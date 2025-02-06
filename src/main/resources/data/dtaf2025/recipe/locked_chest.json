@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		"dtaf2025:crystal",
+		"minecraft:chest"
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:locked_chest"
+	}
+}

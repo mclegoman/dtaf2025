@@ -7,8 +7,8 @@
 
 package com.mclegoman.dtaf2025.mixin.client.title_screen;
 
+import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.dtaf2025.client.gui.SplashesDataloader;
-import com.mclegoman.dtaf2025.common.util.Compatibility;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.SplashTextRenderer;
@@ -32,7 +32,7 @@ public abstract class SplashTextRendererMixin {
 			float f = 1.8F - MathHelper.abs(MathHelper.sin((float)(Util.getMeasuringTimeMs() % 1000L) / 1000.0F * 6.2831855F) * 0.1F);
 			f = f * 100.0F / (float)(textRenderer.getWidth(SplashesDataloader.getSplashText().getSecond() ? Text.translatable(SplashesDataloader.getSplashText().getFirst()) : Text.literal(SplashesDataloader.getSplashText().getFirst())) + 32);
 			context.getMatrices().scale(f, f, f);
-			context.drawCenteredTextWithShadow(textRenderer, SplashesDataloader.getSplashText().getSecond() ? Text.translatable(SplashesDataloader.getSplashText().getFirst()) : Text.literal(SplashesDataloader.getSplashText().getFirst()), 0, Compatibility.getModsButtonStyle().equals("CLASSIC") ? -20 : -8, 16776960 | alpha);
+			context.drawCenteredTextWithShadow(textRenderer, SplashesDataloader.getSplashText().getSecond() ? Text.translatable(SplashesDataloader.getSplashText().getFirst()) : Text.literal(SplashesDataloader.getSplashText().getFirst()), 0, Compatibility.getModsButtonStyle().equals("CLASSIC") ? -14 : -8, 16776960 | alpha);
 			context.getMatrices().pop();
 		}
 		ci.cancel();

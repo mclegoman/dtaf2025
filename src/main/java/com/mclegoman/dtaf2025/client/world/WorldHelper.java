@@ -41,10 +41,10 @@ public class WorldHelper {
 		vertexConsumer.vertex(matrix4f, f, g, f).texture(1.0F, 1.0F).color(i);
 		vertexConsumer.vertex(matrix4f, -f, g, f).texture(0.0F, 1.0F).color(i);
 	}
-	public static void renderMoon(int phase, float alpha, VertexConsumerProvider vertexConsumers, MatrixStack matrices, float scale) {
+	public static void renderMoon(int phase, float alpha, VertexConsumerProvider vertexConsumers, MatrixStack matrices, float scale, boolean isSpace) {
 		float f = 20.0F * scale;
-		int i = phase % 4;
-		int j = phase / 4 % 2;
+		int i = (isSpace ? 0 : phase) % 4;
+		int j = (isSpace ? 0 : phase) / 4 % 2;
 		float g = (float)(i) / 4.0F;
 		float h = (float)(j) / 2.0F;
 		float k = (float)(i + 1) / 4.0F;
