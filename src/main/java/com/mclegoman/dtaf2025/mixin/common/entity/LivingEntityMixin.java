@@ -147,12 +147,16 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 						}
 					} else if (pos.getY() > this.getWorld().getDimension().height() + 96) {
 						ServerWorld moon = this.getServer().getWorld(DimensionRegistry.theMoon.getWorld());
+						Vec3d velocity = this.getVelocity();
+						this.setVelocity(velocity.x, -velocity.y, velocity.z);
 						if (moon != null) this.teleportTo(new TeleportTarget(moon, new Vec3d(pos.getX(), moon.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
 					}
 				} else if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
 					BlockPos pos = this.getBlockPos();
 					if (pos.getY() > this.getWorld().getDimension().height() + 96) {
 						ServerWorld spaceStation = this.getServer().getWorld(DimensionRegistry.spaceStation.getWorld());
+						Vec3d velocity = this.getVelocity();
+						this.setVelocity(velocity.x, -velocity.y, velocity.z);
 						if (spaceStation != null) this.teleportTo(new TeleportTarget(spaceStation, new Vec3d(pos.getX(), spaceStation.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
 					}
 				}
