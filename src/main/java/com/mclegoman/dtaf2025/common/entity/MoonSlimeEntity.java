@@ -10,7 +10,6 @@ package com.mclegoman.dtaf2025.common.entity;
 import com.mclegoman.dtaf2025.common.particle.ParticleRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -19,6 +18,7 @@ import net.minecraft.entity.conversion.EntityConversionContext;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -50,16 +50,14 @@ public class MoonSlimeEntity extends SlimeEntity {
 		this.experiencePoints = value;
 	}
 	public void pushAwayFrom(Entity entity) {
-		if (!(entity instanceof MoonSlimeEntity) && entity instanceof SlimeEntity && this.canAttack()) this.damage((LivingEntity)entity);
+		if (!this.getWorld().isClient && entity.getType().equals(EntityType.SLIME) && this.canAttack()) this.convertSlime((ServerWorld) this.getWorld(), (SlimeEntity) entity);
 		super.pushAwayFrom(entity);
 	}
-	public boolean onKilledOther(ServerWorld world, LivingEntity other) {
-		if (other instanceof SlimeEntity slimeEntity) {
-			slimeEntity.convertTo(EntityRegistry.moonSlime, EntityConversionContext.create(this, false, false), SpawnReason.CONVERSION, (moonSlimeEntity) -> {
-				moonSlimeEntity.setSize(slimeEntity.getSize(), true);
-				moonSlimeEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
-			});
-		}
-		return super.onKilledOther(world, other);
+	private void convertSlime(ServerWorld world, SlimeEntity slimeEntity) {
+		slimeEntity.convertTo(EntityRegistry.moonSlime, EntityConversionContext.create(this, false, false), SpawnReason.CONVERSION, (moonSlimeEntity) -> {
+			moonSlimeEntity.setSize(slimeEntity.getSize(), false);
+			moonSlimeEntity.refreshPositionAndAngles(slimeEntity.getX(), slimeEntity.getY(), slimeEntity.getZ(), slimeEntity.getYaw(), slimeEntity.getPitch());
+			world.spawnParticles(ParticleTypes.EXPLOSION, slimeEntity.getX(), slimeEntity.getBodyY(0.5), slimeEntity.getZ(), 1, 0.0, 0.0, 0.0, 0.0);
+		});
 	}
 }

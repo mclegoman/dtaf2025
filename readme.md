@@ -102,6 +102,7 @@ This reference was intended to make fun of companies that use these predatory pr
 #### Mob  
 - Moon Slimes look similar to their overworld counterparts, but are blue instead of green  
 - Moon Slimes have twice the health, movement speed, and attack damage compared to their overworld counterparts  
+- Moon Slimes will attack and convert overworld slimes if they are to ever be near each other  
 #### Moon Slime Ball
 - Unlike overworld and nether slimes, Moon Slimes drop Moon Slime Balls which can be consumed quickly  
 
