@@ -7,7 +7,6 @@
 
 package com.mclegoman.dtaf2025.client.gui;
 
-import com.mclegoman.dtaf2025.client.panorama.PanoramaDataloader;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;

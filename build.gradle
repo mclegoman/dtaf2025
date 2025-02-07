@@ -45,11 +45,11 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
 	include(modImplementation("luminance:luminance-fabric-${project.luminance}"))
-	include(modImplementation("org.quiltmc:quilt-config:${project.quilt_config}"))
-	include(modImplementation("org.quiltmc.quilt-config.serializers:toml:${project.quilt_config}"))
-	include(modImplementation("org.quiltmc.quilt-config.serializers:json5:${project.quilt_config}"))
-	include(modImplementation("com.electronwill.night-config:toml:${project.toml}"))
-	include(modImplementation("com.electronwill.night-config:core:${project.toml}"))
+	modImplementation("org.quiltmc:quilt-config:${project.quilt_config}")
+	modImplementation("org.quiltmc.quilt-config.serializers:toml:${project.quilt_config}")
+	modImplementation("org.quiltmc.quilt-config.serializers:json5:${project.quilt_config}")
+	modImplementation("com.electronwill.night-config:toml:${project.toml}")
+	modImplementation("com.electronwill.night-config:core:${project.toml}")
 
 	// Development Environment Only
 	modImplementation "com.ptsmods:devlogin:3.4.1"

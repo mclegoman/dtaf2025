@@ -28,11 +28,15 @@
   - `dtaf2025:music/light`  
   - `dtaf2025:music/aware`  
   - `dtaf2025:music/dark`  
+- Replaced box blur shader with gaussian blur shader  
 
 ### Post Effects  
+#### Gaussian Menu Blur  
+- This post effect replaces the menu blur shader  
+- The post effect is located at: `assets/dtaf2025/post_effect/gaussian`  
 #### Bloom  
 - This post effect will always render  
-- The post effect is located at: `assets/dtaf2025/post_effect/boom.json`  
+- The post effect is located at: `assets/dtaf2025/post_effect/bloom.json`  
 #### Space  
 - This post effect will render when you are in a `#dtaf2025:space` biome  
 - The post effect is located at: `assets/dtaf2025/post_effect/space.json`  

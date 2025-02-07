@@ -5,12 +5,11 @@
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.dtaf2025.client.panorama;
+package com.mclegoman.dtaf2025.client.gui;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mclegoman.dtaf2025.client.data.ClientData;
-import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.luminance.client.util.JsonDataLoader;
 import com.mclegoman.luminance.common.util.Couple;

@@ -7,7 +7,7 @@
 
 package com.mclegoman.dtaf2025.mixin.client.title_screen;
 
-import com.mclegoman.dtaf2025.client.panorama.PanoramaDataloader;
+import com.mclegoman.dtaf2025.client.gui.PanoramaDataloader;
 import com.mclegoman.luminance.common.util.Couple;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.RotatingCubeMapRenderer;
