@@ -15,6 +15,7 @@
 - Added Steve Co. Supply Crate  
 - Added Moon Slime, Moon Slime Spawn Egg, and Moon Slime Ball  
 - Added Bright Day Music Disc  
+- Added Moon, and Sun Painting
 - Added Space Air  
 - Removed Herobrine  
 
@@ -108,6 +109,12 @@ This reference was intended to make fun of companies that use these predatory pr
 - Found in Space Station and Moon loot chests  
 - Plays [dannytaylor - Bright Day](https://www.youtube.com/watch?v=lsb9qSkNLVE) when inserted into a jukebox  
 - Has a comparator output of 10  
+
+### Paintings  
+#### The Moon  
+- 1x1 painting of the moon  
+#### The Sun  
+- 2x2 painting of the sun from the moon  
 
 ### Space Air  
 - Entities that are in `#dtaf2025:no_oxygen` biomes can breathe when in or next to space air  
