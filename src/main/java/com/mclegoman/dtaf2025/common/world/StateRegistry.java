@@ -12,11 +12,12 @@ import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateManager;
 
 public class StateRegistry {
-	public static PersistentState getState(Type type, MinecraftServer server) {
+	public static PersistentState getState(StateType type, MinecraftServer server) {
 		return switch (type) {
 			case spaceStation -> SpaceStationState.getServerState(server);
 		};
@@ -35,16 +36,19 @@ public class StateRegistry {
 			return state;
 		}
 
-		private static Type<SpaceStationState> type = new Type<>(SpaceStationState::new, SpaceStationState::createFromNbt, null);
+		private static final Type<SpaceStationState> type = new Type<>(SpaceStationState::new, SpaceStationState::createFromNbt, null);
 
 		public static SpaceStationState getServerState(MinecraftServer server) {
-			PersistentStateManager persistentStateManager = server.getWorld(DimensionRegistry.spaceStation.getWorld()).getPersistentStateManager();
-			SpaceStationState state = persistentStateManager.getOrCreate(type, Data.getVersion().getID());
-			state.markDirty();
-			return state;
+			ServerWorld world = server.getWorld(DimensionRegistry.spaceStation.getWorld());
+			if (world != null) {
+				PersistentStateManager persistentStateManager = world.getPersistentStateManager();
+				SpaceStationState state = persistentStateManager.getOrCreate(type, Data.getVersion().getID());
+				state.markDirty();
+				return state;
+			} else return null;
 		}
 	}
-	public enum Type {
+	public enum StateType {
 		spaceStation
 	}
 }

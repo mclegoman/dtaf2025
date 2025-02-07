@@ -10,7 +10,6 @@ package com.mclegoman.dtaf2025.client.screen.locked_chest;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
-import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
@@ -129,47 +128,33 @@ public class LockedChestScreen extends Screen {
 			private int y;
 			private int width = 150;
 			private int height = 20;
-			private ButtonWidget.NarrationSupplier narrationSupplier;
-
 			public StoreBuilder(Text message, ButtonWidget.PressAction onPress) {
-				this.narrationSupplier = ButtonWidget.DEFAULT_NARRATION_SUPPLIER;
 				this.message = message;
 				this.onPress = onPress;
 			}
-
 			public StoreBuilder position(int x, int y) {
 				this.x = x;
 				this.y = y;
 				return this;
 			}
-
 			public StoreBuilder width(int width) {
 				this.width = width;
 				return this;
 			}
-
 			public StoreBuilder size(int width, int height) {
 				this.width = width;
 				this.height = height;
 				return this;
 			}
-
 			public StoreBuilder dimensions(int x, int y, int width, int height) {
 				return this.position(x, y).size(width, height);
 			}
-
 			public StoreBuilder tooltip(@Nullable Tooltip tooltip) {
 				this.tooltip = tooltip;
 				return this;
 			}
-
-			public StoreBuilder narrationSupplier(NarrationSupplier narrationSupplier) {
-				this.narrationSupplier = narrationSupplier;
-				return this;
-			}
-
 			public StoreButtonWidget build() {
-				StoreButtonWidget buttonWidget = new StoreButtonWidget(this.x, this.y, this.width, this.height, this.message, this.onPress, this.narrationSupplier);
+				StoreButtonWidget buttonWidget = new StoreButtonWidget(this.x, this.y, this.width, this.height, this.message, this.onPress, ButtonWidget.DEFAULT_NARRATION_SUPPLIER);
 				buttonWidget.setTooltip(this.tooltip);
 				return buttonWidget;
 			}
@@ -180,6 +165,6 @@ public class LockedChestScreen extends Screen {
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 		SteveCoWidget.renderWidget(context, this.width / 2 - 128, 30);
-		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
+		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, 2, 0xFFFFFF);
 	}
 }

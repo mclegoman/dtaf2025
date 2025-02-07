@@ -9,7 +9,6 @@ package com.mclegoman.dtaf2025.client.screen.locked_chest;
 
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
 import com.mclegoman.luminance.client.translation.Translation;
 import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
@@ -36,10 +35,7 @@ public class LockedChestInfoScreen extends Screen {
 	protected void init() {
 		this.grid.getMainPositioner().alignHorizontalCenter().margin(2);
 		this.gridAdder = grid.createAdder(1);
-
-		//this.gridAdder.add(new SteveCoWidget(0, 0, Translation.getTranslation(Data.getVersion().getID(), "locked_chest")));
 		this.gridAdder.add(new EmptyWidget(24, 24));
-
 		Text messageText = Translation.getTranslation(Data.getVersion().getID(), "locked_chest.info.message");
 		MultilineTextWidget message = new MultilineTextWidget(messageText, this.textRenderer);
 		message.setCentered(true);
@@ -92,6 +88,6 @@ public class LockedChestInfoScreen extends Screen {
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 		SteveCoWidget.renderWidget(context, this.width / 2 - 128, 30);
-		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, Compatibility.getModsButtonStyle().equals("CLASSIC") ? 2 : ClientData.client.getWindow().getScaledHeight() - 20, 0xFFFFFF);
+		if (Data.getVersion().isDevelopmentBuild()) context.drawTextWithShadow(ClientData.client.textRenderer, Text.translatable(Data.getVersion().getID() + ".development_overlay", Text.translatable(Data.getVersion().getID() + ".name"), Data.getVersion().getFriendlyString()), 2, 2, 0xFFFFFF);
 	}
 }

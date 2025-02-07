@@ -51,7 +51,7 @@ public class PanoramaDataloader extends JsonDataLoader implements IdentifiableRe
 	public void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {
 		registry.clear();
 		prepared.forEach((identifier, jsonElement) -> {
-			Identifier assets = Identifier.of(JsonHelper.getString(jsonElement.getAsJsonObject(), "assets"));
+			Identifier assets = Identifier.of(JsonHelper.getString(jsonElement.getAsJsonObject(), "asset_id"));
 			assets = assets.withPath("textures/" + assets.getPath());
 			boolean validPanorama = true;
 			for (Identifier asset : getPanoramaAssets(assets).getFirst()) {

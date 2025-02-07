@@ -26,7 +26,7 @@ public class DimensionRegistry {
 		addSpaceIds();
 		// Generates the space station after server started if the structure isn't already generated.
 		ServerLifecycleEvents.SERVER_STARTED.register((server) -> server.execute(() -> {
-			StateRegistry.SpaceStationState state = (StateRegistry.SpaceStationState)StateRegistry.getState(StateRegistry.Type.spaceStation, server);
+			StateRegistry.SpaceStationState state = (StateRegistry.SpaceStationState)StateRegistry.getState(StateRegistry.StateType.spaceStation, server);
 			if (!state.hasGeneratedSpaceStation) {
 				StructurePlacer placer = new StructurePlacer(server.getWorld(DimensionRegistry.spaceStation.getWorld()), Identifier.of(Data.getVersion().getID(), "space_station"), new BlockPos(0, 64, 0));
 				placer.generate();
