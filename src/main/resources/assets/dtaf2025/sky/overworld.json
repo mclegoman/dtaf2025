@@ -6,7 +6,7 @@
 				{
 					"type": "x",
 					"value": -180.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				}
 			],
 			"scale": 800.0,
@@ -20,7 +20,7 @@
 				{
 					"type": "y",
 					"value": 90.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				}
 			],
 			"scale": 80.0,

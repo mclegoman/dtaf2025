@@ -141,7 +141,7 @@ This reference was intended to make fun of companies that use these predatory pr
         - position object:  
           - `type` - string of `x`, `y`, or `z`  
           - `value` - float, how much to move in the type direction, `value * (skyAngle * skyAngleMultiplier)`  
-          - `skyAngleMultiplier` - float, may render werid when set under 1.0 (or over -1.0)  
+          - `skyAngleMultiplier` - integer  
       - `scale` - float, scale of object  
       - `visible` - string of `day`, `night`, or `always`, when to render  
       - `phases` - positive integer, amount of phases  

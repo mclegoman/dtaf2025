@@ -6,12 +6,12 @@
 				{
 					"type": "y",
 					"value": 180.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				},
 				{
 					"type": "x",
 					"value": 67.5,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				}
 			],
 			"scale": 0.625,
@@ -25,12 +25,12 @@
 				{
 					"type": "y",
 					"value": 180.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				},
 				{
 					"type": "x",
 					"value": 67.5,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				}
 			],
 			"scale": 0.65,
@@ -44,12 +44,12 @@
 				{
 					"type": "y",
 					"value": 180.0,
-					"skyAngleMultiplier": 1.0
+					"skyAngleMultiplier": 1
 				},
 				{
 					"type": "x",
 					"value": 67.5,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				}
 			],
 			"scale": 0.65,

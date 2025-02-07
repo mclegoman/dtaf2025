@@ -63,7 +63,7 @@ public class SkyDataloader extends JsonDataLoader implements IdentifiableResourc
 									case "z" -> Sky.Position.Type.Z;
 									default -> throw new IllegalStateException("Unexpected value: " + JsonHelper.getString(pos, "type"));
 								};
-								positions.add(new Sky.Position(type, JsonHelper.getFloat(pos, "value"), JsonHelper.getFloat(pos, "skyAngleMultiplier", 0.0F)));
+								positions.add(new Sky.Position(type, JsonHelper.getFloat(pos, "value"), JsonHelper.getInt(pos, "skyAngleMultiplier", 0)));
 							} else {
 								Data.getVersion().sendToLog(LogType.WARN, "Invalid Position Data!");
 							}

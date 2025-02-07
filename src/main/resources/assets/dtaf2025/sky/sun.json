@@ -6,12 +6,12 @@
 				{
 					"type": "y",
 					"value": -90.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				},
 				{
 					"type": "x",
 					"value": 0.0,
-					"skyAngleMultiplier": 1.0
+					"skyAngleMultiplier": 1
 				}
 			],
 			"scale": 32.0,
@@ -25,12 +25,12 @@
 				{
 					"type": "y",
 					"value": -90.0,
-					"skyAngleMultiplier": 0.0
+					"skyAngleMultiplier": 0
 				},
 				{
 					"type": "x",
 					"value": 0.0,
-					"skyAngleMultiplier": 1.0
+					"skyAngleMultiplier": 1
 				}
 			],
 			"scale": 40.0,
