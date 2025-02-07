@@ -4,22 +4,22 @@
 			"id": "minecraft:overworld",
 			"position": [
 				{
-					"type": "y",
-					"value": 180.0,
-					"skyAngleMultiplier": -1
+					"type": "x",
+					"value": 0.0,
+					"skyAngleMultiplier": 4
 				},
 				{
-					"type": "x",
+					"type": "y",
 					"value": 0.0,
 					"skyAngleMultiplier": 16
 				},
 				{
 					"type": "z",
 					"value": 0.0,
-					"skyAngleMultiplier": 1
+					"skyAngleMultiplier": 4
 				}
 			],
-			"scale": 0.5,
+			"scale": 1.0,
 			"visible": "always",
 			"phases": 1,
 			"phaseOffset": 0
@@ -33,7 +33,7 @@
 					"skyAngleMultiplier": 0
 				}
 			],
-			"scale": 0.25,
+			"scale": 0.8,
 			"visible": "always",
 			"phases": 1,
 			"phaseOffset": 0
