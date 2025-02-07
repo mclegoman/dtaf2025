@@ -55,7 +55,7 @@ public class MoonSlimeEntity extends SlimeEntity {
 	}
 	public boolean onKilledOther(ServerWorld world, LivingEntity other) {
 		if (other instanceof SlimeEntity slimeEntity) {
-			this.convertTo(EntityRegistry.moonSlime, EntityConversionContext.create(this, false, false), SpawnReason.CONVERSION, (moonSlimeEntity) -> {
+			slimeEntity.convertTo(EntityRegistry.moonSlime, EntityConversionContext.create(this, false, false), SpawnReason.CONVERSION, (moonSlimeEntity) -> {
 				moonSlimeEntity.setSize(slimeEntity.getSize(), true);
 				moonSlimeEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
 			});
