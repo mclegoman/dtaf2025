@@ -7,6 +7,7 @@
 
 package com.mclegoman.dtaf2025.mixin.common.entity;
 
+import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;
 import com.mclegoman.dtaf2025.common.entity.damage.DamageRegistry;
@@ -14,6 +15,7 @@ import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import com.mclegoman.dtaf2025.common.entity.data.air.AirComponent;
 import com.mclegoman.dtaf2025.common.util.Tags;
 import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
+import com.mclegoman.luminance.common.util.LogType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -26,7 +28,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
@@ -135,21 +136,21 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 					BlockPos pos = this.getBlockPos();
 					if (pos.getY() > this.getWorld().getDimension().height() + 96) {
 						ServerWorld spaceStation = this.getServer().getWorld(DimensionRegistry.spaceStation.getWorld());
-						if (spaceStation != null) this.teleportTo(new TeleportTarget(spaceStation, new Vec3d(pos.getX(), spaceStation.getBottomY(), pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+						if (spaceStation != null) this.teleportTo(new TeleportTarget(spaceStation, new Vec3d(pos.getX(), spaceStation.getBottomY(), pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), Set.of(), TeleportTarget.NO_OP));
 					}
 				} else if (this.getWorld().getDimension().effects().equals(DimensionRegistry.spaceStation.getId())) {
 					BlockPos pos = this.getBlockPos();
 					if (pos.getY() < this.getWorld().getDimension().minY() - 16) {
 						ServerWorld overworld = this.getServer().getWorld(World.OVERWORLD);
 						if (overworld != null) {
-							this.teleportTo(new TeleportTarget(overworld, new Vec3d(pos.getX(), overworld.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+							this.teleportTo(new TeleportTarget(overworld, new Vec3d(pos.getX(), overworld.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), Set.of(), TeleportTarget.NO_OP));
 							if (!this.hasStatusEffect(StatusEffects.SLOW_FALLING)) this.setOnFireForTicks(640);
 						}
 					} else if (pos.getY() > this.getWorld().getDimension().height() + 96) {
 						ServerWorld moon = this.getServer().getWorld(DimensionRegistry.theMoon.getWorld());
 						Vec3d velocity = this.getVelocity();
 						this.setVelocity(velocity.x, -velocity.y, velocity.z);
-						if (moon != null) this.teleportTo(new TeleportTarget(moon, new Vec3d(pos.getX(), moon.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+						if (moon != null) this.teleportTo(new TeleportTarget(moon, new Vec3d(pos.getX(), moon.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), -this.getPitch(), Set.of(), TeleportTarget.NO_OP));
 					}
 				} else if (this.getWorld().getDimension().effects().equals(DimensionRegistry.theMoon.getId())) {
 					BlockPos pos = this.getBlockPos();
@@ -157,7 +158,7 @@ public abstract class LivingEntityMixin extends Entity implements Air {
 						ServerWorld spaceStation = this.getServer().getWorld(DimensionRegistry.spaceStation.getWorld());
 						Vec3d velocity = this.getVelocity();
 						this.setVelocity(velocity.x, -velocity.y, velocity.z);
-						if (spaceStation != null) this.teleportTo(new TeleportTarget(spaceStation, new Vec3d(pos.getX(), spaceStation.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), this.getPitch(), PositionFlag.combine(PositionFlag.DELTA, Set.of(PositionFlag.X_ROT)), TeleportTarget.NO_OP));
+						if (spaceStation != null) this.teleportTo(new TeleportTarget(spaceStation, new Vec3d(pos.getX(), spaceStation.getHeight() + 48, pos.getZ()), Vec3d.ZERO, this.getYaw(), -this.getPitch(), Set.of(), TeleportTarget.NO_OP));
 					}
 				}
 			}
