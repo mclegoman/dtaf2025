@@ -8,8 +8,14 @@
 	"space_portal_ambient": {
 		"subtitle": "sound.dtaf2025.space_portal_ambient",
 		"sounds": [
-			"dtaf2025:block/space_portal",
-			"dtaf2025:block/space_portal2"
+			"dtaf2025:block/space_portal_ambient",
+			"dtaf2025:block/space_portal_ambient2"
+		]
+	},
+	"space_portal_teleport": {
+		"subtitle": "sound.dtaf2025.space_portal_teleport",
+		"sounds": [
+			"dtaf2025:block/space_portal_teleport"
 		]
 	},
 	"music.space": {

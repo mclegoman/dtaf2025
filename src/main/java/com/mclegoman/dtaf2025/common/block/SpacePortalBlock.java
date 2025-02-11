@@ -13,10 +13,10 @@ import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.s2c.play.PositionFlag;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 
-public class SpacePortalBlock extends NetherPortalBlock {
+public class SpacePortalBlock extends NetherPortalBlock implements Portal {
 	public SpacePortalBlock(Settings settings) {
 		super(settings);
 	}
@@ -46,11 +46,19 @@ public class SpacePortalBlock extends NetherPortalBlock {
 
 	public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
 		if (random.nextInt(16) == 0) world.playSound((double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, SoundRegistry.spacePortalAmbient, SoundCategory.BLOCKS, 0.5F, random.nextFloat() * 0.4F + 0.8F, false);
-		for (int index = 0; index < 16; ++index) {
+		emitParticles(world, pos, random, ParticleTypes.SMOKE, 16, false);
+	}
+	public void emitParticles(World world, BlockPos pos, Random random, ParticleEffect effect, int amount, boolean hasYVelocity) {
+		for (int index = 0; index < amount; ++index) {
 			double x = (double)pos.getX() + random.nextDouble();
 			double y = (double)pos.getY() + random.nextDouble();
 			double z = (double)pos.getZ() + random.nextDouble();
-			world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
+			world.addParticle(effect, x, y, z, 0.0, hasYVelocity ? (world.random.nextDouble() - 0.5) * 0.5 : 0.0, 0.0);
 		}
+	}
+	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+		world.playSound((double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, SoundRegistry.spacePortalTeleport, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.4F + 0.8F, false);
+		emitParticles(world, pos, world.random, ParticleTypes.SMOKE, 128, true);
+		super.onEntityCollision(state, world, pos, entity);
 	}
 }
