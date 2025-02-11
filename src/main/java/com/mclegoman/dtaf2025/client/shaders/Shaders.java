@@ -13,6 +13,7 @@ import com.mclegoman.dtaf2025.client.world.WorldHelper;
 import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.luminance.client.events.Events;
 import com.mclegoman.luminance.client.shaders.Shader;
+import com.mclegoman.luminance.client.util.CompatHelper;
 import net.minecraft.util.Identifier;
 
 import java.util.List;

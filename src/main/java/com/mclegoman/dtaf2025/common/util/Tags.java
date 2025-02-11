@@ -22,9 +22,11 @@ public class Tags {
 	public static class Block {
 		public static final TagKey<net.minecraft.block.Block> moonOreReplaceables;
 		public static final TagKey<net.minecraft.block.Block> spaceAir;
+		public static final TagKey<net.minecraft.block.Block> spacePortalSurfaces;
 		static {
 			moonOreReplaceables = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "moon_ore_replaceables"));
 			spaceAir = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_air"));
+			spacePortalSurfaces = TagKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_portal_surfaces"));
 		}
 	}
 	public static class WorldGen {

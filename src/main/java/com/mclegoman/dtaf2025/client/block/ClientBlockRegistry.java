@@ -18,5 +18,6 @@ public class ClientBlockRegistry {
 	public static void init() {
 		BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.crystalGlass, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.crystalGlassPane, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.spacePortal, RenderLayer.getTranslucent());
 	}
 }

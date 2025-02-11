@@ -33,7 +33,7 @@
 ### Post Effects  
 #### Gaussian Menu Blur  
 - This post effect replaces the menu blur shader  
-- The post effect is located at: `assets/dtaf2025/post_effect/gaussian`  
+- The post effect is located at: `assets/dtaf2025/post_effect/gaussian.json`  
 #### Bloom  
 - This post effect will always render  
 - The post effect is located at: `assets/dtaf2025/post_effect/bloom.json`  

@@ -55,6 +55,8 @@
 	"gui.dtaf2025.locked_chest.config_prevented": "Your config settings prevented Minecraft Shop from opening",
 	"sound.dtaf2025.locked_chest_store": "Opening Minecraft Shop",
 
+	"sound.dtaf2025.space_portal_ambient": "Space Portal whooshes",
+
 
 	"gui.dtaf2025.locked_chest.info": "?",
 	"gui.dtaf2025.locked_chest.info.exit": "X",

@@ -10,6 +10,7 @@ package com.mclegoman.dtaf2025.common.block;
 import com.mclegoman.dtaf2025.common.data.Data;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
@@ -34,6 +35,7 @@ public class BlockRegistry {
 	public static final Block crystalGlassPane;
 	public static final Block pulser;
 	public static final Block lockedChest;
+	public static final Block spacePortal;
 	public static void init() {
 	}
 	static {
@@ -54,5 +56,6 @@ public class BlockRegistry {
 		crystalGlassPane = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_glass_pane")), PaneBlock::new, AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).strength(27.5F, 600.0F).sounds(BlockSoundGroup.GLASS).nonOpaque());
 		pulser = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "pulser")), PulserBlock::new, AbstractBlock.Settings.copy(crystalBlock).nonOpaque());
 		lockedChest = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "locked_chest")), LockedChestBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable());
+		spacePortal = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_portal")), SpacePortalBlock::new, AbstractBlock.Settings.create().noCollision().ticksRandomly().strength(-1.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 11).pistonBehavior(PistonBehavior.BLOCK));
 	}
 }

@@ -7,8 +7,6 @@
 
 package com.mclegoman.dtaf2025.common.block;
 
-import com.mclegoman.dtaf2025.client.data.ClientData;
-import com.mclegoman.dtaf2025.client.screen.locked_chest.LockedChestScreen;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.network.Packets;
 import com.mojang.serialization.MapCodec;

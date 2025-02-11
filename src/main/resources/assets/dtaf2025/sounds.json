@@ -5,6 +5,13 @@
 			"dtaf2025:block/locked_chest_store"
 		]
 	},
+	"space_portal_ambient": {
+		"subtitle": "sound.dtaf2025.space_portal_ambient",
+		"sounds": [
+			"dtaf2025:block/space_portal",
+			"dtaf2025:block/space_portal2"
+		]
+	},
 	"music.space": {
 		"sounds": [
 			"dtaf2025:music/devoid",
