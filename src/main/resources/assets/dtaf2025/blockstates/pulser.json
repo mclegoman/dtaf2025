@@ -1,9 +1,9 @@
 {
 	"variants": {
-		"pulsed=false": {
+		"dtaf2025_pulsed=false": {
 			"model": "dtaf2025:block/pulser"
 		},
-		"pulsed=true": {
+		"dtaf2025_pulsed=true": {
 			"model": "dtaf2025:block/pulser_on"
 		}
 	}

@@ -61,4 +61,7 @@ public class SpacePortalBlock extends NetherPortalBlock implements Portal {
 		emitParticles(world, pos, world.random, ParticleTypes.SMOKE, 128, true);
 		super.onEntityCollision(state, world, pos, entity);
 	}
+	public int getPortalDelay(ServerWorld world, Entity entity) {
+		return 0;
+	}
 }

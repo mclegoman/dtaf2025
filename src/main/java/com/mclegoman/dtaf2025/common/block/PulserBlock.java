@@ -1,5 +1,6 @@
 package com.mclegoman.dtaf2025.common.block;
 
+import com.mclegoman.dtaf2025.common.data.Data;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -44,6 +45,6 @@ public class PulserBlock extends Block {
 		}
 	}
 	static {
-		pulsed = BooleanProperty.of("pulsed");
+		pulsed = BooleanProperty.of(Data.getVersion().getID() + "_pulsed");
 	}
 }
