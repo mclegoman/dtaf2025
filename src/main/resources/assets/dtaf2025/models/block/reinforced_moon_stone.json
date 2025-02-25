@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"bottom": "dtaf2025:block/reinforced_moon_stone_bottom",
+		"side": "dtaf2025:block/reinforced_moon_stone_side",
+		"top": "dtaf2025:block/reinforced_moon_stone_top"
+	}
+}

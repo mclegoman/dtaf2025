@@ -55,9 +55,6 @@ public class ItemGroupRegistry {
 			content.addAfter(ItemRegistry.moonBrickSlab, ItemRegistry.moonBrickWall);
 			content.addAfter(ItemRegistry.moonBrickWall, ItemRegistry.chiseledMoonBricks);
 		});
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-			content.addBefore(Items.END_STONE, ItemRegistry.moonStone);
-		});
 		ItemGroupEvents.modifyEntriesEvent(dtaf2025).register((content) -> {
 			content.add(ItemRegistry.moonStone);
 			content.add(ItemRegistry.moonBrick);
@@ -67,6 +64,7 @@ public class ItemGroupRegistry {
 			content.add(ItemRegistry.moonBrickSlab);
 			content.add(ItemRegistry.moonBrickWall);
 			content.add(ItemRegistry.chiseledMoonBricks);
+			content.add(ItemRegistry.reinforcedMoonStone);
 			content.add(ItemRegistry.crystalOre);
 			content.add(ItemRegistry.crystal);
 			content.add(ItemRegistry.crystalBlock);

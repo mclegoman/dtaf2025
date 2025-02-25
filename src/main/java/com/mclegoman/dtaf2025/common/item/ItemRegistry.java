@@ -34,6 +34,7 @@ public class ItemRegistry {
 	public static final Item moonBrickSlab;
 	public static final Item moonBrickWall;
 	public static final Item chiseledMoonBricks;
+	public static final Item reinforcedMoonStone;
 	public static final Item crystalOre;
 	public static final Item crystal;
 	public static final Item crystalBlock;
@@ -62,6 +63,7 @@ public class ItemRegistry {
 		moonBrickSlab = Items.register(BlockRegistry.moonBrickSlab);
 		moonBrickWall = Items.register(BlockRegistry.moonBrickWall);
 		chiseledMoonBricks = Items.register(BlockRegistry.chiseledMoonBricks);
+		reinforcedMoonStone = Items.register(BlockRegistry.reinforcedMoonStone);
 		crystalBlock = Items.register(BlockRegistry.crystalBlock);
 		crystalStairs = Items.register(BlockRegistry.crystalStairs);
 		crystalSlab = Items.register(BlockRegistry.crystalSlab);

@@ -1,0 +1,13 @@
+{
+	"asset_id": "dtaf2025:poster",
+	"author": {
+		"color": "gray",
+		"translate": "painting.dtaf2025.poster.author"
+	},
+	"height": 2,
+	"title": {
+		"color": "yellow",
+		"translate": "painting.dtaf2025.poster.title"
+	},
+	"width": 2
+}

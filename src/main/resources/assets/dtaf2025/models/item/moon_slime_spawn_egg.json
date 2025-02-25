@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "dtaf2025:item/moon_slime_spawn_egg"
+	}
+}

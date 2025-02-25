@@ -1,4 +1,10 @@
 {
+	"startup": {
+		"subtitle": "sound.dtaf2025.startup",
+		"sounds": [
+			"dtaf2025:startup"
+		]
+	},
 	"locked_chest_store": {
 		"subtitle": "sound.dtaf2025.locked_chest_store",
 		"sounds": [

@@ -13,6 +13,8 @@
 		"client.block.ClientWorldMixin",
 		"client.dimension.DimensionEffectsMixin",
 		"client.entity.GameGuiMixin",
+		"client.overlay.MinecraftClientMixin",
+		"client.overlay.SplashOverlayMixin",
 		"client.sky.SkyRenderingMixin",
 		"client.sky.WorldRendererMixin",
 		"client.title_screen.GameRendererMixin",

@@ -6,6 +6,7 @@
 	"dtaf2025.splashes.sanic": "SANIC",
 	"dtaf2025.splashes.sponsored_by_steve_co": "Sponsored by Steve Co.",
 	"dtaf2025.splashes.oooh_shiny": "Oooh, shiny!",
+	"dtaf2025.splashes.space_girl": "show me the stars",
 
 	"gui.dtaf2025.config.actually_open_shop": "Crates open Shop: %s",
 	"gui.dtaf2025.config.actually_open_shop.hover": "Determines whether Steve Co. Supply Crates can open the Minecraft shop",
@@ -33,6 +34,7 @@
 	"block.dtaf2025.moon_brick_slab": "Moon Brick Slab",
 	"block.dtaf2025.moon_brick_wall": "Moon Brick Wall",
 	"block.dtaf2025.chiseled_moon_bricks": "Chiseled Moon Bricks",
+	"block.dtaf2025.reinforced_moon_stone": "Reinforced Moon Stone",
 
 	"item.dtaf2025.moon_slime_spawn_egg": "Moon Slime Spawn Egg",
 	"item.dtaf2025.moon_slime_ball": "Moon Slimeball",
@@ -75,6 +77,9 @@
 
 	"painting.dtaf2025.sun.title": "The Sun",
 	"painting.dtaf2025.sun.author": "dannytaylor",
+
+	"painting.dtaf2025.poster.title": "Facility Poster",
+	"painting.dtaf2025.poster.author": "dannytaylor",
 
 	"entity.dtaf2025.moon_slime": "Moon Slime",
 

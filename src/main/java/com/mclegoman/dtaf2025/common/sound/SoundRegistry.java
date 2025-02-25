@@ -19,6 +19,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class SoundRegistry {
+	public static final SoundEvent startup;
 	public static final SoundEvent lockedChestStore;
 	public static final SoundEvent spacePortalAmbient;
 	public static final SoundEvent spacePortalTeleport;
@@ -35,6 +36,7 @@ public class SoundRegistry {
 		return Registry.registerReference(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
 	}
 	static {
+		startup = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "startup"));
 		lockedChestStore = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "locked_chest_store"));
 		spacePortalAmbient = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "space_portal_ambient"));
 		spacePortalTeleport = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "space_portal_teleport"));

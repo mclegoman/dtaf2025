@@ -26,6 +26,8 @@ public class BlockRegistry {
 	public static final Block moonBrickSlab;
 	public static final Block moonBrickWall;
 	public static final Block chiseledMoonBricks;
+	public static final Block reinforcedMoonStone;
+	public static final Block spacePortal;
 	public static final Block crystalOre;
 	public static final Block crystalBlock;
 	public static final Block crystalStairs;
@@ -35,7 +37,6 @@ public class BlockRegistry {
 	public static final Block crystalGlassPane;
 	public static final Block pulser;
 	public static final Block lockedChest;
-	public static final Block spacePortal;
 	public static void init() {
 	}
 	static {
@@ -47,6 +48,8 @@ public class BlockRegistry {
 		moonBrickSlab = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "moon_brick_slab")), SlabBlock::new, AbstractBlock.Settings.copy(moonBricks));
 		moonBrickWall = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "moon_brick_wall")), WallBlock::new, AbstractBlock.Settings.copy(moonBricks));
 		chiseledMoonBricks = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "chiseled_moon_bricks")), Block::new, AbstractBlock.Settings.copy(moonStone));
+		reinforcedMoonStone = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "reinforced_moon_stone")), SpacePortalBaseBlock::new, AbstractBlock.Settings.copy(moonStone).strength(55.0F, 1200.0F));
+		spacePortal = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_portal")), SpacePortalBlock::new, AbstractBlock.Settings.create().noCollision().ticksRandomly().strength(-1.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 11).pistonBehavior(PistonBehavior.BLOCK));
 		crystalOre = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_ore")), (settings) -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings), AbstractBlock.Settings.copy(moonStone).strength(9.0F, 27.0F));
 		crystalBlock = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_block")), Block::new, AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_TEAL).requiresTool().strength(55.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK));
 		crystalStairs = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_stairs")), (settings) -> new StairsBlock(crystalBlock.getDefaultState(), settings), AbstractBlock.Settings.copy(crystalBlock));
@@ -56,6 +59,5 @@ public class BlockRegistry {
 		crystalGlassPane = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_glass_pane")), PaneBlock::new, AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).strength(27.5F, 600.0F).sounds(BlockSoundGroup.GLASS).nonOpaque());
 		pulser = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "pulser")), PulserBlock::new, AbstractBlock.Settings.copy(crystalBlock).nonOpaque());
 		lockedChest = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "locked_chest")), LockedChestBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable());
-		spacePortal = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "space_portal")), SpacePortalBlock::new, AbstractBlock.Settings.create().noCollision().ticksRandomly().strength(-1.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 11).pistonBehavior(PistonBehavior.BLOCK));
 	}
 }

@@ -14,7 +14,9 @@ import net.minecraft.client.MinecraftClient;
 @Environment(EnvType.CLIENT)
 public class ClientData {
 	public static MinecraftClient client;
+	public static boolean hasPlayedStartupSound;
 	static {
 		client = MinecraftClient.getInstance();
+		hasPlayedStartupSound = false;
 	}
 }

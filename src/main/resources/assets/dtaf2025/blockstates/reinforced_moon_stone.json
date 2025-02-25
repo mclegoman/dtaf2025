@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"dtaf2025_active=false": {
+			"model": "dtaf2025:block/reinforced_moon_stone"
+		},
+		"dtaf2025_active=true": {
+			"model": "dtaf2025:block/reinforced_moon_stone_active"
+		}
+	}
+}
