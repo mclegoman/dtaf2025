@@ -28,6 +28,6 @@ public abstract class SplashOverlayMixin {
 	@Shadow @Final private static int MONOCHROME_BLACK;
 	@Inject(method = "<init>", at = @At("RETURN"))
 	private void dtaf2025$replaceColor(MinecraftClient client, ResourceReload monitor, Consumer exceptionHandler, boolean reloading, CallbackInfo ci) {
-		BRAND_ARGB = () -> (Boolean) MinecraftClient.getInstance().options.getMonochromeLogo().getValue() ? MONOCHROME_BLACK : ColorHelper.getArgb(255, 230, 41, 132);
+		BRAND_ARGB = () -> (Boolean) MinecraftClient.getInstance().options.getMonochromeLogo().getValue() ? MONOCHROME_BLACK : ColorHelper.getArgb(255, 30, 30, 31);
 	}
 }
