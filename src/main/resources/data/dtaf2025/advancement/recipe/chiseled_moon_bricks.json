@@ -21,7 +21,7 @@
 	"requirements": [
 		[
 			"has_the_recipe",
-			"has_moon_bricks"
+			"has_moon_brick_slab"
 		]
 	],
 	"rewards": {
