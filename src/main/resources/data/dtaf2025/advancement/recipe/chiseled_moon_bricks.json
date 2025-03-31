@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_moon_brick_slab": {
+			"conditions": {
+				"items": [
+					{
+						"items": "dtaf2025:moon_brick_slab"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "dtaf2025:chiseled_moon_bricks"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		}
+	},
+	"requirements": [
+		[
+			"has_the_recipe",
+			"has_moon_bricks"
+		]
+	],
+	"rewards": {
+		"recipes": [
+			"dtaf2025:chiseled_moon_bricks"
+		]
+	}
+}

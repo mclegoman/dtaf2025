@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"group": "lead_block",
+	"key": {
+		"#": "dtaf2025:lead_ingot"
+	},
+	"pattern": [
+		"###",
+		"###",
+		"###"
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:lead_block"
+	}
+}

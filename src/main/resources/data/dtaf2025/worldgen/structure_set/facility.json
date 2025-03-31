@@ -1,0 +1,16 @@
+{
+	"placement": {
+		"type": "minecraft:concentric_rings",
+		"count": 64,
+		"distance": 64,
+		"preferred_biomes": "minecraft:plains",
+		"salt": 0,
+		"spread": 6
+	},
+	"structures": [
+		{
+			"structure": "dtaf2025:facility",
+			"weight": 1
+		}
+	]
+}

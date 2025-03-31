@@ -13,6 +13,12 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class Tags {
+	public static class Structure {
+		public static final TagKey<net.minecraft.world.gen.structure.Structure> leadLocators;
+		static {
+			leadLocators = TagKey.of(RegistryKeys.STRUCTURE, Identifier.of(Data.getVersion().getID(), "lead_locators"));
+		}
+	}
 	public static class EntityType {
 		public static final TagKey<net.minecraft.entity.EntityType<?>> canBreatheInSpace;
 		static {

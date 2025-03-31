@@ -25,6 +25,9 @@
 		],
 		"client": [
 			"com.mclegoman.dtaf2025.client.ClientAprilFools"
+		],
+		"modmenu": [
+			"com.mclegoman.dtaf2025.client.compatibility.ModMenu"
 		]
 	},
 	"mixins": [
@@ -36,5 +39,12 @@
 		"minecraft": "~1.21.1",
 		"java": ">=21"
 	},
-	"accessWidener" : "dtaf2025.accesswidener"
+	"accessWidener" : "dtaf2025.accesswidener",
+	"custom": {
+		"modmenu": {
+			"links": {
+				"dannytaylor.donate": "https://ko-fi.com/mclegoman"
+			}
+		}
+	}
 }

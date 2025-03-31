@@ -24,6 +24,16 @@
 			"dtaf2025:block/space_portal_teleport"
 		]
 	},
+	"lead_lamp.on": {
+		"subtitle": "sound.dtaf2025.lead_lamp.on",
+		"sounds": [
+			"dtaf2025:block/lead_lamp_on_0",
+			"dtaf2025:block/lead_lamp_on_1",
+			"dtaf2025:block/lead_lamp_on_2",
+			"dtaf2025:block/lead_lamp_on_3",
+			"dtaf2025:block/lead_lamp_on_4"
+		]
+	},
 	"music.space": {
 		"sounds": [
 			"dtaf2025:music/devoid",

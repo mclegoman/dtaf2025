@@ -49,6 +49,14 @@ public class ItemRegistry {
 	public static final Item moonSlimeSpawnEgg;
 	public static final Item moonSlimeBall;
 	public static final Item musicDiscBrightDay;
+	public static final Item rawLead;
+	public static final Item rawLeadBlock;
+	public static final Item leadIngot;
+	public static final Item leadBlock;
+	public static final Item leadOre;
+	public static final Item deepslateLeadOre;
+	public static final Item leadCompass;
+	public static final Item leadLamp;
 	public static void init() {
 	}
 	static {
@@ -74,7 +82,15 @@ public class ItemRegistry {
 		pulser = Items.register(BlockRegistry.pulser);
 		lockedChest = Items.register(BlockRegistry.lockedChest);
 		moonSlimeSpawnEgg = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_spawn_egg")), (settings) -> new SpawnEggItem(EntityRegistry.moonSlime, settings), new Item.Settings());
-		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_ball")), Item::new, new Item.Settings().food(FoodRegistry.moonSlime, ConsumableRegistry.moonSlime));
+		moonSlimeBall = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "moon_slime_ball")), Item::new, new Item.Settings().food(FoodRegistry.Food.moonSlime, FoodRegistry.Consumable.moonSlime));
 		musicDiscBrightDay = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "music_disc_bright_day")), Item::new, new Item.Settings().maxCount(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(SoundRegistry.jukeboxBrightDay));
+		rawLead = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "raw_lead")), Item::new, new Item.Settings().food(FoodRegistry.Food.lead, FoodRegistry.Consumable.lead));
+		leadIngot = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "lead_ingot")), Item::new, new Item.Settings().food(FoodRegistry.Food.lead, FoodRegistry.Consumable.lead));
+		rawLeadBlock = Items.register(BlockRegistry.rawLeadBlock);
+		leadBlock = Items.register(BlockRegistry.leadBlock);
+		leadOre = Items.register(BlockRegistry.leadOre);
+		deepslateLeadOre = Items.register(BlockRegistry.deepslateLeadOre);
+		leadCompass = Items.register(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Data.getVersion().getID(), "lead_compass")), LeadCompassItem::new, new Item.Settings().maxCount(1).food(FoodRegistry.Food.lead, FoodRegistry.Consumable.lead));
+		leadLamp = Items.register(BlockRegistry.leadLamp);
 	}
 }

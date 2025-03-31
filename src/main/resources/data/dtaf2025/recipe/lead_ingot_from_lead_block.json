@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"group": "lead_ingot",
+	"ingredients": [
+		"dtaf2025:lead_block"
+	],
+	"result": {
+		"count": 9,
+		"id": "dtaf2025:lead_ingot"
+	}
+}

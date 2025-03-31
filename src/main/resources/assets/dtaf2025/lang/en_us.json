@@ -2,11 +2,26 @@
 	"dtaf2025.name": "Space Update",
 	"dtaf2025.development_overlay": "%s: Development Build (%s)",
 
+	"dtaf2025.flashing_lights": "CAUTION: Flashing Lights",
+	"dtaf2025.flashing_lights.description": "This mod contains flashing lights and may not be suitable for players with photosensitive medical conditions.\n\nIf you experience lightheadedness, altered vision, twitching, involuntary movements, disorientation, confusion, or temporary loss of awareness, please stop playing immediately and seek medical advice.",
+
+	"gui.dtaf2025.config.config": "Space Update Settings...",
+	"gui.dtaf2025.config.bloom_strength": "Bloom: %s",
+	"gui.dtaf2025.config.easter_egg_strength": "SANIC: %s",
+	"gui.dtaf2025.config.can_supply_crates_open_shop": "Supply Crates can open Browser: %s",
+	"gui.dtaf2025.config.show_photosensitivity_warning": "Photosensitivity warning on startup: %s",
+
 	"dtaf2025.splashes.favourite_seed": "My favorite seed is 78665946",
 	"dtaf2025.splashes.sanic": "SANIC",
 	"dtaf2025.splashes.sponsored_by_steve_co": "Sponsored by Steve Co.",
 	"dtaf2025.splashes.oooh_shiny": "Oooh, shiny!",
 	"dtaf2025.splashes.space_girl": "show me the stars",
+	"dtaf2025.splashes.small_step_for_man": "That's one small step for man, one giant leap for mankind.",
+	"dtaf2025.splashes.im_in_orbit" : "WHAT DO YOU MEAN I'M IN ORBIT?!",
+	"dtaf2025.splashes.space_ive_heard_of_it" : "Space? I've heard of it.",
+	"dtaf2025.splashes.lead_poisoning" : "Now includes Lead Poisoning!",
+	"dtaf2025.splashes.burn_house_with_lemons" : "I'M THE MAN THAT GONNA BURN YOUR HOUSE DOWN, WITH THE LEMONS!",
+	"dtaf2025.splashes.astronaut_war_hero_olympian": "Great job astronaut, war hero, and/or olympian! With your help, we're gonna change the world!",
 
 	"gui.dtaf2025.config.actually_open_shop": "Crates open Shop: %s",
 	"gui.dtaf2025.config.actually_open_shop.hover": "Determines whether Steve Co. Supply Crates can open the Minecraft shop",
@@ -14,6 +29,16 @@
 	"gui.dtaf2025.config.close.hover": "Saves the config and closes the config screen",
 
 	"itemGroup.dtaf2025": "%s",
+
+	"item.dtaf2025.raw_lead": "Raw Lead",
+	"item.dtaf2025.lead_ingot": "Lead Ingot",
+	"item.dtaf2025.lead_compass": "Lead Compass",
+	"block.dtaf2025.raw_lead_block": "Block of Raw Lead",
+	"block.dtaf2025.lead_block": "Block of Lead",
+	"block.dtaf2025.lead_lamp": "Lead Lamp",
+	"block.dtaf2025.lead_ore": "Lead Ore",
+	"block.dtaf2025.deepslate_lead_ore": "Deepslate Lead Ore",
+	"sound.dtaf2025.lead_lamp.on": "Lead Lamp clinks",
 
 	"item.dtaf2025.crystal": "Crystal",
 	"block.dtaf2025.crystal_ore": "Crystal Ore",
@@ -43,8 +68,12 @@
 	"jukebox_song.dtaf2025.bright_day": "dannytaylor - Bright Day",
 
 	"block.dtaf2025.space_air": "Space Air",
+
 	"death.attack.space_suffocation": "%1$s forgot that they couldn't breathe in space",
 	"death.attack.space_suffocation.player": "%1$s forgot that they couldn't breathe in space while trying to escape %2$s",
+
+	"death.attack.lead_poisoning": "%1$s died to Lead Poisoning",
+	"death.attack.lead_poisoning.player": "%1$s died to Lead Poisoning while trying to escape %2$s",
 
 	"block.dtaf2025.locked_chest": "Steve Co. Supply Crate",
 	"gui.dtaf2025.locked_chest": "Steve Co. Supply Crate",
@@ -89,5 +118,23 @@
 	"tag.item.dtaf2025.crystal": "Crystal",
 	"tag.item.dtaf2025.crystal_blocks": "Crystal Blocks",
 	"tag.item.dtaf2025.moon_brick": "Moon Brick",
-	"tag.item.dtaf2025.moon_stone_blocks": "Moon Stone Blocks"
+	"tag.item.dtaf2025.moon_stone_blocks": "Moon Stone Blocks",
+
+	"advancements.space.root.title": "Space",
+	"advancements.space.root.description": "Beyond the Overworld",
+
+	"advancements.space.lead.title": "Dangerous Snacks",
+	"advancements.space.lead.description": "Find Lead",
+
+	"advancements.space.facility.title": "Anti-Magnetic Navigator",
+	"advancements.space.facility.description": "Follow a Lead Compass",
+
+	"advancements.space.crystal_wings.title": "Beyond the Sky Limit",
+	"advancements.space.crystal_wings.description": "Find Crystal Wings",
+
+	"advancements.space.space_station.title": "Small Step",
+	"advancements.space.space_station.description": "Enter the Space Station",
+
+	"advancements.space.the_moon.title": "Giant Leap",
+	"advancements.space.the_moon.description": "Land on the Moon"
 }

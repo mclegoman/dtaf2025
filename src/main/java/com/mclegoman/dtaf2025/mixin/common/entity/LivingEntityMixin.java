@@ -7,7 +7,6 @@
 
 package com.mclegoman.dtaf2025.mixin.common.entity;
 
-import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.easter_egg.EasterEggRegistry;
 import com.mclegoman.dtaf2025.common.enchantment.EnchantmentRegistry;
 import com.mclegoman.dtaf2025.common.entity.damage.DamageRegistry;
@@ -15,7 +14,6 @@ import com.mclegoman.dtaf2025.common.entity.data.air.Air;
 import com.mclegoman.dtaf2025.common.entity.data.air.AirComponent;
 import com.mclegoman.dtaf2025.common.util.Tags;
 import com.mclegoman.dtaf2025.common.world.dimension.DimensionRegistry;
-import com.mclegoman.luminance.common.util.LogType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

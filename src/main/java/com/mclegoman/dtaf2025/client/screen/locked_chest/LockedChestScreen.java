@@ -7,6 +7,7 @@
 
 package com.mclegoman.dtaf2025.client.screen.locked_chest;
 
+import com.mclegoman.dtaf2025.client.config.AprilFoolsConfig;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
 import com.mclegoman.dtaf2025.common.sound.SoundRegistry;
@@ -57,8 +58,12 @@ public class LockedChestScreen extends Screen {
 		this.gridAdder.add(ButtonWidget.builder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.cancel"), (button) -> this.exit()).tooltip(Tooltip.of(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.cancel.hover"))).build(), 1);
 		StoreButtonWidget storeButton = StoreButtonWidget.storeBuilder(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.store"), (button) -> {
 			try {
-				URI uri = new URI("https://shop.minecraft.net/");
-				Util.getOperatingSystem().open(uri);
+				if (AprilFoolsConfig.config.canSupplyCratesOpenShop.value()) {
+					URI uri = new URI("https://shop.minecraft.net/");
+					Util.getOperatingSystem().open(uri);
+				} else {
+					if (ClientData.client.player != null) ClientData.client.player.sendMessage(Translation.getTranslation(Data.getVersion().getID(), "locked_chest.config_prevented"), false);
+				}
 			} catch (Exception error) {
 				Data.getVersion().sendToLog(LogType.ERROR, error.getLocalizedMessage());
 			}

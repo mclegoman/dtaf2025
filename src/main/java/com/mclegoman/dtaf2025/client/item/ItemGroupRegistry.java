@@ -33,14 +33,23 @@ public class ItemGroupRegistry {
 			content.addAfter(Items.AMETHYST_SHARD, ItemRegistry.crystal);
 			content.addAfter(Items.SLIME_BALL, ItemRegistry.moonSlimeBall);
 			content.addAfter(Items.NETHER_BRICK, ItemRegistry.moonBrick);
+			content.addAfter(Items.RAW_IRON, ItemRegistry.rawLead);
+			content.addAfter(Items.IRON_INGOT, ItemRegistry.leadIngot);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
 			content.addAfter(Items.END_STONE, ItemRegistry.moonStone);
 			content.addAfter(ItemRegistry.moonStone, ItemRegistry.moonBricks);
 			content.addAfter(Items.ANCIENT_DEBRIS, ItemRegistry.crystalOre);
+			content.addAfter(Items.DEEPSLATE_IRON_ORE, ItemRegistry.leadOre);
+			content.addAfter(ItemRegistry.leadOre, ItemRegistry.deepslateLeadOre);
+			content.addAfter(Items.RAW_IRON_BLOCK, ItemRegistry.rawLeadBlock);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(content -> {
 			content.addAfter(Items.OBSERVER, ItemRegistry.pulser);
+			content.addAfter(Items.REDSTONE_LAMP, ItemRegistry.leadLamp);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
+			content.addAfter(Items.REDSTONE_LAMP, ItemRegistry.leadLamp);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
 			content.addAfter(Items.AMETHYST_BLOCK, ItemRegistry.crystalBlock);
@@ -54,8 +63,17 @@ public class ItemGroupRegistry {
 			content.addAfter(ItemRegistry.moonBrickStairs, ItemRegistry.moonBrickSlab);
 			content.addAfter(ItemRegistry.moonBrickSlab, ItemRegistry.moonBrickWall);
 			content.addAfter(ItemRegistry.moonBrickWall, ItemRegistry.chiseledMoonBricks);
+			content.addAfter(Items.IRON_BLOCK, ItemRegistry.leadBlock);
 		});
 		ItemGroupEvents.modifyEntriesEvent(dtaf2025).register((content) -> {
+			content.add(ItemRegistry.leadOre);
+			content.add(ItemRegistry.deepslateLeadOre);
+			content.add(ItemRegistry.rawLead);
+			content.add(ItemRegistry.rawLeadBlock);
+			content.add(ItemRegistry.leadIngot);
+			content.add(ItemRegistry.leadBlock);
+			content.add(ItemRegistry.leadLamp);
+			content.add(ItemRegistry.leadCompass);
 			content.add(ItemRegistry.moonStone);
 			content.add(ItemRegistry.moonBrick);
 			content.add(ItemRegistry.moonBricks);
@@ -96,6 +114,7 @@ public class ItemGroupRegistry {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
 			content.addAfter(Items.MUSIC_DISC_PIGSTEP, ItemRegistry.musicDiscBrightDay);
 			content.addAfter(Items.ELYTRA, ItemRegistry.crystalWings);
+			content.addAfter(Items.COMPASS, ItemRegistry.leadCompass);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
 			content.addAfter(Items.SLIME_SPAWN_EGG, ItemRegistry.moonSlimeSpawnEgg);

@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"lit=false": {
+			"model": "dtaf2025:block/lead_lamp"
+		},
+		"lit=true": {
+			"model": "dtaf2025:block/lead_lamp_on"
+		}
+	}
+}

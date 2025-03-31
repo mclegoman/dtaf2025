@@ -5,3 +5,5 @@ accessible method net/minecraft/client/render/SkyRendering renderStars (Lnet/min
 accessible method net/minecraft/client/particle/CrackParticle <init> (Lnet/minecraft/client/world/ClientWorld;DDDLnet/minecraft/client/render/item/ItemRenderState;)V
 accessible field net/minecraft/entity/mob/SlimeEntity SLIME_SIZE Lnet/minecraft/entity/data/TrackedData;
 accessible class net/minecraft/client/MinecraftClient$LoadingContext
+extendable method net/minecraft/client/gui/screen/ConfirmScreen getTitleY ()I
+accessible field net/minecraft/structure/StructureTemplate$PalettedBlockInfoList infos Ljava/util/List;

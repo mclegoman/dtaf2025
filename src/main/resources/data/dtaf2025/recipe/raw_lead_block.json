@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"group": "raw_lead_block",
+	"key": {
+		"#": "dtaf2025:raw_lead"
+	},
+	"pattern": [
+		"###",
+		"###",
+		"###"
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:raw_lead_block"
+	}
+}

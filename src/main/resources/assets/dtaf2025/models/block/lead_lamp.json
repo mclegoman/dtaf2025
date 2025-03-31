@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "dtaf2025:block/lead_lamp"
+	}
+}

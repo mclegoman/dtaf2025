@@ -1,5 +1,6 @@
 {
     "targets": {
+        "merge": {},
         "swap": {}
     },
     "passes": [
@@ -15,9 +16,30 @@
             "output": "swap"
         },
         {
+            "program": "luminance:post/merge",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                },
+                {
+                    "sampler_name": "Merge",
+                    "target": "minecraft:main"
+                }
+            ],
+            "uniforms": [
+                {
+                    "name": "luminance_alpha_smooth",
+                    "values": [ 1.0 ],
+                    "override": [ "dtaf2025_easterEggStrength_smooth" ]
+                }
+            ],
+            "output": "merge"
+        },
+        {
             "program": "minecraft:post/blit",
             "inputs": [
-                {   "sampler_name": "In",   "target": "swap"    }
+                {   "sampler_name": "In",   "target": "merge"    }
             ],
             "output": "minecraft:main"
         }

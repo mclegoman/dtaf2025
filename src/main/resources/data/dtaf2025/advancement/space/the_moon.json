@@ -1,0 +1,30 @@
+{
+  "parent": "dtaf2025:space/space_station",
+  "criteria": {
+    "entered_moon": {
+      "conditions": {
+        "to": "dtaf2025:the_moon"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.space.the_moon.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "dtaf2025:moon_stone"
+    },
+    "title": {
+      "translate": "advancements.space.the_moon.title"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "entered_moon"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

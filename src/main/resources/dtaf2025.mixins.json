@@ -4,27 +4,29 @@
 	"compatibilityLevel": "JAVA_21",
 	"plugin": "com.mclegoman.dtaf2025.mixin.MixinPlugin",
 	"mixins": [
-		"client.compatibility.ModMenuConfigMixin",
-		"client.remove_experimental_warning.IntegratedServerLoaderMixin",
 		"common.entity.LivingEntityMixin",
 		"common.entity.PlayerEntityMixin"
 	],
 	"client": [
+		"client.compatibility.ModMenuConfigMixin",
+		"client.remove_experimental_warning.IntegratedServerLoaderMixin",
 		"client.block.ClientWorldMixin",
 		"client.dimension.DimensionEffectsMixin",
 		"client.entity.GameGuiMixin",
+		"client.gui.AccessibilityOnboardingScreenMixin",
+		"client.gui.GameRendererMixin",
+		"client.gui.LogoDrawerMixin",
+		"client.gui.MinecraftClientMixin",
+		"client.gui.OptionsScreenMixin",
+		"client.gui.RotatingCubeMapRendererMixin",
+		"client.gui.ScreenMixin",
+		"client.gui.SplashTextRendererMixin",
+		"client.gui.TitleScreenMixin",
+		"client.gui.VersionOverlay",
 		"client.overlay.MinecraftClientMixin",
 		"client.overlay.SplashOverlayMixin",
 		"client.sky.SkyRenderingMixin",
-		"client.sky.WorldRendererMixin",
-		"client.title_screen.GameRendererMixin",
-		"client.title_screen.LogoDrawerMixin",
-		"client.title_screen.MinecraftClientMixin",
-		"client.title_screen.RotatingCubeMapRendererMixin",
-		"client.title_screen.ScreenMixin",
-		"client.title_screen.SplashTextRendererMixin",
-		"client.title_screen.TitleScreenMixin",
-		"client.title_screen.VersionOverlay"
+		"client.sky.WorldRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

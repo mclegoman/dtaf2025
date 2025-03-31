@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mclegoman.dtaf2025.client.data.ClientData;
 import com.mclegoman.dtaf2025.common.data.Data;
-import com.mclegoman.luminance.client.util.JsonDataLoader;
+import com.mclegoman.luminance.client.util.JsonResourceReloader;
 import com.mclegoman.luminance.common.util.Couple;
 import com.mclegoman.luminance.common.util.LogType;
 import net.fabricmc.api.EnvType;
@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 @Environment(EnvType.CLIENT)
-public class PanoramaDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
+public class PanoramaDataloader extends JsonResourceReloader implements IdentifiableResourceReloadListener {
 	public static final Map<Identifier, Couple<Identifier, Boolean>> registry = new HashMap<>();
 	private static Couple<Identifier, Boolean> currentPanorama;
 	public static Couple<Identifier, Boolean> getPanorama() {
@@ -39,8 +39,13 @@ public class PanoramaDataloader extends JsonDataLoader implements IdentifiableRe
 		return new Couple<>(assets, overlayTexture);
 	}
 	public static void randomizePanorama() {
+		randomizePanorama(true);
+	}
+	private static void randomizePanorama(boolean check) {
 		List<Couple<Identifier, Boolean>> panoramas = new ArrayList<>(registry.values());
+		if (check && currentPanorama != null) panoramas.removeIf((panorama) -> panorama.equals(currentPanorama));
 		currentPanorama = !panoramas.isEmpty() ? panoramas.get(new Random().nextInt(panoramas.size())) : getDefaultPanorama();
+		TitleScreenHelper.updateCubeMapRenderer();
 	}
 	public static final String id = "panorama";
 	public PanoramaDataloader() {
@@ -63,8 +68,7 @@ public class PanoramaDataloader extends JsonDataLoader implements IdentifiableRe
 			if (validPanorama) registry.put(identifier, new Couple<>(assets, ClientData.client.getResourceManager().getResource(getPanoramaAssets(assets).getSecond()).isPresent()));
 		});
 		if (registry.isEmpty()) registry.put(Identifier.ofVanilla("background"), getDefaultPanorama());
-		randomizePanorama();
-		TitleScreenHelper.updateCubeMapRenderer();
+		randomizePanorama(false);
 	}
 	private static Couple<Identifier, Boolean> getDefaultPanorama() {
 		return new Couple<>(Identifier.of("textures/gui/title/background"), true);

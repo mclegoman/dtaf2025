@@ -12,7 +12,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mclegoman.luminance.client.translation.Translation;
-import com.mclegoman.luminance.client.util.JsonDataLoader;
+import com.mclegoman.luminance.client.util.JsonResourceReloader;
 import com.mclegoman.luminance.common.util.Couple;
 import com.mclegoman.luminance.common.util.LogType;
 import com.mclegoman.dtaf2025.common.data.Data;
@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Environment(EnvType.CLIENT)
-public class SplashesDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
+public class SplashesDataloader extends JsonResourceReloader implements IdentifiableResourceReloadListener {
 	public static final List<Couple<String, Boolean>> registry = new ArrayList<>();
 	public static final String id = "splashes";
 	private static Couple<String, Boolean> splashText;

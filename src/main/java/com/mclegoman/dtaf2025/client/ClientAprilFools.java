@@ -8,6 +8,7 @@
 package com.mclegoman.dtaf2025.client;
 
 import com.mclegoman.dtaf2025.client.compatibility.Compatibility;
+import com.mclegoman.dtaf2025.client.config.AprilFoolsConfig;
 import com.mclegoman.dtaf2025.client.entity.EntityModelRegistry;
 import com.mclegoman.dtaf2025.client.gui.TitleScreenHelper;
 import com.mclegoman.dtaf2025.client.block.ClientBlockRegistry;
@@ -29,6 +30,7 @@ import net.minecraft.resource.ResourceType;
 public class ClientAprilFools implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
+		AprilFoolsConfig.init();
 		ClientPackets.init();
 		ClientParticleRegistry.init();
 		ClientBlockRegistry.init();

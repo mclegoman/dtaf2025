@@ -15,6 +15,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class BlockRegistry {
@@ -37,6 +38,11 @@ public class BlockRegistry {
 	public static final Block crystalGlassPane;
 	public static final Block pulser;
 	public static final Block lockedChest;
+	public static final Block rawLeadBlock;
+	public static final Block leadBlock;
+	public static final Block leadLamp;
+	public static final Block leadOre;
+	public static final Block deepslateLeadOre;
 	public static void init() {
 	}
 	static {
@@ -59,5 +65,10 @@ public class BlockRegistry {
 		crystalGlassPane = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "crystal_glass_pane")), PaneBlock::new, AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).strength(27.5F, 600.0F).sounds(BlockSoundGroup.GLASS).nonOpaque());
 		pulser = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "pulser")), PulserBlock::new, AbstractBlock.Settings.copy(crystalBlock).nonOpaque());
 		lockedChest = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "locked_chest")), LockedChestBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).instrument(NoteBlockInstrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD).burnable());
+		rawLeadBlock = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "raw_lead_block")), AbstractBlock.Settings.create().mapColor(MapColor.BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(5.0F, 6.0F));
+		leadBlock = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "lead_block")), AbstractBlock.Settings.create().mapColor(MapColor.BLACK).instrument(NoteBlockInstrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+		leadOre = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "lead_ore")), (settings) -> new ExperienceDroppingBlock(ConstantIntProvider.create(0), settings), AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(3.0F, 3.0F));
+		deepslateLeadOre = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "deepslate_lead_ore")), (settings) -> new ExperienceDroppingBlock(ConstantIntProvider.create(0), settings), AbstractBlock.Settings.copy(leadOre).mapColor(MapColor.DEEPSLATE_GRAY).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE));
+		leadLamp = Blocks.register(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Data.getVersion().getID(), "lead_lamp")), LeadLampBlock::new, AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).luminance(Blocks.createLightLevelFromLitBlockState(15)).strength(0.3F).sounds(BlockSoundGroup.GLASS).allowsSpawning(Blocks::always));
 	}
 }

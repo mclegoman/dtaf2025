@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"key": {
-		"#": "dtaf2025:moon_bricks"
+		"#": "dtaf2025:moon_brick_slab"
 	},
 	"pattern": [
 		"#",

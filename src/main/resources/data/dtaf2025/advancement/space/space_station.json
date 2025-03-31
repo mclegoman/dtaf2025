@@ -1,0 +1,30 @@
+{
+  "parent": "dtaf2025:space/facility",
+  "criteria": {
+    "entered_space_station": {
+      "conditions": {
+        "to": "dtaf2025:space_station"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/crystal_block.png",
+    "description": {
+      "translate": "advancements.space.space_station.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "dtaf2025:crystal_block"
+    },
+    "title": {
+      "translate": "advancements.space.space_station.title"
+    }
+  },
+  "requirements": [
+    [
+      "entered_space_station"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

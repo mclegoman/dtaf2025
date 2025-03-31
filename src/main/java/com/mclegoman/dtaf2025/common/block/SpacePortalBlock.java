@@ -37,7 +37,7 @@ public class SpacePortalBlock extends NetherPortalBlock implements Portal {
 	}
 	public TeleportTarget createTeleportTarget(ServerWorld world, Entity entity, BlockPos pos) {
 		ServerWorld spaceStation = world.getServer().getWorld(DimensionRegistry.spaceStation.getWorld());
-		if (world.getRegistryKey() == World.OVERWORLD && spaceStation != null) return new TeleportTarget(spaceStation, new Vec3d(2, 65, 2), Vec3d.ZERO, 0.0F, 0.0F, PositionFlag.combine(PositionFlag.DELTA, PositionFlag.ROT), (e) -> {});
+		if (world.getRegistryKey() == World.OVERWORLD && spaceStation != null) return new TeleportTarget(spaceStation, new Vec3d(14, 69, 3), Vec3d.ZERO, 0.0F, 0.0F, PositionFlag.combine(PositionFlag.DELTA, PositionFlag.ROT), (e) -> {});
 		else return null;
 	}
 	protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {

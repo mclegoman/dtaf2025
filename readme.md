@@ -135,6 +135,7 @@ This reference was intended to make fun of companies that use these predatory pr
 - Added `dtaf2025:space_breathing` enchantment effect  
 - Added `dtaf2025:heavy_footed` enchantment effect  
 - Paintings and Enchantments with the `#dtaf2025:dtaf2025` tag will be added to the Space Update item group  
+- Removed Structure Block size and position limits  
 
 ### Celestial Objects  
 - Celestial objects can be data-driven by adding entries to `assets/<namespace>/sky/<id>.json`  
@@ -236,6 +237,8 @@ This easter egg will be enabled when your seed is set to `SANIC`
 - [Minecraft](https://minecraft.net/)  
 
 ##  
+This mod was created for April Fools' 2025, and is likely to contain bugs. Use at your own risk.  
+
 Licensed under LGPL-3.0-or-later.  
 
 **This mod is not affiliated with/endorsed by Mojang Studios, Microsoft, Snow Commerce, or The Official Minecraft Shop.**  

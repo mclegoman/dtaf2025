@@ -1,0 +1,44 @@
+{
+	"parent": "dtaf2025:space/root",
+	"criteria": {
+		"raw_lead": {
+			"conditions": {
+				"items": [
+					{
+						"items": "dtaf2025:raw_lead"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"lead_ingot": {
+			"conditions": {
+				"items": [
+					{
+						"items": "dtaf2025:lead_ingot"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"display": {
+		"description": {
+			"translate": "advancements.space.lead.description"
+		},
+		"icon": {
+			"count": 1,
+			"id": "dtaf2025:lead_ingot"
+		},
+		"title": {
+			"translate": "advancements.space.lead.title"
+		}
+	},
+	"requirements": [
+		[
+			"raw_lead",
+			"lead_ingot"
+		]
+	],
+	"sends_telemetry_event": false
+}

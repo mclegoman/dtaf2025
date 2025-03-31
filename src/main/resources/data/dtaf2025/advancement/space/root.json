@@ -1,0 +1,62 @@
+{
+  "criteria": {
+    "has_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dtaf2025:crystal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raw_lead": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dtaf2025:raw_lead"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "in_facility": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dtaf2025:facility"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "dtaf2025:textures/block/crystal_block.png",
+    "description": {
+      "translate": "advancements.space.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "dtaf2025:crystal"
+    },
+    "title": {
+      "translate": "advancements.space.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_crystal",
+      "has_raw_lead",
+      "in_facility"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"key": {
+		"#": "dtaf2025:lead_ingot",
+		"X": "minecraft:redstone"
+	},
+	"pattern": [
+		" # ",
+		"#X#",
+		" # "
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:lead_compass"
+	}
+}

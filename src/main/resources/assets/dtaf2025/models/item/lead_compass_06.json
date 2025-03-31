@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "dtaf2025:item/lead_compass_06"
+    }
+}

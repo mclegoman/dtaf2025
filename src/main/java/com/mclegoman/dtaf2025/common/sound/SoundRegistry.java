@@ -23,6 +23,7 @@ public class SoundRegistry {
 	public static final SoundEvent lockedChestStore;
 	public static final SoundEvent spacePortalAmbient;
 	public static final SoundEvent spacePortalTeleport;
+	public static final SoundEvent leadLampOn;
 	public static final SoundEvent recordBrightDay;
 	public static final RegistryKey<JukeboxSong> jukeboxBrightDay;
 	public static RegistryEntry.Reference<SoundEvent> musicSpace;
@@ -40,6 +41,7 @@ public class SoundRegistry {
 		lockedChestStore = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "locked_chest_store"));
 		spacePortalAmbient = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "space_portal_ambient"));
 		spacePortalTeleport = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "space_portal_teleport"));
+		leadLampOn = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "lead_lamp.on"));
 		recordBrightDay = registerSoundEvent(Identifier.of(Data.getVersion().getID(), "music_disc.bright_day"));
 		jukeboxBrightDay = RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(Data.getVersion().getID(), "bright_day"));
 		musicSpace = registerSoundEventReference(Identifier.of(Data.getVersion().getID(), "music.space"));

@@ -11,8 +11,9 @@ import com.mclegoman.dtaf2025.common.data.Data;
 
 public class DamageRegistry {
 	public static final DamageData spaceSuffocation;
+	public static final DamageData leadPoisoning;
 	static {
 		spaceSuffocation = DamageData.builder(Data.getVersion().getID(), "space_suffocation").build();
+		leadPoisoning = DamageData.builder(Data.getVersion().getID(), "lead_poisoning").build();
 	}
 }
-

@@ -2,7 +2,7 @@
 
 Theme: Space
 
-The Mysterious Update (mclmaf2024) focused on mystery/magic and friendlyness.
+The Mysterious Update (dtaf2025) focused on mystery/magic and friendlyness.
 This year, I would like to go a different direction, something less friendly.
 
 - Structure(s) with traps.
@@ -32,7 +32,7 @@ This year, I would like to go a different direction, something less friendly.
 
 ### Goals
 I would like to add variations to a bunch of the vanilla mobs.  
-In mclmaf2024, I only made the moobloom (and variants) due to a lack of time.
+In dtaf2025, I only made the moobloom (and variants) due to a lack of time.
 
 I would like to try and have variations of passive, neutral, and hostile mobs.
 - A system that converts the vanilla mobs into the modded mobs.

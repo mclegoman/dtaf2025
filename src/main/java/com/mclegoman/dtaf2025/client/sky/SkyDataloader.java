@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.mclegoman.luminance.client.util.JsonDataLoader;
+import com.mclegoman.luminance.client.util.JsonResourceReloader;
 import com.mclegoman.luminance.common.util.Couple;
 import com.mclegoman.luminance.common.util.LogType;
 import com.mclegoman.dtaf2025.common.data.Data;
@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 @Environment(EnvType.CLIENT)
-public class SkyDataloader extends JsonDataLoader implements IdentifiableResourceReloadListener {
+public class SkyDataloader extends JsonResourceReloader implements IdentifiableResourceReloadListener {
 	public static final Map<Identifier, Couple<Identifier, Sky.Celestial>> registry = new HashMap<>();
 	public static final String id = "sky";
 	public SkyDataloader() {

@@ -1,0 +1,34 @@
+{
+	"parent": "dtaf2025:space/facility",
+	"criteria": {
+		"crystal_wings": {
+			"conditions": {
+				"items": [
+					{
+						"items": "dtaf2025:crystal_wings"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"display": {
+		"description": {
+			"translate": "advancements.space.crystal_wings.description"
+		},
+		"frame": "goal",
+		"icon": {
+			"count": 1,
+			"id": "dtaf2025:crystal_wings"
+		},
+		"title": {
+			"translate": "advancements.space.crystal_wings.title"
+		}
+	},
+	"requirements": [
+		[
+			"crystal_wings"
+		]
+	],
+	"sends_telemetry_event": false
+}
