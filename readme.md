@@ -5,6 +5,8 @@
 ## Changes  
 - Updated Menu  
 - Added Bloom  
+- Added Lead  
+- Added Lead Lamp  
 - Added Space Station Dimension  
 - Added Moon Dimension  
 - Added Breath of the Cosmos, and Heavy Footed enchantments  
@@ -37,11 +39,12 @@
 #### Bloom  
 - This post effect will always render  
 - The post effect is located at: `assets/dtaf2025/post_effect/bloom.json`  
-#### Space  
-- This post effect will render when you are in a `#dtaf2025:space` biome  
-- The post effect is located at: `assets/dtaf2025/post_effect/space.json`  
+- The strength can be adjusted in the Space Station Settings...
 
 ### Dimensions  
+#### Overworld  
+- Lead Ores generate in the same way as Iron Ores  
+- Facility Structure that generates in the `minecraft:plains` biome  
 #### Space Station  
 - Entities that are 96 blocks above the overworld height limit will be teleported to the bottom of the space station dimension  
 - Entities that are 16 blocks below the space station height limit will be teleported to 48 blocks above overworld height limit  
@@ -77,10 +80,12 @@
 
 ### Enchantments  
 #### Breath of the Cosmos  
-- When worn on head, the entity can breathe in `#dtaf2025:no_oxygen` biomes, without space air  
+- When worn on head, the entity can breathe in `#dtaf2025:no_oxygen` biomes, without space air
+- Found in Facility Structure  
 #### Heavy Footed  
 - When worn on feet, gravity returns to normal in space dimensions  
 - If worn in a dimension that has normal gravity, gravity becomes 1.94x that of normal  
+- Found in Facility Structure  
 
 ### Moon Stone  
 - Generates in `dtaf2025:the_moon` biome, as the moon equivalent of stone  
@@ -120,6 +125,8 @@ This reference was intended to make fun of companies that use these predatory pr
 - 1x1 painting of the moon  
 #### The Sun  
 - 2x2 painting of the sun from the moon  
+#### Facility Poster  
+- 2x2 painting of a minecraft player silhouette  
 
 ### Space Air  
 - Entities that are in `#dtaf2025:no_oxygen` biomes can breathe when in or next to space air  
@@ -135,7 +142,6 @@ This reference was intended to make fun of companies that use these predatory pr
 - Added `dtaf2025:space_breathing` enchantment effect  
 - Added `dtaf2025:heavy_footed` enchantment effect  
 - Paintings and Enchantments with the `#dtaf2025:dtaf2025` tag will be added to the Space Update item group  
-- Removed Structure Block size and position limits  
 
 ### Celestial Objects  
 - Celestial objects can be data-driven by adding entries to `assets/<namespace>/sky/<id>.json`  
