@@ -15,6 +15,11 @@
 		"dtaf2025:moon_brick_slab",
 		"dtaf2025:moon_brick_wall",
 		"dtaf2025:chiseled_moon_bricks",
-		"dtaf2025:crystal_ore"
+		"dtaf2025:crystal_ore",
+		"dtaf2025:lead_ore",
+		"dtaf2025:deepslate_lead_ore",
+		"dtaf2025:raw_lead_block",
+		"dtaf2025:lead_block",
+		"dtaf2025:lead_lamp"
 	]
 }
