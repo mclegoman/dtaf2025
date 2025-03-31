@@ -3,7 +3,7 @@
 		"type": "minecraft:concentric_rings",
 		"count": 64,
 		"distance": 64,
-		"preferred_biomes": "minecraft:plains",
+		"preferred_biomes": "#dtaf2025:lead_locators",
 		"salt": 0,
 		"spread": 6
 	},
