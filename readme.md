@@ -1,6 +1,12 @@
-# Space Update  
-**This mod is not yet complete! Expected to release on the 1st of April 2025.**  
+# ![Space Update](https://cdn.modrinth.com/data/VJngGiES/images/bbe5ae1f318ef91bb4a9e8584e20d806eccee541.png)
 
+Introducing... space! (what a stellar idea!) This update adds not one, but TWO new dimensions! The Space Station, and The Moon!
+
+The Space Station is a void dimension above the overworld, that contains just one thing... the space station! If you keep going up, your gravity will soon switch as you approach the moon.
+
+The Moon is a dimension made of Moon Stone and is covered in craters, and contains Crystals! Moon Stone can be used to craft Moon Bricks. Not only can you craft Crystal Blocks that are difficult to break, but you can also use Crystals to craft Crystal Wings and The Pulser Block.
+
+The overworld gets an upgrade too with Lead (don't taste it, it's poisonous!), and a new structure "The Facility", which unless you have a way to fly beyond the height limit, and breathe without oxygen, you might just want to find... which you can do by crafting a Lead Compass!
 
 ## Changes  
 - Updated Menu  
