@@ -136,5 +136,8 @@
 	"advancements.space.space_station.description": "Enter the Space Station",
 
 	"advancements.space.the_moon.title": "Giant Leap",
-	"advancements.space.the_moon.description": "Land on the Moon"
+	"advancements.space.the_moon.description": "Land on the Moon",
+
+	"advancements.space.crystal.title": "Space Rocks",
+	"advancements.space.crystal.description": "Find Crystal"
 }

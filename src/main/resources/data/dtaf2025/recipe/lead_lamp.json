@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"#": "dtaf2025:lead_ingot",
+		"X": "minecraft:redstone_lamp"
+	},
+	"pattern": [
+		"###",
+		"#X#",
+		"###"
+	],
+	"result": {
+		"count": 1,
+		"id": "dtaf2025:lead_lamp"
+	}
+}

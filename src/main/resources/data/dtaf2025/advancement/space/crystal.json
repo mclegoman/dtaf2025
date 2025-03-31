@@ -1,0 +1,33 @@
+{
+	"parent": "dtaf2025:space/the_moon",
+	"criteria": {
+		"crystal": {
+			"conditions": {
+				"items": [
+					{
+						"items": "dtaf2025:crystal"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"display": {
+		"description": {
+			"translate": "advancements.space.crystal.description"
+		},
+		"icon": {
+			"count": 1,
+			"id": "dtaf2025:crystal"
+		},
+		"title": {
+			"translate": "advancements.space.crystal.title"
+		}
+	},
+	"requirements": [
+		[
+			"crystal"
+		]
+	],
+	"sends_telemetry_event": false
+}

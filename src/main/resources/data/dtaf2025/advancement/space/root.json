@@ -39,6 +39,7 @@
   },
   "display": {
     "announce_to_chat": false,
+    "show_toast": false,
     "background": "dtaf2025:textures/block/crystal_block.png",
     "description": {
       "translate": "advancements.space.root.description"
