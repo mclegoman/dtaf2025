@@ -53,11 +53,4 @@ public class LeadCompassItem extends Item {
 		}
 		return ActionResult.PASS;
 	}
-	public LodestoneTrackerComponent check(LodestoneTrackerComponent component, ServerWorld world) {
-		if (component.tracked() && component.target().isPresent()) {
-			return component.target().get().dimension() != world.getRegistryKey() ? component : new LodestoneTrackerComponent(Optional.empty(), true);
-		} else {
-			return component;
-		}
-	}
 }
