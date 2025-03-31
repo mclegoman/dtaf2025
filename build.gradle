@@ -34,9 +34,6 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
-	flatDir {
-		dirs("libs")
-	}
 	maven { url "https://maven.quiltmc.org/repository/release" }
 }
 dependencies {
@@ -44,7 +41,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
-	include(modImplementation("luminance:luminance-fabric-${project.luminance}"))
+	include(modImplementation("maven.modrinth:luminance:${project.luminance}"))
 	modImplementation("org.quiltmc:quilt-config:${project.quilt_config}")
 	modImplementation("org.quiltmc.quilt-config.serializers:toml:${project.quilt_config}")
 	modImplementation("org.quiltmc.quilt-config.serializers:json5:${project.quilt_config}")
